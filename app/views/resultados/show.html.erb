@@ -1,0 +1,16 @@
+<% title "Resultado" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @resultado.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @resultado.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_resultado_path(@resultado) %> |
+  <%= link_to "Destroy", @resultado, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", resultados_path %>
+</p>

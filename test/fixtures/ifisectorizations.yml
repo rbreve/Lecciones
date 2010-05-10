@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ifi_id: 1
+  productive_sector_id: 1
+
+two:
+  ifi_id: 1
+  productive_sector_id: 1

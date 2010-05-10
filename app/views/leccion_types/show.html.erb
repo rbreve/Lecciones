@@ -1,0 +1,16 @@
+<% title "Leccion Type" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @leccion_type.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @leccion_type.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_leccion_type_path(@leccion_type) %> |
+  <%= link_to "Destroy", @leccion_type, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", leccion_types_path %>
+</p>

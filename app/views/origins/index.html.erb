@@ -1,0 +1,19 @@
+<% title "Origenes de Leccion Aprendida" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for origin in @origins %>
+    <tr>
+      <td><%=h origin.name %></td>
+      <td><%=h origin.description %></td>
+      <td><%= link_to "Ver", origin %></td>
+      <td><%= link_to "Editar", edit_origin_path(origin) %></td>
+      <td><%= link_to "Borrar", origin, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Crear Nuevo Origen", new_origin_path %></p>

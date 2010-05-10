@@ -1,0 +1,37 @@
+<% title "IFI" %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%=h @ifi.name %>
+</p>
+<p><strong>Sectores Productivos: </strong></p>
+<ul>
+<%for ps in @ifi.productive_sectors%>
+  <li><%=ps.name%> </li> 
+<%end%>
+</ul>
+
+<strong>Información de Contacto</strong>
+
+<p>
+<strong>Nombre</strong>
+<%=@ifi.contact_name%>
+</p>
+
+
+<p>
+<strong>Telefonos</strong>
+<%=@ifi.contact_phone%>
+</p>
+
+
+<p>
+<strong>Correo Electrónico</strong>
+<%=@ifi.contact_email%>
+</p>
+
+<p>
+  <%= link_to "Editar", edit_ifi_path(@ifi) %> |
+  <%= link_to "Borrar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Listado de IFI", ifis_path %>
+</p>

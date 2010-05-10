@@ -1,0 +1,19 @@
+<% title "Leccion Types" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for leccion_type in @leccion_types %>
+    <tr>
+      <td><%=h leccion_type.name %></td>
+      <td><%=h leccion_type.description %></td>
+      <td><%= link_to "Show", leccion_type %></td>
+      <td><%= link_to "Edit", edit_leccion_type_path(leccion_type) %></td>
+      <td><%= link_to "Destroy", leccion_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Leccion Type", new_leccion_type_path %></p>

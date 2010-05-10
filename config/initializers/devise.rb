@@ -36,15 +36,19 @@ Devise.setup do |config|
   # The time you want give to your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is nil.
   # config.confirm_within = 2.days
-
+  
+  
+  
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again.
-  # config.timeout_in = 10.minutes
+  config.timeout_in = 24.hours
+  
+  
 
   # ==> Configuration for :lockable
   # Number of authentication tries before locking an account.
@@ -99,7 +103,7 @@ Devise.setup do |config|
 
   # Configure default_url_options if you are using dynamic segments in :path_prefix
   # for devise_for.
-  # config.default_url_options do
-  #   { :locale => I18n.locale }
-  # end
+  config.default_url_options do
+    { :locale => I18n.locale }
+  end
 end

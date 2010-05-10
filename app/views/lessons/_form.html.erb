@@ -1,0 +1,22 @@
+<% semantic_form_for @lesson do |f| %>
+<% f.inputs do%>
+  <%= f.input :name, :label => "Titulo" %>
+  <%= f.input :description, :label => "Contenido" %>
+  <%= f.input :ambito %>
+  <%= f.input :ifi, :label => "IFI" %>
+  <%= f.input :leccion_type, :label =>"Tipo de Lección"%>
+  <%= f.input :level, :label => "Nivel",:required => false %>
+  <%= f.input :origin, :label => "Origen" %>
+  <%= f.input :lcountries, :as => :check_boxes, :label => "Paises",:required => false%>
+  <%= f.input :resultados,  :as => :check_boxes, :label => "Resultados",:required => false%>
+  <%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
+  <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :required => false %>
+  <%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
+  
+  <%= f.input :isprivate, :as => :radio, :label => "Es Privada?" %>
+  <%= f.input :aprobada, :as => :radio %>
+  
+<%end%>
+<%= f.buttons %>
+
+<% end %>

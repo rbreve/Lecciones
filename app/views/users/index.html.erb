@@ -1,0 +1,37 @@
+<% title "Usuarios" %>
+
+<table>
+  <tr>
+    <th>Email</th>
+     
+     <th>Usuario</th>
+    <th>Nombre</th>
+  <th>Ultima Fecha de Ingreso</th>
+     </tr>
+  <% for user in @users %>
+    <tr class="<%=cycle('odd', 'even')%>" >
+      <td><%=h user.email %></td>
+       
+        <td><%=h user.username %></td>
+      <td><%=h user.name %></td>
+       <td><%=h user.last_sign_in_at %></td>
+       
+       <td><%= link_to "Ver", user %></td>
+       
+        <td>
+        <%if user.active?.to_s == "false"%>
+        
+        <%= link_to "Activar", "/users/confirmation?confirmation_token=" + user.confirmation_token.to_s %>
+        <%else%>
+        Activado
+        <%end%>
+        
+      </td>
+       
+      <td><%= link_to "Editar", edit_user_path(user) %></td>
+      <td><%= link_to "Borrar", user, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Registrar Usuario", new_user_registration_path() %></p>

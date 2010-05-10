@@ -1,0 +1,16 @@
+<% title "Ambito" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @ambito.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @ambito.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_ambito_path(@ambito) %> |
+  <%= link_to "Destroy", @ambito, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", ambitos_path %>
+</p>

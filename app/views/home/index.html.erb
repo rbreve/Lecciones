@@ -1,13 +1,16 @@
-<h1>Hello!</h1>
+<h1>Sistema de Lecciones Aprendidas</h1>
 
-<% unless admin_signed_in? -%>
-  <p><%= link_to 'Sign up as Admin', new_admin_registration_path %></p>
-  <p><%= link_to 'Sign in as Admin', new_admin_session_path %></p>
-<% end -%>
+Aca ver lecciones <br/>
+Search lecciones<br/>
+Subir leccion <br/>
 
 <% unless user_signed_in? -%>
   <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
   <p><%= link_to 'Sign in as User', new_user_session_path %></p>
 <% end -%>
 
-<p>Hello World!</p>
+ 
+ <% unless admin_signed_in? -%>
+   <p><%= link_to 'Sign up as Admin', new_admin_registration_path %></p>
+   <p><%= link_to 'Sign in as Admin', new_admin_session_path %></p>
+ <% end -%>

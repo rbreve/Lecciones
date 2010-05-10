@@ -1,0 +1,19 @@
+<% title "Resultados" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for resultado in @resultados %>
+    <tr>
+      <td><%=h resultado.name %></td>
+      <td><%=h resultado.description %></td>
+      <td><%= link_to "Show", resultado %></td>
+      <td><%= link_to "Edit", edit_resultado_path(resultado) %></td>
+      <td><%= link_to "Destroy", resultado, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Resultado", new_resultado_path %></p>

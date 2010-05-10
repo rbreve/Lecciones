@@ -1,0 +1,61 @@
+<% form_for @lesson do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= f.label :isprivate %><br />
+    <%= f.check_box :isprivate %>
+  </p>
+  <p>
+    <%= f.label :ambito_id %><br />
+    <%= f.text_field :ambito_id %>
+  </p>
+  <p>
+    <%= f.label :ifi_id %><br />
+    <%= f.text_field :ifi_id %>
+  </p>
+  <p>
+    <%= f.label :leccion_type_id %><br />
+    <%= f.text_field :leccion_type_id %>
+  </p>
+  <p>
+    <%= f.label :level_id %><br />
+    <%= f.text_field :level_id %>
+  </p>
+  <p>
+    <%= f.label :origin_id %><br />
+    <%= f.text_field :origin_id %>
+  </p>
+  <p>
+    <%= f.label :resultado_id %><br />
+    <%= f.text_field :resultado_id %>
+  </p>
+  <p>
+    <%= f.label :producto_id %><br />
+    <%= f.text_field :producto_id %>
+  </p>
+  <p>
+    <%= f.label :empresarial_sector_id %><br />
+    <%= f.text_field :empresarial_sector_id %>
+  </p>
+  <p>
+    <%= f.label :productive_sector_id %><br />
+    <%= f.text_field :productive_sector_id %>
+  </p>
+  <p>
+    <%= f.label :lcountry_id %><br />
+    <%= f.text_field :lcountry_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

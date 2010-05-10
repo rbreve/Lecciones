@@ -1,0 +1,16 @@
+<% title "Level" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @level.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @level.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_level_path(@level) %> |
+  <%= link_to "Destroy", @level, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", levels_path %>
+</p>

@@ -1,0 +1,66 @@
+es:
+ 
+  activerecord:
+   errors:
+     template:
+      body: 'Se detectaron los siguientes problemas'
+      header: 'Errores' 
+     models:
+         
+      lesson:
+          attributes:
+              name:
+                  blank: "El título de la lección no puede ir en blanco"
+              description:
+                  blank: "Por favor describa la lección aprendida, no puede ir en blanco"
+      admin:
+       attributes:
+           email:
+               taken: "Este correo electrónico ya existe en nuestra base de datos, favor elegir otro."
+         
+      user:
+       attributes:
+           current_password:
+               blank: "Favor escribir su contraseña para confirmar los cambios"
+           email:
+               taken: "Este correo electrónico ya existe en nuestra base de datos, eliga otro."
+           password:
+               blank: 'Eliga una contraseña'
+           name:
+               blank: 'Su nombre no debe estar vacio'
+           username:
+               blank: 'Usuario no debe estar vacio'
+  devise:
+    sessions:
+      link: 'Ingresar'
+      signed_in: 'Ingresado al sistema'
+      signed_out: 'Salió del sistema satisfactoriamente.'
+      unauthenticated: 'Necesita ingresar o registrarse al sistema para continuar'
+      unconfirmed: 'Su cuenta debe ser activada antes de continuar'
+      locked: 'Su cuenta ha sido bloqueada'
+      invalid: 'Email o password inválido'
+      invalid_token: 'Código de autenticación inválido'
+      timeout: 'Su sesión ha expirado. Favor ingresar nuevamente'
+      inactive: 'Su cuenta aun no ha sido activada'
+    passwords:
+      link: 'Olvido su contraseña?'
+      send_instructions: 'Recibirá un correo electrónico de como activar su cuenta en unos minutos.'
+      updated: 'Ha cambiado su password. Ahora puede entrar'
+    confirmations:
+      link: "No recibió  instrucciones para entrar?"
+      send_instructions: 'Recibirá un correo electrónico de como activar su cuenta en unos minutos'
+      confirmed: 'Su cuenta ha sido activada. Ya esta ingresado al sistema'
+    registrations:
+      link: 'Registrarse'
+      signed_up: 'Ha sido registrado satisfactoriamente, un administrador revisara sus datos, activará su cuenta y le enviará un email pronto.'
+      updated: 'Ha actualizado su cuenta satisfactoriamente.'
+      destroyed: 'Su cuenta ha sido cancelada.'
+    unlocks:
+      link: "No recibió instrucciones de como desbloquear su cuenta?"
+      send_instructions: 'Recibirá instrucciones de como desbloquear su cuenta a su email en unos minutos'
+      unlocked: 'Su cuenta ha sido desbloqueada'
+    mailer:
+      confirmation_instructions: 'Instrucciones de confirmación'
+      reset_password_instructions: 'Instrucciones de resetear su password'
+      unlock_instructions: 'Instrucciones de desbloqueo'
+    

@@ -1,0 +1,14 @@
+<% title "Sectores Productivos" %>
+<div class="button"><%= link_to "Agregar Sector", new_productive_sector_path %></div>
+
+<table>
+ 
+  <% for productive_sector in @productive_sectors %>
+    <tr class="<%=cycle('odd', 'even')%>" >
+      <td><%=h productive_sector.name %></td>
+       <td><%= link_to "Editar", edit_productive_sector_path(productive_sector) %></td>
+      <td><%= link_to "Borrar", productive_sector, :confirm => 'Esta Seguro?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

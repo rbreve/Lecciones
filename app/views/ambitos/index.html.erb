@@ -1,0 +1,19 @@
+<% title "Ambitos" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for ambito in @ambitos %>
+    <tr>
+      <td><%=h ambito.name %></td>
+      <td><%=h ambito.description %></td>
+      <td><%= link_to "Show", ambito %></td>
+      <td><%= link_to "Edit", edit_ambito_path(ambito) %></td>
+      <td><%= link_to "Destroy", ambito, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Ambito", new_ambito_path %></p>

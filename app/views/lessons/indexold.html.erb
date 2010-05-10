@@ -1,0 +1,45 @@
+<% title "Lessons" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Created At</th>
+    <th>Isprivate</th>
+    <th>Ambito</th>
+    <th>Ifi</th>
+    <th>Leccion Type</th>
+    <th>Level</th>
+    <th>Origin</th>
+    <th>Resultado</th>
+    <th>Producto</th>
+    <th>Empresarial Sector</th>
+    <th>Productive Sector</th>
+    <th>Lcountry</th>
+    <th>User</th>
+  </tr>
+  <% for lesson in @lessons %>
+    <tr>
+      <td><%=h lesson.name %></td>
+      <td><%=h lesson.description %></td>
+      <td><%=h lesson.created_at %></td>
+      <td><%=h lesson.isprivate %></td>
+      <td><%=h lesson.ambito_id %></td>
+      <td><%=h lesson.ifi_id %></td>
+      <td><%=h lesson.leccion_type_id %></td>
+      <td><%=h lesson.level_id %></td>
+      <td><%=h lesson.origin_id %></td>
+      <td><%=h lesson.resultado_id %></td>
+      <td><%=h lesson.producto_id %></td>
+      <td><%=h lesson.empresarial_sector_id %></td>
+      <td><%=h lesson.productive_sector_id %></td>
+      <td><%=h lesson.lcountry_id %></td>
+      <td><%=h lesson.user_id %></td>
+      <td><%= link_to "Show", lesson %></td>
+      <td><%= link_to "Edit", edit_lesson_path(lesson) %></td>
+      <td><%= link_to "Destroy", lesson, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Lesson", new_lesson_path %></p>

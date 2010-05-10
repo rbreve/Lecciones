@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
-  devise :authenticatable, :confirmable, :lockable, :recoverable,
+  devise :database_authenticatable, :confirmable, :recoverable,
          :rememberable, :registerable, :trackable, :timeoutable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :country_id, :ifi_id, :name, :username, :email, :password, :password_confirmation
+  
+  belongs_to :country
+  belongs_to :ifi
+  
+  validates_presence_of :name, :username
+  
 end

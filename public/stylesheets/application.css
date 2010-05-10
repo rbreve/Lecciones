@@ -9,9 +9,13 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  color: #3366FF;
+text-decoration: none;
 }
 
+a:hover{
+	text-decoration:underline;
+}
 .clear {
   clear: both;
   height: 0;
@@ -78,4 +82,60 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
+}
+
+.odd{
+	background-color:#EFEFEF;
+}
+
+label{
+	display:block;
+}
+
+table td{
+	padding: 15px;
+}
+
+table th{
+	background-color: #E5F2FF;
+	padding: 15px;
+}
+
+.button{
+	padding:5px;
+	background-color:#3366FF;
+	width:150px;
+	color:#FFF;
+	text-align:center;
+	margin-bottom:15px;
+	
+}
+
+.button a{
+	color:#FFF;
+	
+}
+
+#lecciones-list ul li {
+	list-style: none;
+}
+
+#lecciones-list h3 {
+	margin-bottom:0px;
+}
+
+.leccion-admin{
+	float:right;
+	margin-top:-15px;
+}
+
+.leccion-box{
+	width:600px;
+	background-color:#EFE;
+	padding:5px;
+	margin-bottom:20px;
+}
+
+#lecciones-list{
+	margin-top:30px;
 }

@@ -1,0 +1,17 @@
+<% title "Lcountries" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for lcountry in @lcountries %>
+    <tr>
+      <td><%=h lcountry.name %></td>
+      <td><%= link_to "Show", lcountry %></td>
+      <td><%= link_to "Edit", edit_lcountry_path(lcountry) %></td>
+      <td><%= link_to "Destroy", lcountry, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Lcountry", new_lcountry_path %></p>

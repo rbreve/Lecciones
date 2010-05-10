@@ -1,0 +1,25 @@
+<% form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+    
+     
+  <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :country_id %><br />
+    <%= f.collection_select :country_id, @countries, :id, :name, {:selected => @user.country_id.to_s}%>
+  </p>
+  <p>
+    <%= f.label :ifi_id %><br />
+    <%= f.collection_select :ifi_id, @ifis, :id, :name {:selected => @user.ifi_id.to_s} %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

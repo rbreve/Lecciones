@@ -1,0 +1,16 @@
+<% title "Países" %>
+
+<div class="button"><%= link_to "Agregar País", new_country_path %></div>
+
+
+<table>
+ 
+  <% for country in @countries %>
+    <tr  class="<%=cycle('odd', 'even')%>">
+      <td><%=h country.name %></td>
+       <td><%= link_to "Editar", edit_country_path(country) %></td>
+      <td><%= link_to "Borrar", country, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

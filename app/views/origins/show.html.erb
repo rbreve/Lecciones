@@ -1,0 +1,16 @@
+<% title "Origin" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @origin.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @origin.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_origin_path(@origin) %> |
+  <%= link_to "Destroy", @origin, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", origins_path %>
+</p>

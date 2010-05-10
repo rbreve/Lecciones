@@ -1,0 +1,77 @@
+ 
+
+<h2>
+ 
+  <%=h @lesson.name %>
+</h2>
+ 
+ 
+  <%=h @lesson.description %>
+ 
+<p>
+  <strong>Enviada:</strong>
+  <%=h @lesson.created_at %>
+</p>
+
+<p>
+  <strong>Ambito:</strong>
+  <%=h @lesson.ambito.name %>
+</p>
+<% if @lesson.ifi %>
+<p>
+  <strong>IFI:</strong>
+  <%=h @lesson.ifi.name %>
+</p>
+<%end%>
+<p>
+  <strong>Tipo:</strong>
+  <%=h @lesson.leccion_type.name %>
+</p>
+<p>
+  <strong>Level:</strong>
+  <%=h @lesson.level_id %>
+</p>
+<p>
+  <strong>Origin:</strong>
+  <%=h @lesson.origin_id %>
+</p>
+<p>
+  <strong>Resultado:</strong>
+  <%=h @lesson.resultados.collect{|r| [r.name +  " "]} %>
+</p>
+<p>
+  <strong>Producto:</strong>
+  <%=h @lesson.productos.collect{|r| [r.name + " "]} %>
+</p>
+<p>
+  <strong>Empresarial Sector:</strong>
+  <%=h @lesson.empresarial_sectors.collect{|r| [r.name + " "]} %>
+</p>
+<p>
+  <strong>Productive Sector:</strong>
+  <%=h @lesson.productive_sectors.collect{|r| [r.name + " "]} %>
+</p>
+<p>
+  <strong>Paises:</strong>
+  <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @lesson.user_id %>
+</p>
+
+<p>
+ 
+  <% if @lesson.isprivate %>
+    Privada
+    
+    <%else%>
+    Pública
+    <%end%>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_lesson_path(@lesson) %> |
+  <%= link_to "Destroy", @lesson, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", lessons_path %>
+</p>

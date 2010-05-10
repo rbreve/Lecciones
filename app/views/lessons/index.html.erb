@@ -1,0 +1,19 @@
+<div id="lecciones-list">
+
+
+<% for lesson in @lessons %>
+<div class="leccion-box">
+  <ul>
+    <li><h3><%=link_to lesson.name, lesson %></h3></li>
+    <li>Ambito:<%=h lesson.ambito.name%></li>
+    <li>Tipo: <%=h lesson.leccion_type.name%></li>
+   </ul>
+    <% if admin_signed_in? %>
+        <div class="leccion-admin">
+         <%= link_to "Editar", edit_lesson_path(lesson) %> | <%= link_to "Desactivar", lesson, :confirm => 'Are you sure?', :method => :delete %>  
+        </div>
+    <%end%>
+</div>
+<% end %>
+  
+</div>

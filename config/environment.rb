@@ -7,10 +7,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'warden', :version => '0.9.5'
-  config.gem 'devise', :version => '1.0.3'
-  config.gem 'rails-footnotes', :version => '3.6.5'
-
+  config.gem 'warden', :version => '0.10.3'
+  config.gem 'devise', :version => '1.0.6'
+  config.gem 'formtastic', :lib => 'formtastic', :source => "http://gemcutter.org/"
+   
   config.time_zone = 'UTC'
-  config.i18n.default_locale = :en
+  config.i18n.default_locale = :es
 end

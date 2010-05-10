@@ -1,0 +1,12 @@
+<% title "Lcountry" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @lcountry.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_lcountry_path(@lcountry) %> |
+  <%= link_to "Destroy", @lcountry, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", lcountries_path %>
+</p>

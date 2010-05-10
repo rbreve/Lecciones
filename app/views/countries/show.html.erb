@@ -1,0 +1,14 @@
+<% title "Country" %>
+
+<p>
+  <strong>Name:</strong>
+  <%=h @country.name %>
+</p>
+
+<p>
+  <%= link_to "Editar", edit_country_path(@country) %> |
+  <%= link_to "Borrar", @country, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Ver Países", countries_path %> |
+  <%= link_to "Agregar País", new_country_path %>
+  
+</p>

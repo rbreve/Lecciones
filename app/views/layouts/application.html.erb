@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
-    <title><%= h(yield(:title) || "Devise") %></title>
-    <%= stylesheet_link_tag 'application' %>
+    <title><%= h(yield(:title) || "Lecciones Aprendidas") %></title>
+    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes'%>
     <%= yield(:head) %>
   </head>
   <body>
@@ -12,22 +12,36 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <%- end -%>
 
-      <p><%= link_to 'Home', root_path %></p>
+      <p><%= link_to 'Inicio', root_path %></p>
 
       <% if user_signed_in? -%>
         <div id="user_login_box" style="float:right">
+           
           <%= current_user.email %> |
-          <%= link_to 'My info', edit_user_registration_path %> |
-          <%= link_to 'Sign out', destroy_user_session_path %>
+          <%= link_to 'Mis Datos', edit_user_registration_path %> |
+          <%= link_to 'Salir', destroy_user_session_path %>
         </div>
       <% end -%>
+      
       <% if admin_signed_in? -%>
         <div id="admin_login_box" style="float:left">
+           <%=link_to "Lecciones", lessons_path %> | 
+        <%=link_to "Usuarios", users_path %> | 
+          <%= link_to 'Paises', countries_path %> | 
+          <%= link_to 'Ambitos', ambitos_path %> |
+           <%= link_to 'Tipos', leccion_types_path %> |  
+          <%= link_to 'IFIs', ifis_path %> |
+           <%= link_to 'Sectores Productivos', productive_sectors_path %> |
+           <%= link_to 'Productos', productos_path %> |
+           <%= link_to 'Resultados', resultados_path %> |
+           <%= link_to 'Sectores Empresariales', empresarial_sectors_path %> |
+            
           <%= current_admin.email %> |
           <%= link_to 'Admin section', admins_path %> |
-          <%= link_to 'Sign out', destroy_admin_session_path %>
+          <%= link_to 'Salir', destroy_admin_session_path %>
         </div>
       <% end -%>
+      
       <div style="clear:both"></div>
 
       <%- if show_title? -%>

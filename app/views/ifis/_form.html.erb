@@ -1,0 +1,43 @@
+<% form_for @ifi do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label "Nombre de la institución:" %> 
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+  <strong><%= f.label "País" %></strong> 
+  <%= f.select :lcountry_id, Lcountry.find(:all).collect{|c| [c.name, c.id]} %> 
+  </p>
+  
+  <strong>Sectores Productivos:</strong>
+  
+  <% ProductiveSector.find(:all).each do |sector| %>
+    <p>
+      <%= check_box_tag "ifi[productive_sector_ids][]", sector.id , @ifi.productive_sectors.include?(sector)  %>
+   <%=sector.name%> </p>
+  <% end %>
+  
+  <strong>Información de Contacto</strong>
+  
+  <p>
+  <label>Nombre</label>
+  <%=f.text_field :contact_name%>
+  </p>
+  
+  
+  <p>
+  <label>Telefonos</label>
+  <%=f.text_field :contact_phone%>
+  </p>
+  
+  
+  <p>
+  <label>Correo Electrónico</label>
+  <%=f.text_field :contact_email%>
+  </p>
+  
+  
+  <p><%= f.submit "Submit" %></p>
+  
+<% end %>

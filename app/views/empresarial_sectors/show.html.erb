@@ -1,0 +1,12 @@
+<% title "Sector Empresarial" %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%=h @empresarial_sector.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_empresarial_sector_path(@empresarial_sector) %> |
+  <%= link_to "Destroy", @empresarial_sector, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", empresarial_sectors_path %>
+</p>

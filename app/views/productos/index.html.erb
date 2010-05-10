@@ -1,0 +1,17 @@
+<% title "Productos" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for producto in @productos %>
+    <tr>
+      <td><%=h producto.name %></td>
+      <td><%= link_to "Show", producto %></td>
+      <td><%= link_to "Edit", edit_producto_path(producto) %></td>
+      <td><%= link_to "Destroy", producto, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Producto", new_producto_path %></p>

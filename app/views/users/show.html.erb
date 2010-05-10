@@ -1,0 +1,70 @@
+<% title "Usuario" %>
+
+
+
+<h2>
+  <strong>Nombre:</strong>
+  <%=h @user.name %>
+</h2>
+ <%if @user.active?.to_s == "false"%>
+<%= link_to "Activar Usuario", "/users/confirmation?confirmation_token="+ @user.confirmation_token.to_s%>
+<%end%>
+
+<p>
+  <strong>Usuario:</strong>
+  <%=h @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%=h @user.email %>
+</p>
+    <%if @user.country%>
+ <p>
+   <strong>País:</strong>
+
+   <%=h @user.country.name %>
+   <%end%>
+ </p>
+ 
+ <%if @user.ifi%>
+ <p>
+   <strong>Ifi:</strong>
+   <%=h @user.ifi.name%>
+ </p>
+ <%end%>
+<p>
+  <strong>Ingresos:</strong>
+  <%=h @user.sign_in_count %>
+</p>
+<p>
+  <strong>Current Sign In At:</strong>
+  <%=h @user.current_sign_in_at %>
+</p>
+<p>
+  <strong>Ultima Fecha de Ingreso:</strong>
+  <%=h @user.last_sign_in_at %>
+</p>
+<p>
+  <strong>IP Actual:</strong>
+  <%=h @user.current_sign_in_ip %>
+</p>
+ 
+<p>
+  <strong>Intentos Fallidos:</strong>
+  <%=h @user.failed_attempts %>
+</p>
+ 
+<p>
+  <strong>Bloqueado el:</strong>
+  <%=h @user.locked_at %>
+</p>
+
+
+
+<p>
+  <%= link_to "Editar", edit_user_path(@user) %> |
+  <%= link_to "Borrar", @user, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Regresar Al Listado", users_path %>
+  
+</p>
