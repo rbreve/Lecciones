@@ -1,9 +1,27 @@
-<h1>Sistema de Lecciones Aprendidas</h1>
+<h1>Proyecto CamBio</h1>
+<h3>Sistema de Lecciones Aprendidas</h3>
+ 
 
-Aca ver lecciones <br/>
-Search lecciones<br/>
-Subir leccion <br/>
+<div id="lecciones-search-main">
+  <form action="/lessons">
+    <input type="text" name="q">
+  <button>Buscar</button>
+  </form>
+</div>
 
+<div id="home-nav"
+  <div class="enlace-boton">
+  <%=link_to "Listar Lecciones", lessons_path %>  
+  </div>
+  
+  <div class="enlace-boton">
+  <%=link_to "Listar IFIs", ifis_path %> 
+  </div>
+  
+  <div class="enlace-boton">
+   <%=link_to "+ Agregar Leccion", new_lesson_path %> 
+   </div>
+</div>
 <% unless user_signed_in? -%>
   <p><%= link_to 'Sign up as User', new_user_registration_path %></p>
   <p><%= link_to 'Sign in as User', new_user_session_path %></p>

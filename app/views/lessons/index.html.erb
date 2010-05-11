@@ -2,17 +2,29 @@
 
 
 <% for lesson in @lessons %>
+
 <div class="leccion-box">
+
+  <%if lesson.level%>
+    <div class="leccion-<%=lesson.level.name%>">
+    Nivel: <%=lesson.level.name%>
+    </div>
+  <%end%>
+
   <ul>
-    <li><h3><%=link_to lesson.name, lesson %></h3></li>
-    <li>Ambito:<%=h lesson.ambito.name%></li>
-    <li>Tipo: <%=h lesson.leccion_type.name%></li>
+    <li><h2><%=link_to lesson.name, lesson %></h2></li>
+    <li>Ambito: <strong><%=h lesson.ambito.name%></strong></li>
+   
+    <%if lesson.leccion_type%>
+      <li>Tipo:  <strong><%=h lesson.leccion_type.name%></strong></li>
+   <%end%>
    </ul>
     <% if admin_signed_in? %>
         <div class="leccion-admin">
          <%= link_to "Editar", edit_lesson_path(lesson) %> | <%= link_to "Desactivar", lesson, :confirm => 'Are you sure?', :method => :delete %>  
         </div>
     <%end%>
+    
 </div>
 <% end %>
   

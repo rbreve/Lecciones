@@ -23,18 +23,29 @@
   <%=h @lesson.ifi.name %>
 </p>
 <%end%>
-<p>
-  <strong>Tipo:</strong>
-  <%=h @lesson.leccion_type.name %>
-</p>
+
+<%if @lesson.leccion_type%>
+  <p>
+    <strong>Tipo:</strong>
+    <%=h @lesson.leccion_type.name %>
+  </p>
+
+<%end%>
+
+<%if @lesson.level%>
 <p>
   <strong>Level:</strong>
-  <%=h @lesson.level_id %>
+  <%=h @lesson.level.name %>
 </p>
+<%end%>
+
+<%if @lesson.origin%>
 <p>
   <strong>Origin:</strong>
-  <%=h @lesson.origin_id %>
+  <%=h @lesson.origin.name%>
 </p>
+<%end%>
+
 <p>
   <strong>Resultado:</strong>
   <%=h @lesson.resultados.collect{|r| [r.name +  " "]} %>
@@ -56,22 +67,26 @@
   <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
 </p>
 <p>
-  <strong>User:</strong>
-  <%=h @lesson.user_id %>
+  <strong>Enviada Por:</strong>
+  <%=h @lesson.user.name %>
 </p>
 
-<p>
- 
-  <% if @lesson.isprivate %>
-    Privada
-    
-    <%else%>
-    Pública
-    <%end%>
-</p>
 
-<p>
-  <%= link_to "Edit", edit_lesson_path(@lesson) %> |
-  <%= link_to "Destroy", @lesson, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", lessons_path %>
-</p>
+
+<% if admin_signed_in? %>
+      <p>
+
+        <% if @lesson.isprivate %>
+          Privada
+
+          <%else%>
+          Pública
+          <%end%>
+      </p>
+    <p>
+      <%= link_to "Editar", edit_lesson_path(@lesson) %> |
+      <%= link_to "Deshabilitar", @lesson, :confirm => 'Are you sure?', :method => :delete %> |
+      <%= link_to "Ver Todas", lessons_path %>
+    </p>
+
+<%end%>

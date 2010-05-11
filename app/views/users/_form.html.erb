@@ -1,25 +1,17 @@
-<% form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-    
-     
-  <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :country_id %><br />
-    <%= f.collection_select :country_id, @countries, :id, :name, {:selected => @user.country_id.to_s}%>
-  </p>
-  <p>
-    <%= f.label :ifi_id %><br />
-    <%= f.collection_select :ifi_id, @ifis, :id, :name {:selected => @user.ifi_id.to_s} %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
+
+<% semantic_form_for @user do |f| %>
+
+    <% f.inputs do%>
+      <%= f.input :email, :label => "Email" %>
+      <%= f.input :username, :label => "Usuario" %>
+      <%= f.input :name, :label => "Nombre" %>
+      <%= f.input :country, :label=>"País"%>
+      <%= f.input :ifi, :label=>"IFI",:required=>false%>
+      <%= f.input :ispublic, :label=>"Usuario Externo"%>
+       
+      <%= f.input :tipo, :label=>"cambio o bcie", :required=>false%>
+    <%end%>
+
+    <%= f.buttons %>
+<%end%>
+ 

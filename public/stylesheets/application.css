@@ -131,11 +131,90 @@ table th{
 
 .leccion-box{
 	width:600px;
-	background-color:#EFE;
+	background-color: #e7fef5;
 	padding:5px;
 	margin-bottom:20px;
+		-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
 }
 
 #lecciones-list{
 	margin-top:30px;
+}
+
+#lecciones-search-main{
+	width:550px;
+	height: 70px;
+	background-color: #c1e8fe;
+	padding-top: 30px;
+	padding-left: 60px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#lecciones-search-main input{
+	font-size: 28px;
+}
+
+
+
+#lecciones-search-main button{
+	font-size: 28px;
+}
+
+.enlace-boton{
+	background-color: #65b6fe;
+	padding: 9px;
+	width: 200px;
+	text-align: center;
+	margin: 0px 95px 20px 5px;
+ -moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	display: inline;
+
+ 
+ }
+ 
+ .enlace-boton a{
+	color: #FFF;
+	font-size: 15px;
+}
+
+#home-nav{
+	width: 700px;
+	margin-top: 30px;	
+}
+
+.leccion-Verde{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #127000;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+}
+
+.leccion-Amarillo{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #dce120;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
 }

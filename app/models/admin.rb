@@ -1,3 +1,3 @@
 class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :registerable, :timeoutable, :validatable, :timeout_in => 20.minutes
+  devise :database_authenticatable,  :timeoutable, :validatable, :timeout_in => 90.minutes
 end

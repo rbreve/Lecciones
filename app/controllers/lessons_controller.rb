@@ -1,6 +1,29 @@
 class LessonsController < ApplicationController
+before_filter :authenticate_admin!, :only => [:edit, :update]
+
+
   def index
-    @lessons = Lesson.all
+    q=params[:q]
+    if not user_signed_in? and not admin_signed_in?
+      extern=" AND isprivate=0"
+    else
+      if current_user
+          if current_user.ispublic:
+            extern=" AND isprivate=0"
+          end
+      end
+    end
+    
+    if q != ""
+      query = " AND name LIKE '%#{q}%'"
+    end
+    
+    if admin_signed_in?
+      @lessons = Lesson.find(:all, :order=>"created_at DESC" + query)
+    else
+      @lessons = Lesson.find(:all, :conditions=>"aprobada=1" + extern + query)
+    end
+    
   end
   
   def show
@@ -13,8 +36,15 @@ class LessonsController < ApplicationController
   
   def create
     @lesson = Lesson.new(params[:lesson])
+ 
+    @lesson.user=current_user
     if @lesson.save
-      flash[:notice] = "Successfully created lesson."
+      
+      if admin_signed_in?
+        flash[:notice] = "La lección fue creada"
+      else
+        flash[:notice] = "La lección fue recibida y sera revisada por un administrador."
+      end
       redirect_to @lesson
     else
       render :action => 'new'
