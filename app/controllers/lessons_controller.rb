@@ -4,24 +4,26 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 
   def index
     q=params[:q]
-    if not user_signed_in? and not admin_signed_in?
-      extern=" AND isprivate=0"
+    
+    query=""
+    extern=""
+    
+    if admin_signed_in?
+      @lessons = Lesson.find(:all, :order=>"created_at DESC")
+    elsif not user_signed_in?
+      @lessons=Lesson.external.approved
     else
       if current_user
           if current_user.ispublic:
-            extern=" AND isprivate=0"
+            @lessons=Lesson.external.approved
+          else
+            @lessons=Lesson.approved
           end
       end
     end
     
-    if q != ""
-      query = " AND name LIKE '%#{q}%'"
-    end
-    
-    if admin_signed_in?
-      @lessons = Lesson.find(:all, :order=>"created_at DESC" + query)
-    else
-      @lessons = Lesson.find(:all, :conditions=>"aprobada=1" + extern + query)
+    if q.to_s != ""
+      @lessons = @lessons.search(q)
     end
     
   end

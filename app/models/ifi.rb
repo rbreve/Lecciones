@@ -4,4 +4,5 @@ class Ifi < ActiveRecord::Base
   has_many :ifisectorizations
   has_many :productive_sectors, :through => :ifisectorizations
   belongs_to :lcountry
+  has_many :lessons
 end

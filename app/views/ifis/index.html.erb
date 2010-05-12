@@ -1,14 +1,10 @@
-<% title "Instituciones Financieras (IFI)" %>
-<div class="button"><%= link_to "Agregar IFI", new_ifi_path %></div>
-
-<table>
- 
-  <% for ifi in @ifis %>
-    <tr  class="<%=cycle('odd', 'even')%>">
-      <td><%= link_to ifi.name, ifi_path(ifi) %></td>
-       <td><%= link_to "Editar", edit_ifi_path(ifi) %></td>
-      <td><%= link_to "Borrar", ifi, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
+<h1>Intermediarias Financieras (IFI)</h1>
+<% for ifi in @ifis %>
+<div class="ifi-box">
+  <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
+  <strong>Sectores Productivos:</strong> <%=h ifi.productive_sectors.collect{|c| [c.name + ", "]} %> <br/>
+  <%if ifi.lcountry%>
+    <strong>País:</strong>  <%=h ifi.lcountry.name %>  
+  <%end%>
+</div>
+<%end%>

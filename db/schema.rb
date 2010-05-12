@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100511075646) do
+ActiveRecord::Schema.define(:version => 20100512050651) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100511075646) do
     t.string   "contact_email"
     t.integer  "country_id"
     t.integer  "lcountry_id"
+    t.integer  "lessons_count"
   end
 
   create_table "ifisectorizations", :force => true do |t|

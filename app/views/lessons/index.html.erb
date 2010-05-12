@@ -1,31 +1,15 @@
+
+<form action="/lessons/">
+  Busqueda: <input type="text" name="q"> 
+  <input type="submit" value="Buscar Lecciones">
+</form>
+
 <div id="lecciones-list">
 
+ 
 
-<% for lesson in @lessons %>
-
-<div class="leccion-box">
-
-  <%if lesson.level%>
-    <div class="leccion-<%=lesson.level.name%>">
-    Nivel: <%=lesson.level.name%>
-    </div>
-  <%end%>
-
-  <ul>
-    <li><h2><%=link_to lesson.name, lesson %></h2></li>
-    <li>Ambito: <strong><%=h lesson.ambito.name%></strong></li>
-   
-    <%if lesson.leccion_type%>
-      <li>Tipo:  <strong><%=h lesson.leccion_type.name%></strong></li>
-   <%end%>
-   </ul>
-    <% if admin_signed_in? %>
-        <div class="leccion-admin">
-         <%= link_to "Editar", edit_lesson_path(lesson) %> | <%= link_to "Desactivar", lesson, :confirm => 'Are you sure?', :method => :delete %>  
-        </div>
-    <%end%>
-    
-</div>
-<% end %>
+  <%= render :partial => @lessons %>
+  
+ 
   
 </div>

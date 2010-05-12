@@ -1,20 +1,28 @@
 <% title "IFI" %>
 
-<p>
-  <strong>Nombre:</strong>
+<h2>
   <%=h @ifi.name %>
-</p>
+</h2>
+
 <p><strong>Sectores Productivos: </strong></p>
+
 <ul>
 <%for ps in @ifi.productive_sectors%>
   <li><%=ps.name%> </li> 
 <%end%>
 </ul>
 
+
+<%if @ifi.lcountry %>
+  <p>
+  <strong>País:</strong> <%=@ifi.lcountry.name%>
+  </p>
+<%end%>
+
 <strong>Información de Contacto</strong>
 
 <p>
-<strong>Nombre</strong>
+<strong>Contacto:</strong>
 <%=@ifi.contact_name%>
 </p>
 
@@ -29,6 +37,11 @@
 <strong>Correo Electrónico</strong>
 <%=@ifi.contact_email%>
 </p>
+
+
+<div id="lecciones-list">
+  <%= render :partial => @lessons %>
+</div>
 
 <p>
   <%= link_to "Editar", edit_ifi_path(@ifi) %> |

@@ -131,13 +131,18 @@ table th{
 
 .leccion-box{
 	width:600px;
-	background-color: #e7fef5;
+ 
 	padding:5px;
 	margin-bottom:20px;
-		-moz-border-radius: 8px;
-	-khtml-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
+	border-top: 1px dotted #9b9b9b;
+}
+
+.ifi-box{
+	width:600px;
+ 
+	padding:5px;
+	margin-bottom:20px;
+	border-top: 1px dotted #9b9b9b;
 }
 
 #lecciones-list{
@@ -191,6 +196,12 @@ table th{
 	margin-top: 30px;	
 }
 
+.leccion-fecha{
+font-size: 10px;	
+margin-top: 5px;
+	color: teal;
+}
+
 .leccion-Verde{
 	float: right;
 	width: 50px;
@@ -203,6 +214,7 @@ table th{
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
+	margin-top: 15px;
 }
 
 .leccion-Amarillo{
@@ -217,4 +229,23 @@ table th{
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
+		margin-top: 15px;
+
+}
+
+
+.leccion-Rojo{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #b21e1f;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+		margin-top: 15px;
+
 }

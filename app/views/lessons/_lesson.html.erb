@@ -1,0 +1,28 @@
+<div class="leccion-box">
+
+  <%if lesson.level%>
+    <div class="leccion-<%=lesson.level.name%>">
+    Nivel: <%=lesson.level.name%>
+    </div>
+  <%end%>
+
+  <ul>
+    <li><h2><%=link_to lesson.name, lesson %></h2></li>
+    <li>Ambito: <strong><%=h lesson.ambito.name%></strong></li>
+   
+    <%if lesson.leccion_type%> 
+      <li>Tipo:  <strong><%=h lesson.leccion_type.name%></strong></li>
+   <%end%>
+   
+   <li class="leccion-fecha">Enviada hace: <%=time_ago_in_words(lesson.created_at)%></li>
+   </ul>
+    <% if admin_signed_in? %>
+        <div class="leccion-admin">
+         <%= link_to "Editar", edit_lesson_path(lesson) %>
+         <%if lesson.aprobada %>
+           | <%= link_to "Desactivar", lesson, :confirm => 'Are you sure?', :method => :delete %>  
+         <%end%>
+        </div>
+    <%end%>
+    
+</div>

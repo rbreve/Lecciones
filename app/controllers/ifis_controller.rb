@@ -1,5 +1,5 @@
 class IfisController < ApplicationController
-  before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, :only => [:edit, :update]
   
   def index
     @ifis = Ifi.all
@@ -7,6 +7,7 @@ class IfisController < ApplicationController
   
   def show
     @ifi = Ifi.find(params[:id])
+    @lessons = @ifi.lessons
   end
   
   def new

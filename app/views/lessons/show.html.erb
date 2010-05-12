@@ -9,8 +9,8 @@
   <%=h @lesson.description %>
  
 <p>
-  <strong>Enviada:</strong>
-  <%=h @lesson.created_at %>
+  <strong>Enviada hace:</strong>
+  <%=time_ago_in_words(@lesson.created_at)%>
 </p>
 
 <p>
@@ -66,10 +66,13 @@
   <strong>Paises:</strong>
   <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
 </p>
+
+<%if @lesson.user%>
 <p>
   <strong>Enviada Por:</strong>
   <%=h @lesson.user.name %>
 </p>
+<%end%>
 
 
 
