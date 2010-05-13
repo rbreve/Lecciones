@@ -27,18 +27,18 @@
         <div id="admin_login_box" style="float:left">
            <%=link_to "Lecciones", lessons_path %> | 
         <%=link_to "Usuarios", users_path %> | 
-          <%= link_to 'Paises', countries_path %> | 
+          <% link_to 'Paises', countries_path %> 
           <%= link_to 'Ambitos', ambitos_path %> |
            <%= link_to 'Tipos', leccion_types_path %> |  
           <%= link_to 'IFIs', ifis_path %> |
-           <%= link_to 'Sectores Productivos', productive_sectors_path %> |
            <%= link_to 'Productos', productos_path %> |
            <%= link_to 'Resultados', resultados_path %> |
+           <%= link_to 'Sectores Productivos', productive_sectors_path %> |
+
            <%= link_to 'Sectores Empresariales', empresarial_sectors_path %> |
             
           <%= current_admin.email %> |
-          <%= link_to 'Admin section', admins_path %> |
-          <%= link_to 'Salir', destroy_admin_session_path %>
+           <%= link_to 'Salir', destroy_admin_session_path %>
         </div>
       <% end -%>
       

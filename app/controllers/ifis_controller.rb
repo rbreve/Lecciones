@@ -1,5 +1,5 @@
 class IfisController < ApplicationController
-  before_filter :authenticate_admin!, :only => [:edit, :update]
+  before_filter :authenticate_admin!, :only => [:edit, :update, :create, :new]
   
   def index
     @ifis = Ifi.all

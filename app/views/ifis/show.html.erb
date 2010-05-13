@@ -43,11 +43,13 @@
   </p>
 <%end%>
 <br/><br/>
-<h3>
-  Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
-<div id="lecciones-list">
-  <%= render :partial => @lessons %>
-</div>
+
+<%if @ifi.lessons_count%>
+<h3>Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
+	<div id="lecciones-list">
+	  <%= render :partial => @lessons %>
+	</div>
+<%end%>
 
 <% if admin_signed_in? %>
 

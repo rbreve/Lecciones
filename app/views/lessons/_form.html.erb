@@ -19,7 +19,7 @@
   <%end%>
   
   <%if admin_signed_in? %>
-    <%= f.input :user%>
+    <%= f.input :user, :label => "Usuario"%>
     
      <%= f.input :leccion_type, :label =>"Tipo de Lección"%>
       <%= f.input :level, :label => "Nivel",:required => false %>

@@ -51,7 +51,7 @@
 <% if @lesson.ifi %>
 <p>
   <strong>IFI:</strong>
-  <%=h @lesson.ifi.name %>
+  <%=link_to @lesson.ifi.name, ifi_path(@lesson.ifi) %>
 </p>
 <%end%>
 
@@ -63,10 +63,17 @@
 
 <%end%>
  
-<p>
-  <strong>Resultado:</strong>
-  <%=h @lesson.resultados.collect{|r| [  r.description]} %>
-</p>
+<%if @lesson.resultados %>
+	<p>
+	  <strong>Resultados</strong>
+	<ul>
+	
+	<%for resultado in @lesson.resultados%>
+	  <li><%=resultado.name%>: <%=resultado.descripcion%></li>
+	<%end%>
+	</ul>
+	</p>
+<%end%>
 <p>
   <strong>Producto:</strong>
     <ul>

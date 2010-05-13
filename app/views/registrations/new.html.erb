@@ -13,11 +13,10 @@
       <p><label>País</label></p>
       <p><%= f.select :country_id, Country.find(:all).collect{|c| [c.name, c.id]} %></p>
 
+<p><%= f.label "Institución" %></p>
+       <p><%= f.text_field :institucion %></p>  
 
-      <p><label>Institución Financiera con la cual trabaja</label></p>
-      <p><%= f.select :ifi_id, Ifi.find(:all).collect{|c| [c.name, c.id]} %></p>
-
-      <p><%= f.label "Usuario Deseado" %></p>
+  <p><%= f.label "Usuario Deseado" %></p>
        <p><%= f.text_field :username %></p>  
      
   <%end%>

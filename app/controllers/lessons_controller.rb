@@ -23,7 +23,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     end
     
     if q.to_s != ""
-      @lessons = @lessons.search(q)
+      @lessons = Lesson.search(q).approved
     end
     
   end

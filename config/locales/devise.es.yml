@@ -47,6 +47,8 @@ es:
                   blank: "Por favor describa la lección aprendida, no puede ir en blanco"
       admin:
        attributes:
+           password:
+               too_short: "Su contraseña es muy corta, minimo 6 caracteres"
            email:
                taken: "Este correo electrónico ya existe en nuestra base de datos, favor elegir otro."
          

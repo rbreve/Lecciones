@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Tipo:</strong>
+  <%=  "Externo" if @user.ispublic %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%=h @user.email %>
 </p>

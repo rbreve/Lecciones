@@ -1,4 +1,10 @@
 <h1>Intermediarias Financieras (IFI)</h1>
+
+<% if admin_signed_in? %>
+
+<div class="button"><%= link_to "Agregar IFI", new_ifi_path %></div>
+<%end%>
+
 <% for ifi in @ifis %>
 <div class="ifi-box">
   <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
@@ -8,3 +14,5 @@
   <%end%>
 </div>
 <%end%>
+
+ 
