@@ -137,6 +137,41 @@ table th{
 	border-top: 1px dotted #9b9b9b;
 }
 
+.leccion-box-show{
+	
+	width:900px;
+ 	min-height: 200px;
+	padding:5px;
+	margin-bottom:20px;
+	border-bottom: 1px dotted #9b9b9b;
+	 
+}
+
+#leccion-show-details{
+	margin-top: 5px;
+	font-size: 10px;	
+}
+
+.leccion-text{
+	float: left;
+	width: 500px;
+ 	padding-bottom: 40px;
+ 
+}
+
+.leccion-level-box{
+	padding: 5px;
+	width: 220px;	
+	height: 120px;
+	float: right;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+		border: 1px dotted #9b9b9b;
+
+}
+
 .ifi-box{
 	width:600px;
  
@@ -200,6 +235,7 @@ table th{
 font-size: 10px;	
 margin-top: 5px;
 	color: teal;
+		margin-top: 5px;
 }
 
 .leccion-Verde{

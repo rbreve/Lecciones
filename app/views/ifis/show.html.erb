@@ -21,30 +21,40 @@
 
 <strong>Información de Contacto</strong>
 
-<p>
-<strong>Contacto:</strong>
-<%=@ifi.contact_name%>
-</p>
 
+<% if @ifi.contact_name %>
+  <p>
+  <strong>Contacto:</strong>
+  <%=@ifi.contact_name%>
+  </p>
+<%end%>
 
-<p>
-<strong>Telefonos</strong>
-<%=@ifi.contact_phone%>
-</p>
+<% if @ifi.contact_phone %>
+  <p>
+  <strong>Telefonos</strong>
+  <%=@ifi.contact_phone%>
+  </p>
+<%end%>
 
-
-<p>
-<strong>Correo Electrónico</strong>
-<%=@ifi.contact_email%>
-</p>
-
-
+<% if  @ifi.contact_email%>
+  <p>
+  <strong>Correo Electrónico</strong>
+  <%=@ifi.contact_email%>
+  </p>
+<%end%>
+<br/><br/>
+<h3>
+  Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
 <div id="lecciones-list">
   <%= render :partial => @lessons %>
 </div>
 
-<p>
-  <%= link_to "Editar", edit_ifi_path(@ifi) %> |
-  <%= link_to "Borrar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "Listado de IFI", ifis_path %>
-</p>
+<% if admin_signed_in? %>
+
+  <p>
+    <%= link_to "Editar", edit_ifi_path(@ifi) %> |
+    <%= link_to "Borrar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
+    <%= link_to "Listado de IFI", ifis_path %>
+  </p>
+
+<%end%>

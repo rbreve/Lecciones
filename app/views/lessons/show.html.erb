@@ -1,18 +1,49 @@
- 
+<div class="leccion-box-show" >
+  
+  <div class="leccion-text">
+   
+    <h2><%=h @lesson.name %></h2>
+    
+    <%=h @lesson.description %>
+  
+    <div class="leccion-fecha">
+      <strong> Enviada hace: </strong>
+      <%=time_ago_in_words(@lesson.created_at)%>
+    
+      <%if @lesson.user%>
+      <strong>Por:</strong>
+      <%=h @lesson.user.name %>
+      <%end%>
+      
+    </div>
+  </div>
 
-<h2>
+  <div class="leccion-level-box" >
+      <%if @lesson.level%>
+        <div class="leccion-<%=@lesson.level.name%>" style="float:center; margin-left:80px;">
+        Nivel: <%=@lesson.level.name%>
+        </div>
+      <%end%>
+    
  
-  <%=h @lesson.name %>
-</h2>
+      <%if @lesson.origin%>
+      <div id="leccion-show-details">
+      
+        <strong>Origen:</strong>
+        <%=h @lesson.origin.name%>
+         <%if @lesson.leccion_type%>
+            <br/>
+            <strong>Tipo:</strong>
+            <%=h @lesson.leccion_type.name %>
+          <%end%>
+      
+      </div>
+      <%end%>
+  </div>
  
- 
-  <%=h @lesson.description %>
- 
-<p>
-  <strong>Enviada hace:</strong>
-  <%=time_ago_in_words(@lesson.created_at)%>
-</p>
+</div>
 
+<div >
 <p>
   <strong>Ambito:</strong>
   <%=h @lesson.ambito.name %>
@@ -31,50 +62,38 @@
   </p>
 
 <%end%>
-
-<%if @lesson.level%>
-<p>
-  <strong>Level:</strong>
-  <%=h @lesson.level.name %>
-</p>
-<%end%>
-
-<%if @lesson.origin%>
-<p>
-  <strong>Origin:</strong>
-  <%=h @lesson.origin.name%>
-</p>
-<%end%>
-
+ 
 <p>
   <strong>Resultado:</strong>
-  <%=h @lesson.resultados.collect{|r| [r.name +  " "]} %>
+  <%=h @lesson.resultados.collect{|r| [  r.description]} %>
 </p>
 <p>
   <strong>Producto:</strong>
-  <%=h @lesson.productos.collect{|r| [r.name + " "]} %>
+    <ul>
+  <%= @lesson.productos.collect{|r| ["<li>" + r.name + " </li>"]} %>
+    </ul>
+</p>
+
+<p>
+  <strong>Sector Empresarial:</strong>
+  <ul>
+  <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
+  </ul>
 </p>
 <p>
-  <strong>Empresarial Sector:</strong>
-  <%=h @lesson.empresarial_sectors.collect{|r| [r.name + " "]} %>
-</p>
-<p>
-  <strong>Productive Sector:</strong>
-  <%=h @lesson.productive_sectors.collect{|r| [r.name + " "]} %>
+  <strong>Sector Productivo:</strong>
+   <ul>
+  <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
+   </ul>
 </p>
 <p>
   <strong>Paises:</strong>
   <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
 </p>
 
-<%if @lesson.user%>
-<p>
-  <strong>Enviada Por:</strong>
-  <%=h @lesson.user.name %>
-</p>
-<%end%>
 
 
+</div>
 
 <% if admin_signed_in? %>
       <p>
