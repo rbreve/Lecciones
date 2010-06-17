@@ -1,4 +1,4 @@
-warden --version '>=0.10.3'
-devise --version '>=1.0.6'
+warden --version 0.10.7
+devise --version 1.0.7
 formtastic
 rails --version 2.3.8
