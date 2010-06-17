@@ -1,4 +1,4 @@
 warden --version '>=0.10.3'
 devise --version '>=1.0.6'
 formtastic
-rails --version '2.3.5'
+rails --version '>=2.3.5'
