@@ -141,7 +141,7 @@ table th{
 	
 	width:900px;
  	min-height: 200px;
-	padding:5px;
+	padding:5px 5px 25px 5px;
 	margin-bottom:20px;
 	border-bottom: 1px dotted #9b9b9b;
 	 
@@ -169,7 +169,7 @@ table th{
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 		border: 1px dotted #9b9b9b;
-
+margin-top:60px;
 }
 
 .ifi-box{
@@ -287,4 +287,9 @@ margin-top: 5px;
 
 #leccion-search{
 	margin: 15px 0px 15px 0px;
+}
+
+#leccion-data{
+	width:300px;
+	margin-top:20px;
 }
