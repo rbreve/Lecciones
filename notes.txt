@@ -11,3 +11,8 @@ rails generate migration add_username_to_user username:string
 scaffold
 
 ./script/generate nifty_scaffold nombre campos
+
+
+--
+prueba git corp
+
