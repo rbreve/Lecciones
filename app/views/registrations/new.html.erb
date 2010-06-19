@@ -13,6 +13,11 @@
       <p><label>País</label></p>
       <p><%= f.select :country_id, Country.find(:all).collect{|c| [c.name, c.id]} %></p>
 
+
+  <p><label>Seleccione un Ambito (o el que mejor se adapte a su actividad)</label></p>
+      <%= f.select :ambito_id, Ambito.find(:all).collect{|a| [a.name, a.id]} %>
+
+
 <p><%= f.label "Institución" %></p>
        <p><%= f.text_field :institucion %></p>  
 

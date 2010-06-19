@@ -43,7 +43,7 @@
  
 </div>
 
-<div >
+<div id="leccion-data" >
 <p>
   <strong>Ambito:</strong>
   <%=h @lesson.ambito.name %>
@@ -69,17 +69,20 @@
 	<ul>
 	
 	<%for resultado in @lesson.resultados%>
-	  <li><%=resultado.name%>: <%=resultado.descripcion%></li>
+	  <li><strong><%=resultado.name%></strong>: <%=resultado.description%></li>
 	<%end%>
 	</ul>
 	</p>
 <%end%>
+
+<% if @lesson.productos.length > 0%>
 <p>
   <strong>Producto:</strong>
     <ul>
   <%= @lesson.productos.collect{|r| ["<li>" + r.name + " </li>"]} %>
     </ul>
 </p>
+<%end%>
 
 <p>
   <strong>Sector Empresarial:</strong>
@@ -87,12 +90,14 @@
   <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
   </ul>
 </p>
-<p>
-  <strong>Sector Productivo:</strong>
-   <ul>
-  <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
-   </ul>
-</p>
+<%if @lesson.productive_sectors.length > 0%>
+	<p>
+	 <strong>Sector Productivo:</strong>
+	  <ul>
+	 <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
+	  </ul>
+	</p>
+<%end%>
 <p>
   <strong>Paises:</strong>
   <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
@@ -106,10 +111,10 @@
       <p>
 
         <% if @lesson.isprivate %>
-          Privada
+          Lección Interna
 
           <%else%>
-          Pública
+          Lección Pública
           <%end%>
       </p>
     <p>

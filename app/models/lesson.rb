@@ -15,7 +15,7 @@ class Lesson < ActiveRecord::Base
   has_many :lesson_countries
   has_many :lcountries, :through => :lesson_countries
   
-  has_many :lesson_results
+  has_many :lesson_results, :dependent => :destroy      
   has_many :resultados, :through => :lesson_results
   
   has_many :lesson_products

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   belongs_to :country
   belongs_to :ifi
-  
+  belongs_to :ambito
   validates_presence_of :name, :username
   
 end

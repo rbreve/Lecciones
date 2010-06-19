@@ -12,6 +12,10 @@
   <%if ifi.lcountry%>
     <strong>País:</strong>  <%=h ifi.lcountry.name %>  
   <%end%>
+
+	<%if ifi.lessons_count%>
+	<div class="leccion-fecha"><%=link_to ifi.lessons_count.to_s + " lecciones", ifi_path(ifi)%></div>
+	<%end%>
 </div>
 <%end%>
 

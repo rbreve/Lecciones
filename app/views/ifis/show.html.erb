@@ -4,13 +4,16 @@
   <%=h @ifi.name %>
 </h2>
 
-<p><strong>Sectores Productivos: </strong></p>
 
-<ul>
-<%for ps in @ifi.productive_sectors%>
-  <li><%=ps.name%> </li> 
+
+<%if @ifi.productive_sectors.length > 0%>
+	<p><strong>Sectores Productivos: </strong></p>
+	<ul>
+	<%for ps in @ifi.productive_sectors%>
+	  <li><%=ps.name%> </li> 
+	<%end%>
+	</ul>
 <%end%>
-</ul>
 
 
 <%if @ifi.lcountry %>

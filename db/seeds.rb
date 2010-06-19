@@ -20,6 +20,7 @@ tipos = [
 	"Critica"
 ]
 
+
 productos=["Programa de Apoyo MiPYME", "Programa de Garantias Parciales de Crédito", "Fondo de Asistencia Tecnica"]
 
 sectoresp=["Agroforestería","Agroforestería de Cacao", "Turismo Sostenible", "Acuicultura Certificada", "Sistemas Silvopastoriles", "Manejo Forestal"]
@@ -64,4 +65,7 @@ resultados.each do |r|
 	name, description = r.chomp.split(",")
 	Resultado.create!(:name=>name, :description=>description)
 end
+
+Ifi.create(:name=>"Banco Temporal", :contact_name=>"Juan Perez", :contact_phone=>"232-3209", :contact_email=>"juanperez@seed.com")
+Ifi.create(:name=>"Banco Agrario", :contact_name=>"Maria Lopez", :contact_phone=>"9900001", :contact_email=>"marialopez@test.com")
 

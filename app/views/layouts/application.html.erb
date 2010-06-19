@@ -12,7 +12,7 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <%- end -%>
 
-      <p><%= link_to 'Inicio', root_path %> - <%=link_to 'Lecciones', lessons_path%> - <%=link_to 'IFIs', ifis_path%></p>
+      <p><%= link_to 'Inicio', root_path %> - <%=link_to 'Lecciones', lessons_path%> - <%=link_to 'Agregar Lección', new_lesson_path%> - <%=link_to 'IFIs', ifis_path%></p>
 
       <% if user_signed_in? -%>
         <div id="user_login_box" style="float:right">

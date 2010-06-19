@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100512050651) do
+ActiveRecord::Schema.define(:version => 20100618071452) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(:version => 20100512050651) do
     t.string   "tipo"
     t.boolean  "ispublic"
     t.string   "institucion"
+    t.integer  "ambito_id"
   end
 
 end
