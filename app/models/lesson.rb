@@ -1,5 +1,7 @@
 class Lesson < ActiveRecord::Base
   # attr_accessible :name, :description, :created_at, :isprivate, :ambito_id, :ifi_id, :leccion_type_id, :level_id, :origin_id, :resultado_id, :producto_id, :empresarial_sector_id, :productive_sector_id, :lcountry_ids, :user_id
+ 
+
   belongs_to :ambito
   belongs_to :ifi, :counter_cache => true
   belongs_to :leccion_type

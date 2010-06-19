@@ -16,18 +16,24 @@
 
       <% if user_signed_in? -%>
         <div id="user_login_box" style="float:right">
-           
           <%= current_user.email %> |
           <%= link_to 'Mis Datos', edit_user_registration_path %> |
           <%= link_to 'Salir', destroy_user_session_path %>
-        </div>
+      	  </div>
+	  <%else%>
+	   <div id="user_login_box">
+		  <%= link_to 'Entrar', new_user_session_path %>
+		</div>
       <% end -%>
-      
+     
       <% if admin_signed_in? -%>
         <div id="admin_login_box" style="float:left">
            <%=link_to "Lecciones", lessons_path %> | 
+           <%=link_to "Mensajes", messages_path %> | 
+
         <%=link_to "Usuarios", users_path %> | 
-          <% link_to 'Paises', countries_path %> 
+          <% link_to 'Paises', countries_path %>  |
+
           <%= link_to 'Ambitos', ambitos_path %> |
            <%= link_to 'Tipos', leccion_types_path %> |  
           <%= link_to 'IFIs', ifis_path %> |

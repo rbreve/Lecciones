@@ -33,6 +33,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
   end
   
   def new
+		if (not user_signed_in?) and (not admin_signed_in?)
+			redirect_to new_message_path()
+		end
     @lesson = Lesson.new
   end
   

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100618071452) do
+ActiveRecord::Schema.define(:version => 20100619024349) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -128,6 +128,15 @@ ActiveRecord::Schema.define(:version => 20100618071452) do
   create_table "levels", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "email"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

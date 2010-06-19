@@ -116,6 +116,12 @@ table th{
 	
 }
 
+
+#user_login_box{
+	float:right;
+	margin-top: -35px;
+}
+
 #lecciones-list ul li {
 	list-style: none;
 }

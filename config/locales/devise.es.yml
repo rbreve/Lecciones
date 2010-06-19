@@ -33,15 +33,35 @@ es:
           one:  "mas de 1 año" 
           other: "{{count}} años"
   activerecord:
+   attributes:
+    user:
+      name: "Nombre"
+      password: "Contraseña"
+      username: "Usuario"
+    message:
+      name: "Nombre"
+      country: "País"
+      email: "Correo Electrónico"
+      content: "Descripción de la Lección Aprendida"
    errors:
      template:
       body: 'Se detectaron los siguientes problemas'
       header: 'Errores' 
      models:
-         
+      message: 
+          attributes:
+              
+              name: 
+                  blank: "esta en blanco"
+              country: 
+                  blank: "esta en blanco"
+              email: 
+                  blank: "esta en blanco"
+              content: 
+                  blank: "esta en blanco"
       lesson:
           attributes:
-              name:
+              name: 
                   blank: "El título de la lección no puede ir en blanco"
               description:
                   blank: "Por favor describa la lección aprendida, no puede ir en blanco"
@@ -57,13 +77,16 @@ es:
            current_password:
                blank: "Favor escribir su contraseña para confirmar los cambios"
            email:
+               blank: "esta en blanco"
                taken: "Este correo electrónico ya existe en nuestra base de datos, eliga otro."
            password:
-               blank: 'Eliga una contraseña'
+               too_short: "muy corta, eliga unas con un mínimo de 4 letras"
+               blank: 'esta en blanco'
            name:
-               blank: 'Su nombre no debe estar vacio'
+               blank: 'esta en blanco'
            username:
-               blank: 'Usuario no debe estar vacio'
+               blank: 'esta en blanco' 
+            
   devise:
     sessions:
       link: 'Ingresar'
