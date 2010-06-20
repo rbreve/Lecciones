@@ -1,11 +1,11 @@
-<% title "Messages" %>
+<% title "Mensajes Enviados" %>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Country</th>
+    <th>Nombre</th>
+    <th>País</th>
     <th>Email</th>
-    <th>Content</th>
+    <th>Contenido</th>
   </tr>
   <% for message in @messages %>
     <tr>
@@ -13,9 +13,9 @@
       <td><%=h message.country %></td>
       <td><%=h message.email %></td>
       <td><%=h message.content %></td>
-      <td><%= link_to "Show", message %></td>
-      <td><%= link_to "Edit", edit_message_path(message) %></td>
-      <td><%= link_to "Destroy", message, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Ver", message %></td>
+      <td><%= link_to "Editar", edit_message_path(message) %></td>
+      <td><%= link_to "Borrar", message, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

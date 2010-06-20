@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+	
+	
+	
+ map.confirm "confirm", :controller=>"confirm", :action=>"show" 
+
+	
   map.resources :messages
 
   map.resources :lessons
@@ -37,4 +43,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins, :only => [:index]
 
   map.root :controller => :home
+
 end
