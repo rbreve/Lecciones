@@ -63,41 +63,44 @@
 
 <%end%>
  
-<%if @lesson.resultados %>
-	<p>
-	  <strong>Resultados</strong>
-	<ul>
+ 
+
+	<%if @lesson.resultados %>
+		<p>
+		  <strong>Resultados</strong>
+		<ul>
 	
-	<%for resultado in @lesson.resultados%>
-	  <li><strong><%=resultado.name%></strong>: <%=resultado.description%></li>
+		<%for resultado in @lesson.resultados%>
+		  <li><strong><%=resultado.name%></strong>: <%=resultado.description%></li>
+		<%end%>
+		</ul>
+		</p>
 	<%end%>
-	</ul>
-	</p>
-<%end%>
 
-<% if @lesson.productos.length > 0%>
-<p>
-  <strong>Producto:</strong>
-    <ul>
-  <%= @lesson.productos.collect{|r| ["<li>" + r.name + " </li>"]} %>
-    </ul>
-</p>
-<%end%>
-
-<p>
-  <strong>Sector Empresarial:</strong>
-  <ul>
-  <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
-  </ul>
-</p>
-<%if @lesson.productive_sectors.length > 0%>
+	<% if @lesson.productos.length > 0%>
 	<p>
-	 <strong>Sector Productivo:</strong>
+	  <strong>Producto:</strong>
+	    <ul>
+	  <%= @lesson.productos.collect{|r| ["<li>" + r.name + " </li>"]} %>
+	    </ul>
+	</p>
+	<%end%>
+
+	<p>
+	  <strong>Sector Empresarial:</strong>
 	  <ul>
-	 <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
+	  <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
 	  </ul>
 	</p>
-<%end%>
+	<%if @lesson.productive_sectors.length > 0%>
+		<p>
+		 <strong>Sector Productivo:</strong>
+		  <ul>
+		 <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
+		  </ul>
+		</p>
+	<%end%>
+ 
 <p>
   <strong>Paises:</strong>
   <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
