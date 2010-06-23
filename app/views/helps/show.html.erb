@@ -1,0 +1,20 @@
+<% title "Help" %>
+
+<p>
+  <strong>Code:</strong>
+  <%=h @help.code %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%=h @help.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @help.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_help_path(@help) %> |
+  <%= link_to "Destroy", @help, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", helps_path %>
+</p>
