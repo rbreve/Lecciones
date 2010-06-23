@@ -41,4 +41,11 @@ class HelpsController < ApplicationController
     flash[:notice] = "Successfully destroyed help."
     redirect_to helps_url
   end
+  
+  #--- Accion personalizada para desplegar la ayuda inline...
+  def display                                                      
+    @help_code = params[:code]
+    @help = Help.find(:first,:conditions=>["code=?",@help_code])
+    render(:layout => false)
+  end
 end

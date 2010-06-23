@@ -43,6 +43,10 @@ es:
       country: "País"
       email: "Correo Electrónico"
       content: "Descripción de la Lección Aprendida"
+    help:
+      code: "Código:"
+      title: "Titulo:"
+      description: "Descripción:"
    errors:
      template:
       body: 'Se detectaron los siguientes problemas'
@@ -65,6 +69,14 @@ es:
                   blank: "El título de la lección no puede ir en blanco"
               description:
                   blank: "Por favor describa la lección aprendida, no puede ir en blanco"
+      help:
+          attributes:
+              code: 
+                  blank: "El código de ayuda es requerido"
+              title:
+                  blank: "El titulo de ayuda es requerido" 
+              description:
+                  blank: "Por favor describa el texto de ayuda con detalle"  
       admin:
        attributes:
            password:

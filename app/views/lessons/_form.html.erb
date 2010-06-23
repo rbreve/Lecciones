@@ -1,10 +1,17 @@
+<!-- Los efectos de JS solo incluidos en views que necesitan usar el helper de HELP-->
+<script type="text/javascript" src="/javascripts/prototype.js"></script>
+<script type="text/javascript" src="/javascripts/effects.js"></script>
+<!-- fin de JS para efectos del helper de HELP-->
 
 <% semantic_form_for @lesson do |f| %>
 <% f.inputs do%>
- <%= f.input :ambito, :label => "Ambito de La Lección"%>
-  <%= f.input :ifi, :label => "IFI" %>  
+ <%= f.input :ambito, :label => "Ambito de La Lección"%>  <%=help("ambitoLeccion")%>
+
+  <%= f.input :ifi, :label => "IFI" %>  <div style="margin-top:-30px;margin-bottom:20px;margin-left:130px"><%=help("ifiLeccion",600)%></div>
+  
+ <div style="float:right;margin-bottom:20px;"><%=help("paisLeccion")%></div> 
   <%= f.input :lcountries, :as => :check_boxes, :label => "Países a los cuales aplica",:required => false%>
-        
+
   <% if current_user %>
   	<% if not current_user.ispublic  %>
 	  	<%= f.input :origin, :label => "Origen" %>

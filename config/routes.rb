@@ -1,8 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :helps
+ map.resources :helps
 
-	
-	
+ map.helpdisplay "helps/display/:code", :controller=>"helps",:action=>"display" 
 	
  map.confirm "confirm", :controller=>"confirm", :action=>"show" 
 
