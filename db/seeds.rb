@@ -67,5 +67,5 @@ resultados.each do |r|
 end
 
 Ifi.create(:name=>"Banco Temporal", :contact_name=>"Juan Perez", :contact_phone=>"232-3209", :contact_email=>"juanperez@seed.com", :country_id=>1)
-Ifi.create(:name=>"Banco Agrario", :contact_name=>"Maria Lopez", :contact_phone=>"9900001", :contact_email=>"marialopez@test.com", )
+Ifi.create(:name=>"Banco Agrario", :contact_name=>"Maria Lopez", :contact_phone=>"9900001", :contact_email=>"marialopez@test.com", :country_id=>1 )
 
