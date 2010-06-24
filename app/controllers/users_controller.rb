@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+before_filter :authenticate_admin! 
+
   def index
-    @users = User.all
+    @users = User.all(:order => "created_at DESC")
   end
   
   def show
@@ -39,8 +41,9 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    flash[:notice] = "Successfully destroyed user."
+    @user.locked_at = Time.now
+		@user.save
+    flash[:notice] = "Usuario Bloqueado."
     redirect_to users_url
   end
 end

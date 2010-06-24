@@ -1,7 +1,9 @@
 
-
+ 
 <% semantic_form_for @lesson do |f| %>
 <% f.inputs do%>
+
+  
  <%= f.input :ambito, :label => "Ambito de La Lección" + helpBox("ambitoLeccion")%> 
 
 
@@ -15,7 +17,7 @@
   	<% if not current_user.ispublic  %>
 	  	<%= f.input :origin, :label => "Origen" %>
 	  	<%= f.input :leccion_type, :label =>"Tipo de Lección"%>
-	  	<%= f.input :level, :label => "Nivel",:required => false %> 
+	  	<%= f.input :level, :label => "Nivel" + helpBox("colores"),:required => false %> 
 	  <%end%>
    <%end%>
 
@@ -28,7 +30,7 @@
       
 	  <%if current_user.ambito.name == "CAMBio"%> 
 		<!-- Solo para usuarios de CAMBio -->
-	  	<%= f.input :resultados,  :as => :check_boxes, :label => "Resultados",:required => false%>
+	  	<%= f.input :resultados,  :as => :check_boxes, :label => "Resultados",:required => false%> 
       	<%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
       	<%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :required => false %>
       	<%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
@@ -40,13 +42,15 @@
     <%= f.input :user, :label => "Usuario"%>
     
      <%= f.input :leccion_type, :label =>"Tipo de Lección"%>
-      <%= f.input :level, :label => "Nivel",:required => false %>
+      <%= f.input :level, :label => "Nivel"+ helpBox("colores"),:required => false %>
       <%= f.input :origin, :label => "Origen" %>
-      <%= f.input :resultados,  :as => :check_boxes, :label => "Resultados",:required => false%>
+
+      <%= f.input :resultados,  :as => :check_boxes, :label => "Resultados" + helpBox("resultadosLeccion") ,:required => false%> 
+
       <%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
       <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :required => false %>
       <%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
-        <%= f.input :isprivate, :as => :radio, :label => "Es Interna  ?" %>
+        <%= f.input :isprivate, :as => :radio, :label => "Solo Para Uso Interno  ?" %>
         <%= f.input :aprobada, :as => :radio %>
   <%end%>
   

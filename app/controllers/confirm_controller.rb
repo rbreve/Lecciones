@@ -1,15 +1,11 @@
-class ConfirmController < Devise::ConfirmationsController 
-	
-	def show
-		 self.resource = resource_class.confirm_by_token(params[:confirmation_token])
+class ConfirmController < ApplicationController
+before_filter :authenticate_admin! 
 
-    if resource.errors.empty?
-      set_flash_message :notice, :confirmed
-			redirect_to @users
-      #sign_in_and_redirect(resource_name, resource)
-    else
-      render_with_scope :new
-    end
+	def show
+		user=User.find(params[:id])
+		flash[:notice] = "Usuario ? activado!", user.name
+		user.confirm!
+		redirect_to users_path
   end
    
 

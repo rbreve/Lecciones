@@ -8,6 +8,7 @@
 <div id="lecciones-filters">
 
 <ul>
+	<li><%=link_to "Todas", lessons_path()%></li>
 	<li>Por País</li>
 	<ul>
  	<%for country in @countries%>
@@ -19,6 +20,13 @@
 	<ul>
  	<%for ambito in @ambitos%>
 		<li> <%=link_to ambito.name, lessons_path(:ambito_id=>ambito.id)%> </li>
+	<%end%>
+	</ul>
+	
+	<li>Por Nivel de Riesgo</li>
+	<ul>
+ 	<%for level in @levels%>
+		<li> <%=link_to level.name, lessons_path(:level_id=>level.id)%> </li>
 	<%end%>
 	</ul>	
 </ul>

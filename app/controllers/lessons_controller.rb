@@ -6,14 +6,17 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     q=params[:q]
     country_id=params[:country_id]
 		ambito_id=params[:ambito_id]
+		level_id=params[:level_id]
+
     query=""
     extern=""
     
 		@countries = Country.find(:all)
 		@ambitos = Ambito.find(:all)
+		@levels = Level.find(:all)
 		
     if admin_signed_in?
-      @lessons = Lesson.find(:all, :order=>"created_at DESC")
+      @lessons = Lesson.all
     elsif not user_signed_in?
       @lessons=Lesson.external.approved
     else
@@ -27,15 +30,19 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     end
     
     if q.to_s != ""
-      @lessons = Lesson.search(q).approved
+      @lessons = @lessons.search(q)
     end
 
 		if country_id.to_s != ""
-    	 @lessons = Lesson.by_country(country_id)
+    	 @lessons = @lessons.by_country(country_id)
 		end
 		
 		if ambito_id.to_s != ""
 			@lessons = @lessons.by_ambito(ambito_id)
+		end
+		
+		if level_id.to_s != ""
+			@lessons = @lessons.by_level(level_id)
 		end
   end
   
@@ -48,6 +55,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 			redirect_to new_message_path()
 		end
     @lesson = Lesson.new
+		if current_user
+			@lesson.ambito = current_user.ambito
+		end
   end
   
   def create
@@ -74,7 +84,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update_attributes(params[:lesson])
-      flash[:notice] = "Successfully updated lesson."
+      flash[:notice] = "La Lección Aprendida fue actualizada con éxito."
       redirect_to @lesson
     else
       render :action => 'edit'

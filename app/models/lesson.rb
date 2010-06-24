@@ -30,12 +30,12 @@ class Lesson < ActiveRecord::Base
   has_many :empresarial_sectors, :through => :lesson_esectors
   
   validates_presence_of :name, :description
-  
+  named_scope :all, :conditions => "1=1", :order=>"lessons.created_at DESC"
   named_scope :external, :conditions => { :isprivate => 0 } , :order=>"lessons.created_at DESC"
   named_scope :approved, :conditions => {:aprobada => 1}, :order=>"lessons.created_at DESC"
   named_scope :search, lambda { |q|
   		{ 
-				:conditions => ["name like ?", "%" + q + "%"], :order=>"lessons.created_at DESC" 
+				:conditions => ["name like ?", "%" + q + "%"] 
 			}
   }
 	
@@ -49,7 +49,13 @@ class Lesson < ActiveRecord::Base
 	
 	named_scope :by_ambito, lambda { |a|
 		{
- 			:conditions => ["ambito_id = ?", a], :order=>"lessons.created_at DESC"
+ 			:conditions => ["ambito_id = ?", a]
+		}
+	}
+	
+	named_scope :by_level, lambda { |l|
+		{
+			:conditions => ["level_id = ?", l]
 		}
 	}
 	

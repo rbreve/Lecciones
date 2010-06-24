@@ -21,7 +21,7 @@
         <td>
         <%if user.active?.to_s == "false"%>
         
-        <%= link_to "Activar", "/users/confirmation?confirmation_token=" + user.confirmation_token.to_s %>
+        <%= link_to "Activar", "/confirm/" + user.id.to_s %>
         <%else%>
         Activado
         <%end%>

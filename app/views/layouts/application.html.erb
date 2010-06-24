@@ -15,11 +15,13 @@
 			// $.get("/helps/show", function(data){
 			// 			
 			// 			});
-			$("#help_"+miId).show();
+			$("#help_"+miId).show("fast");
+			return false;
    		});
 
 		$(".closeHelp").click(function(){
-			$(".helpBox").hide();
+			$(".helpBox").hide("fast");
+			return false;
 		});
  	});
 	

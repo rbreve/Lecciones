@@ -8,6 +8,10 @@
  	
 }
 
+.helpIcon{
+	display: inline;
+}
+
 #help_colores{
 	display: none;
 	width: 200px;
@@ -15,19 +19,16 @@
 	background-color: #FFF;
 }
 
-#icon_ambitoLeccion{
-	display: inline;
-}
-
+ 
 #help_ambitoLeccion{
 		display: none;
 
 	
 }
 
-#icon_ifiLeccion{
-	display: inline;
- }
+#help_resultadosLeccion{
+	display: none;
+}
 
 
 #help_ifiLeccion{
@@ -36,12 +37,7 @@
 		
 
 }
-
-#icon_paisLeccion{
-	display: inline;
-}
-
-#help_paisLeccion{
+ #help_paisLeccion{
 		display: none;
 
 }
