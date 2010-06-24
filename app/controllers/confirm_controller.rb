@@ -11,6 +11,6 @@ class ConfirmController < Devise::ConfirmationsController
       render_with_scope :new
     end
   end
-  end
+   
 
 end
