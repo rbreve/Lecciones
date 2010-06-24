@@ -29,6 +29,7 @@ a:hover{
   padding: 20px 40px;
   border: solid 1px black;
   margin-top: 20px;
+  overflow: auto;
 }
 
 #flash_notice, #flash_alert {
@@ -186,31 +187,6 @@ margin-top:60px;
 	border-top: 1px dotted #9b9b9b;
 }
 
-#lecciones-list{
-	margin-top:30px;
-}
-
-#lecciones-search-main{
-	width:550px;
-	height: 70px;
-	background-color: #c1e8fe;
-	padding-top: 30px;
-	padding-left: 60px;
-	-moz-border-radius: 8px;
-	-khtml-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
-}
-
-#lecciones-search-main input{
-	font-size: 28px;
-}
-
-
-
-#lecciones-search-main button{
-	font-size: 28px;
-}
 
 .enlace-boton{
 	background-color: #65b6fe;
@@ -244,6 +220,53 @@ margin-top:60px;
 }
 
 /*Lecciones*/
+
+
+
+#lecciones-list{
+	margin-top:30px;
+ 	float: right;
+ 	margin-right: 100px;
+ 	}
+
+#lecciones-search-main{
+	width:550px;
+	height: 70px;
+	background-color: #c1e8fe;
+	padding-top: 30px;
+	padding-left: 60px;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#lecciones-search-main input{
+	font-size: 28px;
+}
+
+
+
+#lecciones-search-main button{
+	font-size: 28px;
+}
+
+#lecciones-filters{
+	float: left;
+	width: 200px;
+	min-height: 300px;
+	border: 1px dotted #989898;
+	margin-top: 28px;
+}
+
+#lecciones-filters ul li{
+	list-style: none;	
+	margin-top: 5px;
+}
+
+#lecciones-filters ul{
+	margin-left: -20px;
+}
 
 .leccion-fecha{
 font-size: 10px;	

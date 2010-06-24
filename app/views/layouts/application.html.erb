@@ -3,8 +3,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
   <head>
     <title><%= h(yield(:title) || "Lecciones Aprendidas") %></title>
-    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes'%>
+    <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', 'help'%>
+ <script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <%= yield(:head) %>
+
+	<script>
+	$(document).ready(function(){
+   		$(".helpLink").click(function(event){
+     		miId=$(this).attr("id");
+			//alert("Clicking" + $(this).attr("id"));
+			// $.get("/helps/show", function(data){
+			// 			
+			// 			});
+			$("#help_"+miId).show();
+   		});
+
+		$(".closeHelp").click(function(){
+			$(".helpBox").hide();
+		});
+ 	});
+	
+	</script>
+
   </head>
   <body>
     <div id="container">

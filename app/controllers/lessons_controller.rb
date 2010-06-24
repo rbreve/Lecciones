@@ -4,10 +4,14 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 
   def index
     q=params[:q]
-    
+    country_id=params[:country_id]
+		ambito_id=params[:ambito_id]
     query=""
     extern=""
     
+		@countries = Country.find(:all)
+		@ambitos = Ambito.find(:all)
+		
     if admin_signed_in?
       @lessons = Lesson.find(:all, :order=>"created_at DESC")
     elsif not user_signed_in?
@@ -25,7 +29,14 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     if q.to_s != ""
       @lessons = Lesson.search(q).approved
     end
-    
+
+		if country_id.to_s != ""
+    	 @lessons = Lesson.by_country(country_id)
+		end
+		
+		if ambito_id.to_s != ""
+			@lessons = @lessons.by_ambito(ambito_id)
+		end
   end
   
   def show

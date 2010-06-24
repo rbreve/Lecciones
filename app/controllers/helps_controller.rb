@@ -4,7 +4,11 @@ class HelpsController < ApplicationController
   end
   
   def show
-    @help = Help.find(params[:id])
+		@help = Help.find(params[:id])
+		respond_to do |format|
+			format.html #index.html.erb
+			format.json {render :json => @help}
+		end
   end
   
   def new
@@ -42,10 +46,5 @@ class HelpsController < ApplicationController
     redirect_to helps_url
   end
   
-  #--- Accion personalizada para desplegar la ayuda inline...
-  def display                                                      
-    @help_code = params[:code]
-    @help = Help.find(:first,:conditions=>["code=?",@help_code])
-    render(:layout => false)
-  end
+ 
 end

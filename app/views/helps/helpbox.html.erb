@@ -1,0 +1,13 @@
+<div class="helpIcon" id="icon_<%=code%>">
+		<a href="#" class="helpLink" id="<%=code%>">
+			<img src="/images/help.png" border="0">
+		</a>
+</div>
+<div id="help_<%=code%>" class="helpBox">
+	<h3><%=@helper.title%></h3>
+	<p>
+	<%=simple_format @helper.description%>
+	</p>
+	<a href="#" class="closeHelp">Cerrar</a> 
+	
+	</div>

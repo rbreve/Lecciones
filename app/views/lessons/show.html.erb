@@ -20,9 +20,11 @@
 
   <div class="leccion-level-box" >
       <%if @lesson.level%>
+<%=helpBox("colores")%>
         <div class="leccion-<%=@lesson.level.name%>" style="float:center; margin-left:80px;">
         Nivel: <%=@lesson.level.name%>
         </div>
+
       <%end%>
     
  

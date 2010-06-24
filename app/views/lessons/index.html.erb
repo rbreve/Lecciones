@@ -5,8 +5,26 @@
 </form>
 </div>
 
+<div id="lecciones-filters">
+
+<ul>
+	<li>Por País</li>
+	<ul>
+ 	<%for country in @countries%>
+		<li> <%=link_to country.name, lessons_path(:country_id=>country.id)%> </li>
+	<%end%>
+	</ul>
+ 
+	<li>Por Ámbito</li>
+	<ul>
+ 	<%for ambito in @ambitos%>
+		<li> <%=link_to ambito.name, lessons_path(:ambito_id=>ambito.id)%> </li>
+	<%end%>
+	</ul>	
+</ul>
 
 
+</div>
 <div id="lecciones-list">
 
  

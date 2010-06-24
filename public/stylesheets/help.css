@@ -1,0 +1,47 @@
+.helpBox{
+	padding:10px;
+	border:solid 1px #CCCCCC;
+	background-color:#FFF;
+	border: 2px solid #99e4fc;
+	font-size: 10px;
+	position: absolute;
+ 	
+}
+
+#help_colores{
+	display: none;
+	width: 200px;
+	min-height: 130px;
+	background-color: #FFF;
+}
+
+#icon_ambitoLeccion{
+	display: inline;
+}
+
+#help_ambitoLeccion{
+		display: none;
+
+	
+}
+
+#icon_ifiLeccion{
+	display: inline;
+ }
+
+
+#help_ifiLeccion{
+	
+		display: none;
+		
+
+}
+
+#icon_paisLeccion{
+	display: inline;
+}
+
+#help_paisLeccion{
+		display: none;
+
+}

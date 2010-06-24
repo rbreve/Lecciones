@@ -27,13 +27,30 @@ class Lesson < ActiveRecord::Base
   has_many :productive_sectors, :through => :lesson_psectors
   
   has_many :lesson_esectors
-  has_many :emrpesarial_sectors, :through => :lesson_esectors
+  has_many :empresarial_sectors, :through => :lesson_esectors
   
   validates_presence_of :name, :description
   
-  named_scope :external, :conditions => { :isprivate => 0 } , :order=>"created_at DESC"
-  named_scope :approved, :conditions => {:aprobada => 1}, :order=>"created_at DESC"
+  named_scope :external, :conditions => { :isprivate => 0 } , :order=>"lessons.created_at DESC"
+  named_scope :approved, :conditions => {:aprobada => 1}, :order=>"lessons.created_at DESC"
   named_scope :search, lambda { |q|
-  { :conditions => ["name like ?", "%" + q + "%"], :order=>"created_at DESC" }
+  		{ 
+				:conditions => ["name like ?", "%" + q + "%"], :order=>"lessons.created_at DESC" 
+			}
   }
+	
+	named_scope :by_country, lambda { |c|
+		{
+		:select => "lesson_countries.*, lessons.*",
+		:from =>"lessons, lesson_countries, lcountries",
+		:conditions => "lesson_countries.lesson_id = lessons.id AND lesson_countries.lcountry_id = " + c + " AND lcountries.id=" + c
+		}
+	}
+	
+	named_scope :by_ambito, lambda { |a|
+		{
+ 			:conditions => ["ambito_id = ?", a], :order=>"lessons.created_at DESC"
+		}
+	}
+	
 end
