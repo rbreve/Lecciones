@@ -5,8 +5,12 @@ development:
   database: lecciones
   host: localhost
   username: root
-  password: root
-  socket: /Applications/MAMP/tmp/mysql/mysql.sock
+  password: 
+  encoding: utf8
+  
+production:
+  encoding: utf8
+#  socket: /Applications/MAMP/tmp/mysql/mysql.sock
  
 
 # Warning: The database defined as "test" will be erased and
