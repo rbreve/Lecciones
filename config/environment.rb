@@ -13,4 +13,7 @@ Rails::Initializer.run do |config|
    
   config.time_zone = 'UTC'
   config.i18n.default_locale = :es
+
+config.action_mailer.delivery_method = :smtp
+
 end
