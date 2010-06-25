@@ -369,7 +369,7 @@ margin-top: 5px;
 
 #user_login_box{
 	float:right;
-	width: 470px;
+	min-width: 270px;
 	background-color: white;
  	font-size: 11px;
  	margin-top: -35px;
