@@ -42,6 +42,22 @@
 
 }
 
+#help_contenidoLeccion{
+	display: none;
+}
+
+#help_tipoLeccion{
+	display: none;
+}
+
+#help_leccionInterno{
+	display: none;
+}
+
+#help_origenLeccion{
+	display: none;
+}
+
 #helpNotFound{
 	display: none;
 }

@@ -9,9 +9,13 @@
 
 	<script>
 	$(document).ready(function(){
-   		$(".helpLink").click(function(event){
+   		$(".helpLink").toggle(function(event){
      		miId=$(this).attr("id");
 			$("#help_"+miId).show("fast");
+			return false;
+			
+		}, function(){
+			$(".helpBox").hide("fast");
 			return false;
    		});
 
@@ -40,37 +44,59 @@
 	
       <% if user_signed_in? -%>
         <div id="user_login_box" style="float:right">
-          <%= current_user.email %> |
-          <%= link_to 'Mis Datos', edit_user_registration_path %> |
-          <%= link_to 'Salir', destroy_user_session_path %>
+				<div id="login-text">
+          			<%= current_user.email %> |
+			          <%= link_to 'Mis Datos', edit_user_registration_path %> |
+			          <%= link_to 'Salir', destroy_user_session_path %>
+				</div>
+			
+				<div id="leccion-search">
+
+					<form action="/lessons/">
+		  				<input type="text" name="q" placeholder="Buscar Lecciones"> 
+		  				<input type="submit" value="Buscar " >
+					</form>
+				</div>
       	  </div>
 	  <%else%>
 	     <% if not admin_signed_in? -%>
 	   <div id="user_login_box">
-		  <%= link_to 'Entrar', new_user_session_path %>
+				<div id="login-text">
+				<%= link_to 'Entrar', new_user_session_path %>
+				</div>
+				
+				<div id="leccion-search">
+
+					<form action="/lessons/">
+		  				<input type="text" name="q" placeholder="Buscar Lecciones"> 
+		  				<input type="submit" value="Buscar " >
+					</form>
+				</div>
+		
 		</div>
 		<%end%>
       <% end -%>
      
       <% if admin_signed_in? -%>
-        <div id="admin_menu" style="float:left">
+		<div id="admin_user" style="float:right;font-size:10px; margin-right:40px;">
+          <%= current_admin.email %> |
+           <%= link_to 'Salir del Admin', destroy_admin_session_path %>
+		</div>
+        <div id="admin_menu" style="float:left;margin-top:20px;">
            <%=link_to "Lecciones", lessons_path %> | 
            <%=link_to "Mensajes", messages_path %> | 
 
         <%=link_to "Usuarios", users_path %> | 
           <%= link_to 'Paises', countries_path %>  |
-
           <%= link_to 'Ambitos', ambitos_path %> |
            <%= link_to 'Tipos', leccion_types_path %> |  
           <%= link_to 'IFIs', ifis_path %> |
            <%= link_to 'Productos', productos_path %> |
            <%= link_to 'Resultados', resultados_path %> |
            <%= link_to 'Sectores Productivos', productive_sectors_path %> |
-
            <%= link_to 'Sectores Empresariales', empresarial_sectors_path %> |
-            
-          <%= current_admin.email %> |
-           <%= link_to 'Salir', destroy_admin_session_path %>
+           <%= link_to 'Ayuda', helps_path%> 
+		
         </div>
       <% end -%>
       

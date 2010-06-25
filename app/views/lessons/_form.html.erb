@@ -15,14 +15,14 @@
 
   <% if current_user %>
   	<% if not current_user.ispublic  %>
-	  	<%= f.input :origin, :label => "Origen" %>
-	  	<%= f.input :leccion_type, :label =>"Tipo de Lección"%>
+	  	<%= f.input :origin, :label => "Origen" + helpBox("origenLeccion") %>
+	  	<%= f.input :leccion_type, :label =>"Tipo de Lección" + helpBox("tipoLeccion")%>
 	  	<%= f.input :level, :label => "Nivel" + helpBox("colores"),:required => false %> 
 	  <%end%>
    <%end%>
 
   <%= f.input :name, :label => "Titulo" %>
-  <%= f.input :description, :label => "Contenido" %>
+  <%= f.input :description, :label => "Contenido" + helpBox("contenidoLeccion") %>
       
   <% if current_user %>
     <% if not current_user.ispublic %>
@@ -41,16 +41,16 @@
   <%if admin_signed_in? %>
     <%= f.input :user, :label => "Usuario"%>
     
-     <%= f.input :leccion_type, :label =>"Tipo de Lección"%>
+     <%= f.input :leccion_type, :label =>"Tipo de Lección"+ helpBox("tipoLeccion")%>
       <%= f.input :level, :label => "Nivel"+ helpBox("colores"),:required => false %>
-      <%= f.input :origin, :label => "Origen" %>
+      <%= f.input :origin, :label => "Origen" + helpBox("origenLeccion") %>
 
       <%= f.input :resultados,  :as => :check_boxes, :label => "Resultados" + helpBox("resultadosLeccion") ,:required => false%> 
 
       <%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
       <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :required => false %>
       <%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
-        <%= f.input :isprivate, :as => :radio, :label => "Solo Para Uso Interno  ?" %>
+        <%= f.input :isprivate, :as => :radio, :label => "Solo Para Uso Interno  ?" + helpBox("leccionInterno") %>
         <%= f.input :aprobada, :as => :radio %>
   <%end%>
   

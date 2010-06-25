@@ -1,55 +1,59 @@
 <% title "IFI" %>
 
-<h2>
-  <%=h @ifi.name %>
-</h2>
+<div id="ifi-show">
+	<h2>
+	  <%=h @ifi.name %>
+	</h2>
 
 
 
-<%if @ifi.productive_sectors.length > 0%>
-	<p><strong>Sectores Productivos: </strong></p>
-	<ul>
-	<%for ps in @ifi.productive_sectors%>
-	  <li><%=ps.name%> </li> 
+	<%if @ifi.productive_sectors.length > 0%>
+		<p><strong>Sectores Productivos: </strong></p>
+		<ul>
+		<%for ps in @ifi.productive_sectors%>
+		  <li><%=ps.name%> </li> 
+		<%end%>
+		</ul>
 	<%end%>
-	</ul>
-<%end%>
 
 
-<%if @ifi.lcountry %>
-  <p>
-  <strong>País:</strong> <%=@ifi.lcountry.name%>
-  </p>
-<%end%>
+	<%if @ifi.lcountry %>
+	  <p>
+	  <strong>País:</strong> <%=@ifi.lcountry.name%>
+	  </p>
+	<%end%>
 
-<strong>Información de Contacto</strong>
+	<strong>Información de Contacto</strong>
 
 
-<% if @ifi.contact_name %>
-  <p>
-  <strong>Contacto:</strong>
-  <%=@ifi.contact_name%>
-  </p>
-<%end%>
+	<% if @ifi.contact_name %>
+	  <p>
+	  <strong>Contacto:</strong>
+	  <%=@ifi.contact_name%>
+	  </p>
+	<%end%>
 
-<% if @ifi.contact_phone %>
-  <p>
-  <strong>Telefonos</strong>
-  <%=@ifi.contact_phone%>
-  </p>
-<%end%>
+	<% if @ifi.contact_phone %>
+	  <p>
+	  <strong>Telefonos</strong><br/>
+	  <%=@ifi.contact_phone%>
+	  </p>
+	<%end%>
 
-<% if  @ifi.contact_email%>
-  <p>
-  <strong>Correo Electrónico</strong>
-  <%=@ifi.contact_email%>
-  </p>
-<%end%>
-<br/><br/>
+	<% if  @ifi.contact_email%>
+	  <p>
+	  <strong>Correo Electrónico</strong><br/>
+	  <%=@ifi.contact_email%>
+	  </p>
+	<%end%>
+	<br/><br/>
+	<%=link_to "<< Listado de IFI", ifis_path%>
+</div>
 
 <%if @ifi.lessons_count%>
-<h3>Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
-	<div id="lecciones-list">
+	<div id="lecciones-list-ifi">
+		<h3>Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
+
 	  <%= render :partial => @lessons %>
 	</div>
 <%end%>
