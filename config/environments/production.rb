@@ -9,6 +9,16 @@ config.action_controller.consider_all_requests_local = false
 config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
+config.action_mailer.delivery_method = :smtp
+
+ActionMailer::Base.smtp_settings = {
+  :address  => "mail.icomstec.com",
+  :port  => 2525,
+  :user_name  => "lecciones@proyectocambio.org",
+  :password  => "lessons10",
+  :authentication  => :login
+}
+
 # See everything in the log (default is :info)
 # config.log_level = :debug
 
