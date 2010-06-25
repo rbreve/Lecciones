@@ -31,8 +31,8 @@ class Lesson < ActiveRecord::Base
   
   validates_presence_of :name, :description
   named_scope :all, :conditions => "1=1", :order=>"lessons.created_at DESC"
-  named_scope :external, :conditions => { :isprivate => 0 } , :order=>"lessons.created_at DESC"
-  named_scope :approved, :conditions => {:aprobada => 1}, :order=>"lessons.created_at DESC"
+  named_scope :external, :conditions => { :isprivate => FALSE } , :order=>"lessons.created_at DESC"
+  named_scope :approved, :conditions => {:aprobada => TRUE}, :order=>"lessons.created_at DESC"
   named_scope :search, lambda { |q|
   		{ 
 				:conditions => ["name like ?", "%" + q + "%"] 
