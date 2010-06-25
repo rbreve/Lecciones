@@ -4,11 +4,8 @@ class HelpsController < ApplicationController
   end
   
   def show
-		begin
-			@help = Help.find(params[:id])
-		rescue
-			@help=Help.new(:title=>"Ayuda", :description=>"Ayuda No encontrada")
-		end
+		@help = Help.find(params[:id])
+		 
 		respond_to do |format|
 			format.html #index.html.erb
 			format.json {render :json => @help}

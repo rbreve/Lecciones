@@ -18,7 +18,13 @@ module ApplicationHelper
 
 	def helpBox(code)
 		@code=code
+		 
 		@helper = Help.find(:first, :conditions=>["code=?",@code])
+			
+		if @helper==nil
+			@helper = Help.new(:code=>"helpNotFound", :title=>"No Encontrado", :description=>"Ayuda no encontrada")
+		end
+		
 		return render(:file=>"helps/helpbox", :layout => false, :locals => {:code=>@code, :helper=>@helper})
 	end
   
