@@ -7,14 +7,15 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     country_id=params[:country_id]
 		ambito_id=params[:ambito_id]
 		level_id=params[:level_id]
-
+		esector_id=params[:esector_id]
+		
     query=""
     extern=""
     
 		@countries = Country.find(:all)
 		@ambitos = Ambito.find(:all)
 		@levels = Level.find(:all)
-		
+		@sectores = EmpresarialSector.find(:all)
     if admin_signed_in?
       @lessons = Lesson.all
     elsif not user_signed_in?
@@ -32,6 +33,10 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     if q.to_s != ""
       @lessons = @lessons.search(q)
     end
+
+		if esector_id.to_s != ""
+			@lessons=@lessons.by_esector(esector_id)
+		end
 
 		if country_id.to_s != ""
     	 @lessons = @lessons.by_country(country_id)

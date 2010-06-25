@@ -29,6 +29,14 @@
 		<li> <%=link_to level.name, lessons_path(:level_id=>level.id)%> </li>
 	<%end%>
 	</ul>	
+	
+	<li>Por Sector Económico</li>
+	<ul>
+	<%for sector in @sectores%>
+		<li> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%>
+	<%end%>
+	
+	</ul>
 </ul>
 
 

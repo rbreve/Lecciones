@@ -38,6 +38,14 @@ class Lesson < ActiveRecord::Base
 				:conditions => ["name like ?", "%" + q + "%"] 
 			}
   }
+
+	named_scope :by_esector, lambda { |s|
+		{
+			:select => "lesson_esectors.*, lessons.*", 
+			:from => "lessons, lesson_esectors, empresarial_sectors",
+			:conditions => "lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = " + s + " AND empresarial_sectors.id="+ s
+		}
+	}
 	
 	named_scope :by_country, lambda { |c|
 		{

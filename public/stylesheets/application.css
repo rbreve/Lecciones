@@ -2,6 +2,7 @@ body {
   background-color: #4B7399;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+	background-image: url(/images/pagebg.jpg);
 }
 
 a img {
@@ -16,6 +17,11 @@ text-decoration: none;
 a:hover{
 	text-decoration:underline;
 }
+
+#admin_menu{
+	font-size: 10px;
+}
+
 .clear {
   clear: both;
   height: 0;
@@ -23,7 +29,7 @@ a:hover{
 }
 
 #container {
-  width: 75%;
+  width: 900px;
   margin: 0 auto;
   background-color: #FFF;
   padding: 20px 40px;
@@ -118,67 +124,6 @@ table th{
 }
 
 
-#user_login_box{
-	float:right;
-	margin-top: -35px;
-}
-
-#lecciones-list ul li {
-	list-style: none;
-}
-
-#lecciones-list h3 {
-	margin-bottom:0px;
-}
-
-.leccion-admin{
-	float:right;
-	margin-top:-15px;
-}
-
-.leccion-box{
-	width:600px;
- 
-	padding:5px;
-	margin-bottom:20px;
-	border-top: 1px dotted #9b9b9b;
-}
-
-.leccion-box-show{
-	
-	width:900px;
- 	min-height: 200px;
-	padding:5px 5px 25px 5px;
-	margin-bottom:20px;
-	border-bottom: 1px dotted #9b9b9b;
-	 
-}
-
-#leccion-show-details{
-	margin-top: 5px;
-	font-size: 10px;	
-}
-
-.leccion-text{
-	float: left;
-	width: 500px;
- 	padding-bottom: 40px;
- 
-}
-
-.leccion-level-box{
-	padding: 5px;
-	width: 220px;	
-	height: 120px;
-	float: right;
-	-moz-border-radius: 8px;
-	-khtml-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
-		border: 1px dotted #9b9b9b;
-margin-top:60px;
-}
-
 .ifi-box{
 	width:600px;
  
@@ -219,8 +164,71 @@ margin-top:60px;
 	margin-bottom:10px;
 }
 
+#user_login_box{
+	float:right;
+	margin-top: -35px;
+}
+
 /*Lecciones*/
 
+
+
+
+#lecciones-list ul li {
+	list-style: none;
+}
+
+#lecciones-list h3 {
+	margin-bottom:0px;
+}
+
+.leccion-admin{
+	float:right;
+	margin-top:-15px;
+}
+
+.leccion-box{
+	width:500px;
+ 
+	padding:5px;
+	margin-bottom:20px;
+	border-top: 1px dotted #9b9b9b;
+}
+
+.leccion-box-show{
+	
+	width:800px;
+ 	min-height: 200px;
+	padding:5px 5px 25px 5px;
+	margin-bottom:20px;
+	border-bottom: 1px dotted #9b9b9b;
+	 
+}
+
+#leccion-show-details{
+	margin-top: 5px;
+	font-size: 10px;	
+}
+
+.leccion-text{
+	float: left;
+	width: 500px;
+ 	padding-bottom: 40px;
+ 
+}
+
+.leccion-level-box{
+	padding: 5px;
+	width: 220px;	
+	height: 120px;
+	float: right;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+		border: 1px dotted #9b9b9b;
+margin-top:60px;
+}
 
 
 #lecciones-list{

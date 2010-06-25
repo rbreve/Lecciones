@@ -9,7 +9,12 @@ module ApplicationHelper
     end
   end   
   
-  
+	def is_admin_path()
+   p=request.env['PATH_INFO']
+     if p.index('admin')
+      return true
+    end
+	end
 
 	def helpBox(code)
 		@code=code

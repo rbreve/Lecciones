@@ -11,10 +11,6 @@
 	$(document).ready(function(){
    		$(".helpLink").click(function(event){
      		miId=$(this).attr("id");
-			//alert("Clicking" + $(this).attr("id"));
-			// $.get("/helps/show", function(data){
-			// 			
-			// 			});
 			$("#help_"+miId).show("fast");
 			return false;
    		});
@@ -29,13 +25,19 @@
 
   </head>
   <body>
-    <div id="container">
+    
+<div id="container">
+<div id="header">
+	<img src="/images/header.png">
+</div>	
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <%- end -%>
 
-      <p><%= link_to 'Inicio', root_path %> - <%=link_to 'Lecciones', lessons_path%> - <%=link_to 'Agregar Lección', new_lesson_path%> - <%=link_to 'IFIs', ifis_path%></p>
-
+		     <% if not admin_signed_in? -%>
+      <p ><%= link_to 'Inicio', root_path %> - <%=link_to 'Lecciones', lessons_path%> - <%=link_to 'Agregar Lección', new_lesson_path%> - <%=link_to 'IFIs', ifis_path%></p>
+	<%end%>
+	
       <% if user_signed_in? -%>
         <div id="user_login_box" style="float:right">
           <%= current_user.email %> |
@@ -51,7 +53,7 @@
       <% end -%>
      
       <% if admin_signed_in? -%>
-        <div id="admin_login_box" style="float:left">
+        <div id="admin_menu" style="float:left">
            <%=link_to "Lecciones", lessons_path %> | 
            <%=link_to "Mensajes", messages_path %> | 
 

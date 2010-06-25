@@ -1,4 +1,8 @@
-<h2>Entrar</h2>
+<h2>Ingresar al Sistema
+<%if is_admin_path%>
+Administrativo
+<%end%>	
+</h2>
 
 <% form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
   <p><%= f.label :email %></p>
