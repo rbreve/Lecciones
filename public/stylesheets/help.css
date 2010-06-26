@@ -1,10 +1,10 @@
 .helpBox{
 	padding:10px;
-	border:solid 1px #CCCCCC;
-	background-color:#FFF;
+ 	background-color:#FFF;
 	border: 2px solid #99e4fc;
 	font-size: 10px;
 	position: absolute;
+	z-index: 99;
  	
 }
 

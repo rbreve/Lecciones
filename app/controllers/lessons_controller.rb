@@ -98,8 +98,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
   
   def destroy
     @lesson = Lesson.find(params[:id])
-    @lesson.destroy
-    flash[:notice] = "Successfully destroyed lesson."
+    @lesson.aprobada=FALSE
+		@lesson.save
+    flash[:notice] = "Lección Borrada"
     redirect_to lessons_url
   end
 end

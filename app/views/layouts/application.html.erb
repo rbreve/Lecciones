@@ -27,19 +27,27 @@
 	
 	</script>
 
+
   </head>
   <body>
-    
+<div id="main">
 <div id="container">
+	
 <div id="header">
 	<img src="/images/header.png">
 </div>	
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-      <%- end -%>
+ 
 
-		     <% if not admin_signed_in? -%>
-      <p ><%= link_to 'Inicio', root_path %> - <%=link_to 'Lecciones', lessons_path%> - <%=link_to 'Agregar Lección', new_lesson_path%> - <%=link_to 'IFIs', ifis_path%></p>
+<div id="top-toolbar">
+	<% if not admin_signed_in? -%>
+     <div id="top-menu">
+		<ul>
+			<li><%= link_to 'Inicio', root_path %></li>
+			<li><%=link_to 'Lecciones', lessons_path%></li>
+			<li><%=link_to 'Agregar Lección', new_lesson_path%></li>
+			<li><%=link_to 'IFI', ifis_path%></li>
+		</ul>
+	</div>
 	<%end%>
 	
       <% if user_signed_in? -%>
@@ -51,7 +59,6 @@
 				</div>
 			
 				<div id="leccion-search">
-
 					<form action="/lessons/">
 		  				<input type="text" name="q" placeholder="Buscar Lecciones"> 
 		  				<input type="submit" value="Buscar " >
@@ -100,13 +107,31 @@
         </div>
       <% end -%>
       
-      <div style="clear:both"></div>
+</div>
+     <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%>
 
       <%- if show_title? -%>
         <h1><%=h yield(:title) %></h1>
       <%- end -%>
 
-      <%= yield %>
-    </div>
+		<div id="content">
+	      <%= yield %>
+		</div>
+   </div>
+
+<div id='footer'>
+<ul>
+	<li>Acerca del Proyecto</li>
+	<li>Lecciones Aprendidas</li>
+	<li>Instituciones Financieras</li>
+	<li>Enviar Lección Aprendida</li>
+	<li>Ayuda</li>
+	<li>Contacto</li>		
+</ul>
+</div>
+
+</div>
   </body>
 </html>

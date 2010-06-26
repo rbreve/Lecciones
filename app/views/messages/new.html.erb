@@ -1,5 +1,6 @@
-<% title "Agregar Lección Aprendida" %>
-Si ya tiene cuenta con nosotros <%=link_to "ingrese aca", new_user_session_path%></a> de lo contrario puede <%=link_to "solicitarla aca", new_user_registration_path%>.
+ <h1>Agregar Lección Aprendida</h1>
+
+Si ya tiene cuenta con nosotros <span class="bold-link"><%=link_to "ingrese aca", new_user_session_path%></span> de lo contrario puede <span class="bold-link"><%=link_to "solicitarla aca", new_user_registration_path%></span>.
 
 <h2>Envie su Lección Aprendida sin registrarse</h2>
 <%= render :partial => 'form' %>

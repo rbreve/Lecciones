@@ -1,32 +1,41 @@
+<div id="home">
 <h1>Proyecto CamBio</h1>
 <h3>Sistema de Lecciones Aprendidas</h3>
+<div id="home-about">
+<strong>Las Lecciones Aprendidas</strong> son aquellas que Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
 <div id="lecciones-search-main">
-  <form action="/lessons">
-    <input type="text" name="q">
-  <button>Buscar</button>
-  </form>
+	<form action="/lessons">
+	  <input type="text" name="q">
+	<button>Buscar Leccion</button>
+	</form>
+
+	<div id="home-nav">
+		<ul>
+			<li>
+		   <%=link_to "Listar Lecciones", lessons_path %>  
+			</li>
+		   <li>
+			<%=link_to "Listar IFIs", ifis_path %> 
+			</li>
+		   <li style="background-color:orange;">
+		    <%=link_to "Agregar Leccion", new_lesson_path %> 
+		 	</li>
+		</ul>
+	</div>
 </div>
 
-<div id="home-nav"
-  <div class="enlace-boton">
-  <%=link_to "Listar Lecciones", lessons_path %>  
-  </div>
-  
-  <div class="enlace-boton">
-  <%=link_to "Listar IFIs", ifis_path %> 
-  </div>
-  
-  <div class="enlace-boton">
-   <%=link_to "+ Agregar Leccion", new_lesson_path %> 
-   </div>
-</div>
-<% unless user_signed_in? -%>
-  <p><%= link_to 'Registro de Usuario', new_user_registration_path %></p>
-  <p><%= link_to 'Entrar como Usuario', new_user_session_path %></p>
-<% end -%>
-
+	<div id="home-userlinks">
+	<ul>
+	<% unless user_signed_in? -%>
+	  <li><%= link_to 'Registro', new_user_registration_path %></li>
+	  <li><%= link_to 'Entrar', new_user_session_path %></li>
+	<% end -%>
  
- <% unless admin_signed_in? -%>
-   <p><% link_to 'Registro como Admin', new_admin_registration_path %></p>
-   <p><%= link_to 'Admin', new_admin_session_path %></p>
- <% end -%>
+	 <% unless admin_signed_in? -%>
+	   <!-- <li><%= link_to 'Admin Registro', new_admin_registration_path %></li> -->
+	   <li><%= link_to 'Admin', new_admin_session_path %></li>
+	 <% end -%>
+	</ul>
+	</div>
+</div>

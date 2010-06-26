@@ -6,28 +6,28 @@
 	<li>Por País</li>
 	<ul>
  	<%for country in @countries%>
-		<li> <%=link_to country.name, lessons_path(:country_id=>country.id)%> </li>
+		<li class="filter-type"> <%=link_to country.name, lessons_path(:country_id=>country.id)%> </li>
 	<%end%>
 	</ul>
  
 	<li>Por Ámbito</li>
 	<ul>
  	<%for ambito in @ambitos%>
-		<li> <%=link_to ambito.name, lessons_path(:ambito_id=>ambito.id)%> </li>
+		<li  class="filter-type"> <%=link_to ambito.name, lessons_path(:ambito_id=>ambito.id)%> </li>
 	<%end%>
 	</ul>
 	
 	<li>Por Nivel de Riesgo</li>
 	<ul>
  	<%for level in @levels%>
-		<li> <%=link_to level.name, lessons_path(:level_id=>level.id)%> </li>
+		<li  class="filter-type"> <%=link_to level.name, lessons_path(:level_id=>level.id)%> </li>
 	<%end%>
 	</ul>	
 	
 	<li>Por Sector Económico</li>
 	<ul>
 	<%for sector in @sectores%>
-		<li> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%>
+		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%>
 	<%end%>
 	
 	</ul>

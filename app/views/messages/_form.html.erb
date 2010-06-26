@@ -1,20 +1,12 @@
 <% form_for @message do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label "Nombre" %><br />
+     <%= f.label "Nombre" %> 
     <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label "País" %><br />
+     <%= f.label "País" %> 
     <%= f.text_field :country %>
-  </p>
-  <p>
-    <%= f.label "Correo Electrónico" %><br />
+     <%= f.label "Correo Electrónico" %>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label "Describa la Lección Aprendida con detalles" %><br />
+     <%= f.label "Describa la Lección Aprendida con detalles" + helpBox("contenidoLeccion")  %> 
     <%= f.text_area :content %>
-  </p>
-  <p><%= f.submit "Enviar Lección" %></p>
+   <p><%= f.submit "Enviar Lección" %></p>
 <% end %>

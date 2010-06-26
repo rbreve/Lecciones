@@ -16,6 +16,21 @@
       <%end%>
       
     </div>
+
+
+      <%if @lesson.origin%>
+      <div id="leccion-show-details">
+      
+        <strong>Origen <%=helpBox("origenLeccion")%></strong>
+        <%=h @lesson.origin.name%>
+         <%if @lesson.leccion_type%>
+            <br/><br/>
+            <strong>Tipo: </strong>
+            <%=h @lesson.leccion_type.name %>  <%=h @lesson.leccion_type.description %>
+          <%end%>
+      
+      </div>
+      <%end%>
   </div>
 
   <div class="leccion-level-box" >
@@ -28,26 +43,13 @@
       <%end%>
     
  
-      <%if @lesson.origin%>
-      <div id="leccion-show-details">
-      
-        <strong>Origen:</strong>
-        <%=h @lesson.origin.name%>
-         <%if @lesson.leccion_type%>
-            <br/>
-            <strong>Tipo:</strong>
-            <%=h @lesson.leccion_type.name %>
-          <%end%>
-      
-      </div>
-      <%end%>
   </div>
  
 </div>
 
 <div id="leccion-data" >
 <p>
-  <strong>Ambito:</strong>
+ <%=helpBox("ambitoLeccion")%> <strong>Ambito: </strong> 
   <%=h @lesson.ambito.name %>
 </p>
 <% if @lesson.ifi %>
