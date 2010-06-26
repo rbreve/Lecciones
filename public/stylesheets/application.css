@@ -68,7 +68,21 @@ strong{
 	font-weight: bold;
 }
 
- 
+
+.rounded4{
+	-moz-border-radius: 4px; /* Firefox */
+  -webkit-border-radius: 4px; /* Safari and Chrome */
+  border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+  behavior: url(/stylesheets/ie-css3.htc);
+}
+
+.rounded14{
+	-moz-border-radius: 14px; /* Firefox */
+  -webkit-border-radius: 14px; /* Safari and Chrome */
+  border-radius: 14px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+  behavior: url(/stylesheets/ie-css3.htc);
+
+}
  
 
 select{
@@ -277,7 +291,7 @@ table th{
  
 #home-about{
 	font: 16px Georgia, "Times New Roman", Times, serif;
-	
+	overflow: auto;	
 	margin-bottom: 20px;
 	min-height: 90px;
 	color: gray;

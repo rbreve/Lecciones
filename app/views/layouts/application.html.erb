@@ -40,12 +40,12 @@
 
 <div id="top-toolbar">
 	<% if not admin_signed_in? -%>
-     <div id="top-menu">
+     <div id="top-menu" >
 		<ul>
-			<li><%= link_to 'Inicio', root_path %></li>
-			<li><%=link_to 'Lecciones', lessons_path%></li>
-			<li><%=link_to 'Agregar Lección', new_lesson_path%></li>
-			<li><%=link_to 'IFI', ifis_path%></li>
+			<li class="rounded4"><%= link_to 'Inicio', root_path %></li>
+			<li class="rounded4"><%=link_to 'Lecciones', lessons_path%></li>
+			<li class="rounded4"><%=link_to 'Agregar Lección', new_lesson_path%></li>
+			<li class="rounded4"><%=link_to 'IFI', ifis_path%></li>
 		</ul>
 	</div>
 	<%end%>
