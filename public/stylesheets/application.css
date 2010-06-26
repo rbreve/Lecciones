@@ -533,8 +533,14 @@ margin-top:25px;
 	float: left;
 	width: 200px;
 	min-height: 300px;
-	border: 1px dotted #989898;
+	border: 6px solid #e5e5e5;
 	margin-top: 28px;
+	padding: 10px;
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+
 	
 }
 
@@ -629,6 +635,7 @@ margin-top: 5px;
 	min-width: 270px;
   	font-size: 11px;
  	margin-top: -27px;
+ 	margin-right: 60px;
 }
  
 
