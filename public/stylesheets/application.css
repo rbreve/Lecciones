@@ -31,6 +31,9 @@ q:before,q:after {
 abbr,acronym { border:0;
 }
 
+br{
+	padding-bottom: 40px;
+}
 
 p{
 	
@@ -64,6 +67,7 @@ input{
 }
 
 
+
 strong{
 	font-weight: bold;
 }
@@ -74,6 +78,12 @@ strong{
   -webkit-border-radius: 4px; /* Safari and Chrome */
   border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
   /*behavior: url(/stylesheets/ie-css3.htc);*/
+  padding:5px;
+  background-color: #298ce0;
+}
+
+.rounded4 a{
+	color: white;
 }
 
 .rounded14{
@@ -128,7 +138,7 @@ a:hover{
   min-height: 500px;
   margin: auto;
   background-color: #FFF;
-  padding: 40px;
+  padding: 10px 0px 30px 0px;
   border: solid 1px black;
   margin-top: 20px;
   overflow: auto;
@@ -150,6 +160,7 @@ a:hover{
 	width: 850px;
  	padding-top: 20px;
 	margin: auto;
+	padding-bottom: 30px;
 }
 
 #footer ul li{
@@ -373,11 +384,16 @@ table th{
 
 #top-toolbar{
 	margin: auto;
-	width: 850px;
+	width: 980px;
 	margin-bottom: 30px;
 	height: 40px;
-}
+	background-color: #c2ffd4;
+ }
 
+#top-menu{
+ 	padding-top: 10px;
+ 	padding-left: 60px;
+ }
 
 #top-menu ul li{
 	display: inline;
@@ -387,8 +403,7 @@ table th{
 	-moz-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	-webkit-border-radius: 8px;
-
-}
+ }
 
 #top-menu ul li a{
 	color: #FFF;
@@ -446,7 +461,7 @@ table th{
 	padding:5px 5px 25px 5px;
 	margin-bottom:20px;
 	border-bottom: 1px dotted #9b9b9b;
-	 
+	overflow: auto;
 }
 
 #leccion-show-details{
@@ -612,8 +627,7 @@ margin-top: 5px;
 #user_login_box{
 	float:right;
 	min-width: 270px;
-	background-color: white;
- 	font-size: 11px;
+  	font-size: 11px;
  	margin-top: -27px;
 }
  
@@ -635,4 +649,13 @@ margin-top: 5px;
 	margin-bottom: 10px;
 	list-style: square;
 	margin-left: 20px;
+}
+
+
+/*Forms*/
+
+#new_message{
+	width: 500px;
+	background-color: #EFE;
+	padding: 10px;
 }

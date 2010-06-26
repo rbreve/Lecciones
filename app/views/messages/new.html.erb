@@ -1,8 +1,14 @@
  <h1>Agregar Lección Aprendida</h1>
 
-Si ya tiene cuenta con nosotros <span class="bold-link"><%=link_to "ingrese aca", new_user_session_path%></span> de lo contrario puede <span class="bold-link"><%=link_to "solicitarla aca", new_user_registration_path%></span>.
-
-<h2>Envie su Lección Aprendida sin registrarse</h2>
+<p>
+Si ya tiene cuenta con nosotros?
+<span class="rounded4"><%=link_to "Ingrese aca", new_user_session_path%></span> 
+</p>
+<p>
+Si no tiene <span class="rounded4"><%=link_to "Solicite Una Cuenta", new_user_registration_path%></span> para poder enviar una lección mas detallada.
+</p>
+<hr/>
+<h2 >Envie su Lección Aprendida sin registrarse</h2>
 <%= render :partial => 'form' %>
 
  
