@@ -29,12 +29,13 @@
 	<%for sector in @sectores%>
 		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%>
 	<%end%>
-	
 	</ul>
+ 	<li class="export-link"><a href="/lessons.csv?country_id=<%=@country_id%>&ambito_id=<%=@ambito_id%>">Exportar a Excel</a></li>
 </ul>
 
 
 </div>
+
 <div id="lecciones-list">
 
  
