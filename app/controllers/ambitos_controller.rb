@@ -37,8 +37,8 @@ class AmbitosController < ApplicationController
   
   def destroy
     @ambito = Ambito.find(params[:id])
-    @ambito.destroy
-    flash[:notice] = "Successfully destroyed ambito."
+    # @ambito.destroy
+    flash[:notice] = "Ambito ha sido deshabilitado"
     redirect_to ambitos_url
   end
 end

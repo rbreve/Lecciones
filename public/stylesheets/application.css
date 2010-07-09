@@ -257,6 +257,7 @@ table th{
 	
 }
 
+/***** IFI *******/
 
 .ifi-box{
 	width:600px;
@@ -284,6 +285,39 @@ table th{
 
 
 }
+
+
+#ifi-filters{
+	float: left;
+	width: 200px;
+	min-height: 300px;
+	border: 6px solid #e5e5e5;
+	margin-top: 28px;
+	padding: 10px;
+	-moz-border-radius: 12px;
+	-khtml-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+
+	
+}
+
+#ifi-filters ul li{
+	list-style: none;	
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+
+
+#ifi-list{
+	width: 540px;
+	margin-top:27px;
+ 	float: right;
+ 	margin-right: 40px;
+ 	}
+
+
 
 .enlace-boton{
 	background-color: #65b6fe;
@@ -427,7 +461,16 @@ table th{
 /*Lecciones*/
 
 
+.export-link{
+	font-weight: bold;
+	padding-top: 20px;
 
+	
+}
+
+.export-link a{
+	color: orange;
+}
 
 #lecciones-list ul li {
 	list-style: none;

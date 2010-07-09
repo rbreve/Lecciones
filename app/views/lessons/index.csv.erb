@@ -1,0 +1,6 @@
+Titulo Lección, Leccion Aprendida, Ambito, Tipo
+<%= FasterCSV.generate do |csv|
+  @lessons.each do |lesson|
+    csv << [ lesson.name, lesson.description, lesson.ambito.name, lesson.leccion_type.name]
+  end
+end %>

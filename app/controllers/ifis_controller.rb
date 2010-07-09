@@ -3,6 +3,21 @@ class IfisController < ApplicationController
   
   def index
     @ifis = Ifi.all
+    @countries = Country.find(:all)
+    @sectores = ProductiveSector.find(:all)
+    
+    psector_id=params[:psector_id]
+    country_id=params[:country_id]
+
+
+    if psector_id.to_s != ""
+			@ifis=@ifis.by_psector(psector_id)
+		end
+    
+    if country_id.to_s != ""
+      @ifis=@ifis.by_country(country_id)
+    end
+    
   end
   
   def show
@@ -42,7 +57,7 @@ class IfisController < ApplicationController
   
   def destroy
     @ifi = Ifi.find(params[:id])
-    @ifi.destroy
+    # @ifi.destroy
     flash[:notice] = "Successfully destroyed ifi."
     redirect_to ifis_url
   end

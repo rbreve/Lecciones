@@ -1,14 +1,17 @@
+require 'fastercsv'
+
 class LessonsController < ApplicationController
 before_filter :authenticate_admin!, :only => [:edit, :update]
 
 
   def index
     q=params[:q]
-    country_id=params[:country_id]
-		ambito_id=params[:ambito_id]
-		level_id=params[:level_id]
-		esector_id=params[:esector_id]
-		
+    
+    @country_id=params[:country_id]
+		@ambito_id=params[:ambito_id]
+		@level_id=params[:level_id]
+		@esector_id=params[:esector_id]
+		export = params[:csv]
     query=""
     extern=""
     
@@ -34,22 +37,32 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       @lessons = @lessons.search(q)
     end
 
-		if esector_id.to_s != ""
-			@lessons=@lessons.by_esector(esector_id)
+		if @esector_id.to_s != ""
+			@lessons=@lessons.by_esector(@esector_id)
 		end
 
-		if country_id.to_s != ""
-    	 @lessons = @lessons.by_country(country_id)
+		if @country_id.to_s != ""
+    	 @lessons = @lessons.by_country(@country_id)
 		end
 		
-		if ambito_id.to_s != ""
-			@lessons = @lessons.by_ambito(ambito_id)
+		if @ambito_id.to_s != ""
+			@lessons = @lessons.by_ambito(@ambito_id)
 		end
 		
-		if level_id.to_s != ""
-			@lessons = @lessons.by_level(level_id)
+		if @level_id.to_s != ""
+			@lessons = @lessons.by_level(@level_id)
 		end
-  end
+  
+    respond_to do |format|
+      format.html 
+      format.csv do 
+        c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
+        send_data c
+      end
+    end
+    
+   
+   end
   
   def show
     @lesson = Lesson.find(params[:id])

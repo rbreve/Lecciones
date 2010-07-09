@@ -5,18 +5,40 @@
 <div class="button"><%= link_to "Agregar IFI", new_ifi_path %></div>
 <%end%>
 
-<% for ifi in @ifis %>
-<div class="ifi-box">
-  <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
-  <strong>Sectores Productivos:</strong> <%=h ifi.productive_sectors.collect{|c| [c.name + ", "]} %> <br/>
-  <%if ifi.lcountry%>
-    <strong>País:</strong>  <%=h ifi.lcountry.name %>  
-  <%end%>
-
-	<%if ifi.lessons_count%>
-	<div class="leccion-fecha"><%=link_to ifi.lessons_count.to_s + " lecciones", ifi_path(ifi)%></div>
+<div id="ifi-filters">
+    <ul>
+    	<li><%=link_to "Todas",ifis_path()%></li>
+        <li>Por País</li>
+    	<ul>
+     	<%for country in @countries%>
+    		<li class="filter-type"> <%=link_to country.name, ifis_path(:country_id=>country.id)%> </li>
+    	<%end%>
+    	</ul>
+    	
+    	
+    	<li>Por Sector Productivo</li>
+	<ul>
+	<%for sector in @sectores%>
+		<li  class="filter-type"> <%=link_to sector.name, ifis_path(:psector_id=>sector.id)%>
 	<%end%>
+	
 </div>
-<%end%>
 
+<div id="ifi-list">
+
+    <% for ifi in @ifis %>
+    <div class="ifi-box">
+      <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
+      <strong>Sectores Productivos:</strong> <%=h ifi.productive_sectors.collect{|c| [c.name + ", "]} %> <br/>
+      <%if ifi.lcountry%>
+        <strong>País:</strong>  <%=h ifi.lcountry.name %>  
+      <%end%>
+
+    	<%if ifi.lessons_count%>
+    	<div class="leccion-fecha"><%=link_to ifi.lessons_count.to_s + " lecciones", ifi_path(ifi)%></div>
+    	<%end%>
+    </div>
+    <%end%>
+
+</div>
  
