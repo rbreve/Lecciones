@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100619024349) do
+ActiveRecord::Schema.define(:version => 20100806222853) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20100619024349) do
 
   create_table "empresarial_sectors", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order"
+  end
+
+  create_table "helps", :force => true do |t|
+    t.string   "code",        :limit => 50
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20100619024349) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
 
   create_table "leccion_types", :force => true do |t|
@@ -152,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20100619024349) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "order"
   end
 
   create_table "productos", :force => true do |t|

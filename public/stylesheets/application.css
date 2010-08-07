@@ -54,7 +54,7 @@ h2{
 
 h3{
 	font-size: 18px;
-		margin: 10px 0px 10px 0px;
+	margin: 10px 0px 10px 0px;
 
 }
 
@@ -132,6 +132,10 @@ a:hover{
 #main{
 	width: 100%;
  }
+
+#title-section{
+	margin-left: 60px;
+}
 
 #container {
   width: 980px;
@@ -318,6 +322,9 @@ table th{
  	}
 
 
+#lesson_ifi_input{
+	display: none;
+}
 
 .enlace-boton{
 	background-color: #65b6fe;
@@ -482,7 +489,7 @@ table th{
 
 .leccion-admin{
 	float:right;
-	margin-top:-15px;
+	margin-top:5px;
 }
 
 .leccion-box{
@@ -500,11 +507,15 @@ table th{
 .leccion-box-show{
 	
 	width:800px;
- 	min-height: 240px;
+ 	min-height: 180px;
 	padding:5px 5px 25px 5px;
 	margin-bottom:20px;
 	border-bottom: 1px dotted #9b9b9b;
 	overflow: auto;
+}
+
+.leccion-box-show p{
+	margin-top: -5px;
 }
 
 #leccion-show-details{
@@ -515,21 +526,22 @@ table th{
 .leccion-text{
 	float: left;
 	width: 500px;
- 	padding-bottom: 40px;
- 
+  
 }
 
-.leccion-level-box{
-	padding: 10px;
-	width: 220px;	
-	height: 120px;
-	float: right;
-	-moz-border-radius: 8px;
-	-khtml-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
-		border: 1px dotted #9b9b9b;
-margin-top:25px;
+.leccion-text h3{
+	color: gray;
+	font-size: 18px;
+	margin-top: 20px;
+ }
+#leccion-data h3{
+	padding-top: 12px;
+	color: gray;
+	font-size: 18px;
+}
+#leccion-data p{
+		margin-top: -5px;
+
 }
 
 
@@ -601,16 +613,27 @@ padding-left: 20px;
  }
 
 .leccion-fecha{
-font-size: 12px;	
-margin-top: 5px;
+	font-size: 12px;	
+	margin-top: 5px;
 	color: teal;
-		margin-top: 5px;
+	 
+}
+.leccion-level-box{
+	padding: 10px;
+	width: 140px;	
+	height: 120px;
+	float: right;
+	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+		border: 1px dotted #9b9b9b;
+margin-top:25px;
 }
 
 .leccion-Verde{
-	float: right;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	background-color: #127000;
  	color:#FFF;
  	padding: 5px;
@@ -619,13 +642,15 @@ margin-top: 5px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
-	margin-top: 15px;
+	margin-top: 5px;
+	margin-left: 34px;
+
 }
 
 .leccion-Amarillo{
-	float: right;
-	width: 50px;
-	height: 50px;
+	
+   	width: 60px;
+	height: 60px;
 	background-color: #dce120;
  	color:#FFF;
  	padding: 5px;
@@ -634,9 +659,9 @@ margin-top: 5px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
-		margin-top: 15px;
-
-}
+	margin-top: 5px;
+	margin-left: 34px;
+ }
 
 .leccion-Azul{
 	float: right;
@@ -654,6 +679,21 @@ margin-top: 5px;
 	
 }
 .leccion-Rojo{
+	width: 60px;
+	height: 60px;
+	background-color: #b21e1f;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+	margin-top: 5px;
+	margin-left: 34px;
+}
+
+.leccionlist-Rojo{
 	float: right;
 	width: 50px;
 	height: 50px;
@@ -665,7 +705,51 @@ margin-top: 5px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
-		margin-top: 15px;
+	margin-top: 15px;
+}
+.leccionlist-Verde{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #127000;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+	margin-top: 15px;
+}
+
+.leccionlist-Amarillo{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #dce120;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+	margin-top: 15px;
+}
+
+.leccionlist-Azul{
+	float: right;
+	width: 50px;
+	height: 50px;
+	background-color: #1c1ee2;
+ 	color:#FFF;
+ 	padding: 5px;
+ 	-moz-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	font-size: 10px;
+	margin-top: 15px;
 }
 
 #login-text{
@@ -692,7 +776,9 @@ margin-top: 5px;
 
 #leccion-data{
 	width:500px;
-	margin-top:20px;
+
+    padding: 5px;
+    
 }
 
 #leccion-data ul{

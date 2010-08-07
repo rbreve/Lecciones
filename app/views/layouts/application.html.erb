@@ -23,6 +23,16 @@
 			$(".helpBox").hide("fast");
 			return false;
 		});
+		
+		$('#lesson_ambito_id').change(function() {
+            if($("#lesson_ambito_id option:selected")[0].text=="IFI"){
+                $("#lesson_ifi_input").show();
+            }else{
+                 $("#lesson_ifi_input").hide();
+            }
+        });
+		
+		
  	});
 	
 	</script>
@@ -114,7 +124,9 @@
       <%- end -%>
 
       <%- if show_title? -%>
+      <div id="title-section">
         <h1><%=h yield(:title) %></h1>
+    </div>
       <%- end -%>
 
 		<div id="content">

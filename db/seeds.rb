@@ -17,7 +17,9 @@ ambitos= [
 	]
 tipos = [
 	"Recomendacion",
-	"Critica"
+	"Leccion Aprendida",
+	"Conclusión",
+	"Acción"
 ]
 
 
@@ -68,4 +70,10 @@ end
 
 Ifi.create(:name=>"Banco Temporal", :contact_name=>"Juan Perez", :contact_phone=>"232-3209", :contact_email=>"juanperez@seed.com", :country_id=>1)
 Ifi.create(:name=>"Banco Agrario", :contact_name=>"Maria Lopez", :contact_phone=>"9900001", :contact_email=>"marialopez@test.com", :country_id=>1 )
+
+Level.create(:name=>"Verde", :description=>"Nivel Verde")
+Level.create(:name=>"Amarillo", :description=>"Nivel Amarillo")
+Level.create(:name=>"Rojo", :description=>"Nivel Rojo")
+Level.create(:name=>"Azul", :description=>"Nivel Azul")
+
 

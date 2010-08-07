@@ -1,5 +1,5 @@
 class ProductiveSector < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :order
   
   has_many :ifisectorizations
   has_many :ifis, :through => :ifisectorization
