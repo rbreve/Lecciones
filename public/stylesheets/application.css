@@ -664,9 +664,8 @@ margin-top:25px;
  }
 
 .leccion-Azul{
-	float: right;
-	width: 50px;
-	height: 50px;
+    	width: 60px;
+	height: 60px;
 	background-color: #1c1ee2;
  	color:#FFF;
  	padding: 5px;
@@ -675,8 +674,8 @@ margin-top:25px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	font-size: 10px;
-		margin-top: 15px;
-	
+	margin-top: 15px;
+	margin-left: 34px;	
 }
 .leccion-Rojo{
 	width: 60px;
