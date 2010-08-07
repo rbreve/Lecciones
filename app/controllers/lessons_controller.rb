@@ -15,10 +15,10 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     query=""
     extern=""
     
-		@countries = Lcountry.find(:all, :order => "`order` ASC")
+		@countries = Lcountry.find(:all, :order => "'order' ASC")
 		@ambitos = Ambito.find(:all)
 		@levels = Level.find(:all)
-		@sectores = EmpresarialSector.find(:all, :order => "`order` ASC")
+		@sectores = EmpresarialSector.find(:all, :order => "'order' ASC")
     if admin_signed_in?
       @lessons = Lesson.all
     elsif not user_signed_in?

@@ -10,7 +10,7 @@
   
  
 
-  <%= f.input :lcountries, :as => :check_boxes, :collection => Lcountry.find(:all, :order => "`order` ASC"), :label => "Países a los cuales aplica" + helpBox("paisLeccion"),:required => false%>
+  <%= f.input :lcountries, :as => :check_boxes, :collection => Lcountry.find(:all, :order => "'order' ASC"), :label => "Países a los cuales aplica" + helpBox("paisLeccion"),:required => false%>
 
   <% if current_user %>
   	<% if not current_user.ispublic  %>
@@ -31,7 +31,7 @@
 		<!-- Solo para usuarios de CAMBio -->
 	  	<%= f.input :resultados,  :as => :check_boxes, :label => "Resultados",:required => false%> 
       	<%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
-      	<%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :collection => ProductiveSector.find(:all, :order=>"`order` ASC"), :required => false %>
+      	<%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :collection => ProductiveSector.find(:all, :order=>"'order' ASC"), :required => false %>
       	<%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
       <%end%>
 	<%end%>
@@ -44,7 +44,7 @@
     <%= f.input :origin, :label => "Origen" + helpBox("origenLeccion") %>
     <%= f.input :resultados,  :as => :check_boxes, :label => "Resultados" + helpBox("resultadosLeccion") ,:required => false%> 
     <%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
-    <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :collection => ProductiveSector.find(:all, :order=>"`order` ASC"), :required => false %>
+    <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :collection => ProductiveSector.find(:all, :order=>"'order' ASC"), :required => false %>
     <%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
     <%= f.input :isprivate, :as => :radio, :label => "Solo Para Uso Interno  ?" + helpBox("leccionInterno") %>
     <%= f.input :aprobada, :as => :radio %>
