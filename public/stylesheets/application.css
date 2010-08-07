@@ -146,6 +146,11 @@ a:hover{
   border: solid 1px black;
   margin-top: 20px;
   overflow: auto;
+  
+ -moz-border-radius: 14px; /* Firefox */
+ -webkit-border-radius: 14px; /* Safari and Chrome */
+  border-radius: 14px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+ 
 }
 
 #header{
@@ -426,13 +431,12 @@ table th{
 #top-toolbar{
 	margin: auto;
 	width: 980px;
-	margin-bottom: 30px;
-	height: 40px;
-	background-color: #c2ffd4;
+ 	height: 50px;
+	background-color: #c4f8fc;
  }
 
 #top-menu{
- 	padding-top: 10px;
+ 	padding-top: 15px;
  	padding-left: 60px;
  }
 
@@ -467,6 +471,19 @@ table th{
 
 /*Lecciones*/
 
+.filtered{
+	min-width: 190px;
+	padding: 3px;
+	background-color: #c1e8fe ;
+ 	margin-left: 3px;
+	display: inline;
+}
+
+#filters{
+	width: 500px;
+	
+	margin-bottom: 10px;
+}
 
 .export-link{
 	font-weight: bold;
@@ -495,7 +512,7 @@ table th{
 .leccion-box{
 	width:500px;
  
-	padding:5px;
+	padding:5px 5px 5px 0px;
 	margin-bottom:20px;
 	border-top: 1px dotted #9b9b9b;
 }
