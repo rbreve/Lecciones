@@ -11,14 +11,23 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		@ambito_id=params[:ambito_id]
 		@level_id=params[:level_id]
 		@esector_id=params[:esector_id]
+		@from_date = params[:from_date]
+		@to_date = params[:to_date]
+		
 		export = params[:csv]
     query=""
     extern=""
+    
+    date=Time.now
+    @last_week=(date-(60*60*24*7)).strftime("%Y-%m-%d")
+    @last_month=(date-(60*60*24*30)).strftime("%Y-%m-%d")
     
 		@countries = Lcountry.find(:all, :order => "orden ASC")
 		@ambitos = Ambito.find(:all)
 		@levels = Level.find(:all)
 		@sectores = EmpresarialSector.find(:all, :order => "orden ASC")
+		
+		
     if admin_signed_in?
       @lessons = Lesson.all
     elsif not user_signed_in?
@@ -42,17 +51,26 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		end
 
 		if @country_id.to_s != ""
+		    @country_name = Lcountry.find(@country_id).name
     	 @lessons = @lessons.by_country(@country_id)
 		end
 		
 		if @ambito_id.to_s != ""
+		  @ambito_name = Ambito.find(@ambito_id).name
 			@lessons = @lessons.by_ambito(@ambito_id)
 		end
 		
 		if @level_id.to_s != ""
+		  @level_name=Level.find(@level_id).name
 			@lessons = @lessons.by_level(@level_id)
 		end
+		
+		if @from_date.to_s != ""
+		  @lessons = @lessons.from_date(@from_date)
+		end
   
+    
+    
     respond_to do |format|
       format.html 
       format.csv do 

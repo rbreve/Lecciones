@@ -115,9 +115,10 @@
  
 
   <h3>Paises</h3>
-  <p>
-  <%=h @lesson.lcountries.collect{|c| [c.name + " "]} %>
-</p>
+  
+  <ul>
+  <%=@lesson.lcountries.collect{|c| ["<li>" + c.name + "</li>"]}%>
+</ul>
 
 </div>
 

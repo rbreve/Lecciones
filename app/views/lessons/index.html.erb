@@ -5,32 +5,58 @@
 	<li><%=link_to "Todas", lessons_path()%></li>
 	<li>Por País</li>
 	<ul>
+	    
  	<%for country in @countries%>
-		<li class="filter-type"> <%=link_to country.name, lessons_path(:country_id=>country.id)%> </li>
+		<li class="filter-type"> 
+		<%if country.id.to_s == @country_id%>
+		    > <%=country.name%>
+	    <%else%>
+	        <%=link_to country.name, lessons_path(:level_id=>@level_id,:country_id=>country.id,:ambito_id=>@ambito_id)%> 
+	    <%end%>
+	    </li>
 	<%end%>
+	
 	</ul>
  
 	<li>Por Ámbito</li>
 	<ul>
  	<%for ambito in @ambitos%>
-		<li  class="filter-type"> <%=link_to ambito.name, lessons_path(:ambito_id=>ambito.id)%> </li>
+ 	    <li  class="filter-type">
+ 	    <%if ambito.id.to_s == @ambito_id%>
+ 	        > <%=ambito.name%>
+ 	    <%else%>
+		    <%=link_to ambito.name, lessons_path(:level_id=>@level_id,:country_id=>@country_id,:ambito_id=>ambito.id)%>
+	    <%end%>
+	     </li>
 	<%end%>
 	</ul>
 	
 	<li>Por Nivel de Riesgo</li>
 	<ul>
  	<%for level in @levels%>
-		<li  class="filter-type"> <%=link_to level.name, lessons_path(:level_id=>level.id)%> </li>
+		<li  class="filter-type"> 
+		<%if level.id.to_s == @level_id%>
+		    > <%=level.name%>
+		<%else%>
+		    <%=link_to level.name, lessons_path(:level_id=>level.id,:country_id=>@country_id,:ambito_id=>@ambito_id)%>
+		<%end%>
+		</li>
 	<%end%>
 	</ul>	
 	
 	<li>Por Sector Económico</li>
 	<ul>
 	<%for sector in @sectores%>
-		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%>
+		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%> </li>
 	<%end%>
 	</ul>
- 	<li class="export-link"><a href="/lessons.csv?country_id=<%=@country_id%>&ambito_id=<%=@ambito_id%>">Exportar a Excel</a></li>
+	<li>Fechas</li>
+	<ul>
+	    <li><%= link_to "Hace 7 Días", lessons_path(:from_date=>@last_week)%></li>
+	    <li><%= link_to "Hace 30 Días", lessons_path(:from_date=>@last_month)%></li>
+	    <li>Rango De Fechas</li>
+	</ul>
+ 	<li class="export-link"><a href="/lessons.csv?date_from=<%=@date_from%>&country_id=<%=@country_id%>&ambito_id=<%=@ambito_id%>">Exportar a Excel</a></li>
 </ul>
 
 
@@ -38,10 +64,35 @@
 
 <div id="lecciones-list">
 
+<div id="filters">
+
+    <%if @ambito_id %>
+        <div class="filtered">
+        Por Ambito: <%=@ambito_name%>
+        </div>
+    <%end%>
  
 
-  <%= render :partial => @lessons %>
-  
+     <%if @country_id%>
+         <div class="filtered">
+        Por País: <%=@country_name%>
+        </div>
+     <%end%>
+     
+     <%if @level_id%>
+        <div class="filtered">
+         Nivel: <%=@level_name%>
+        </div>
+     <%end%>
+</div>
+
+<%if @lessons.size > 0%>
+    <%= render :partial => @lessons %>
+<%else%>
+<div id="flash_notice">
+    No se encontraron Lecciones Aprendidas según sus criterios.
+</div>
+<%end%>
  
   
 </div>
