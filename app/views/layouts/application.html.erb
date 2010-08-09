@@ -31,8 +31,22 @@
                  $("#lesson_ifi_input").hide();
             }
         });
-		
-		
+        
+        $('#date_range').click(function(){ 
+            $("#datepicker").show();
+            return false;
+        });
+        
+       $("#to_date").focusin(function(){
+            $('#to_date').datepicker({ dateFormat: 'yy-mm-dd' });
+           
+       });
+	
+	    $("#from_date").focusin(function(){
+            $('#from_date').datepicker({ dateFormat: 'yy-mm-dd' });
+           
+       });	
+	
  	});
 	
 	</script>
@@ -72,7 +86,7 @@
 				<div id="leccion-search">
 					<form action="/lessons/">
 		  				<input type="text" name="q" placeholder="Buscar Lecciones"> 
-		  				<input type="submit" value="Buscar " >
+		  				<input type="button" value="Buscar" id="buscar-button" class="rounded" >
 					</form>
 				</div>
       	  </div>
@@ -87,7 +101,7 @@
 
 					<form action="/lessons/">
 		  				<input type="text" name="q" placeholder="Buscar Lecciones"> 
-		  				<input type="submit" value="Buscar " >
+		  				<input type="submit" value="Buscar" id="buscar-button" >
 					</form>
 				</div>
 		

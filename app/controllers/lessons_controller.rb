@@ -105,7 +105,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       if admin_signed_in?
         flash[:notice] = "La lección fue creada"
       else
-        flash[:notice] = "La lección fue recibida y sera revisada por un administrador."
+        flash[:notice] = "Gracias, su lección fue recibida, será revisada por un administrador para su aprobación ."
       end
       redirect_to @lesson
     else

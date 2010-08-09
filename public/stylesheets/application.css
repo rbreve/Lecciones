@@ -86,8 +86,15 @@ strong{
 	color: white;
 }
 
+.rounded{
+	-moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari and Chrome */
+ 	border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+ 	
+}
+
 .rounded14{
-	-moz-border-radius: 14px; /* Firefox */
+  -moz-border-radius: 14px; /* Firefox */
   -webkit-border-radius: 14px; /* Safari and Chrome */
   border-radius: 14px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
   /*behavior: url(/stylesheets/ie-css3.htc);*/
@@ -189,6 +196,7 @@ a:hover{
   background-color: #CFC;
   border: solid 1px #6C6;
   margin: auto;
+  margin-top: 20px;
 }
 
 #flash_alert {
@@ -578,7 +586,7 @@ table th{
 
 #lecciones-search-main{
 	width:500px;
-	height: 140px;
+	min-height: 190px;
 	background-color: #c1e8fe;
 	padding-top: 30px;
 	padding-left: 60px;
@@ -790,6 +798,14 @@ margin-top:25px;
 
 }
 
+#leccion-search input{
+	width: 90px;
+}
+
+#buscar-button{
+	border: 1px solid silver;
+  }
+
 #leccion-data{
 	width:500px;
 
@@ -810,4 +826,10 @@ margin-top:25px;
 	width: 500px;
 	background-color: #EFE;
 	padding: 10px;
+}
+
+
+#datepicker{
+	display: none;
+	font-size: 10px;
 }

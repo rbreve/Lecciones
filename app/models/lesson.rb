@@ -57,19 +57,19 @@ class Lesson < ActiveRecord::Base
 	
 	named_scope :by_ambito, lambda { |a|
 		{
- 			:conditions => ["ambito_id = ?", a]
+ 			:conditions => ["lessons.ambito_id = ?", a]
 		}
 	}
 	
 	named_scope :from_date, lambda { |d|
 	  {
-	   :conditions => ["created_at > ?", d]
+	   :conditions => ["lessons.created_at >= ?", d]
 	  }
 	}
 	
 	named_scope :by_level, lambda { |l|
 		{
-			:conditions => ["level_id = ?", l]
+			:conditions => ["lessons.level_id = ?", l]
 		}
 	}
 	

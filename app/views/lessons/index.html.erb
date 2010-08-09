@@ -1,7 +1,8 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/jquery-ui.min.js"></script>
+
 <div id="lecciones-filters">
-
 <ul>
-
 	<li><%=link_to "Todas", lessons_path()%></li>
 	<li>Por País</li>
 	<ul>
@@ -11,7 +12,7 @@
 		<%if country.id.to_s == @country_id%>
 		    > <%=country.name%>
 	    <%else%>
-	        <%=link_to country.name, lessons_path(:level_id=>@level_id,:country_id=>country.id,:ambito_id=>@ambito_id)%> 
+	        <%=link_to country.name, lessons_path(:level_id=>@level_id,:country_id=>country.id,:ambito_id=>@ambito_id,:sector_id=>@sector_id)%> 
 	    <%end%>
 	    </li>
 	<%end%>
@@ -25,7 +26,7 @@
  	    <%if ambito.id.to_s == @ambito_id%>
  	        > <%=ambito.name%>
  	    <%else%>
-		    <%=link_to ambito.name, lessons_path(:level_id=>@level_id,:country_id=>@country_id,:ambito_id=>ambito.id)%>
+		    <%=link_to ambito.name, lessons_path(:level_id=>@level_id,:country_id=>@country_id,:ambito_id=>ambito.id,:sector_id=>@sector_id)%>
 	    <%end%>
 	     </li>
 	<%end%>
@@ -38,7 +39,7 @@
 		<%if level.id.to_s == @level_id%>
 		    > <%=level.name%>
 		<%else%>
-		    <%=link_to level.name, lessons_path(:level_id=>level.id,:country_id=>@country_id,:ambito_id=>@ambito_id)%>
+		    <%=link_to level.name, lessons_path(:level_id=>level.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:sector_id=>@sector_id)%>
 		<%end%>
 		</li>
 	<%end%>
@@ -47,39 +48,49 @@
 	<li>Por Sector Económico</li>
 	<ul>
 	<%for sector in @sectores%>
-		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id)%> </li>
+		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:level_id=>@level_id) %> </li>
 	<%end%>
 	</ul>
 	<li>Fechas</li>
 	<ul>
 	    <li><%= link_to "Hace 7 Días", lessons_path(:from_date=>@last_week)%></li>
 	    <li><%= link_to "Hace 30 Días", lessons_path(:from_date=>@last_month)%></li>
-	    <li>Rango De Fechas</li>
+	    <li><a href="#" id="date_range">Rango De Fechas</a></li>
 	</ul>
- 	<li class="export-link"><a href="/lessons.csv?date_from=<%=@date_from%>&country_id=<%=@country_id%>&ambito_id=<%=@ambito_id%>">Exportar a Excel</a></li>
+	<div id="datepicker">
+    <form action="/lessons" method="GET">
+        <input type="hidden" name="country_id" value="<%=@country_id%>">
+        <input type="hidden" name="ambito_id" value="<%=@ambito_id%>">
+        <input type="hidden" name="level_id" value="<%=@level_id%>">
+        <input type="hidden" name="esector_id" value="<%=@esector_id%>">
+
+	Desde: <div id="date_from"><input type='text' name="from_date" id="from_date"></div>
+	Hasta: <div id="date_to"><input type='text' name="to_date" id="to_date"></div>
+	<input type="submit" value="Buscar">
+	</div>
+ 	<li class="export-link"><a href="/lessons.csv?date_from=<%=@date_from%>&date_to=<%=@date_to%>&country_id=<%=@country_id%>&ambito_id=<%=@ambito_id%>&level_id=<%=@level_id%>">Exportar a Excel</a></li>
 </ul>
 
 
 </div>
 
 <div id="lecciones-list">
-
 <div id="filters">
 
-    <%if @ambito_id %>
+    <%unless @ambito_id.blank?%>
         <div class="filtered">
         Por Ambito: <%=@ambito_name%>
         </div>
     <%end%>
  
 
-     <%if @country_id%>
+     <%unless @country_id.blank?%>
          <div class="filtered">
         Por País: <%=@country_name%>
         </div>
      <%end%>
      
-     <%if @level_id%>
+     <%unless @level_id.blank?%>
         <div class="filtered">
          Nivel: <%=@level_name%>
         </div>
