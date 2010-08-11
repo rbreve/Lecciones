@@ -1,17 +1,17 @@
 <% title "Productos" %>
+<div class="button"><%= link_to "Nuevo Producto", new_producto_path %></div>
 
 <table>
   <tr>
     <th>Name</th>
   </tr>
   <% for producto in @productos %>
-    <tr>
+    <tr class="<%=cycle('odd', 'even')%>">
       <td><%=h producto.name %></td>
-      <td><%= link_to "Show", producto %></td>
-      <td><%= link_to "Edit", edit_producto_path(producto) %></td>
-      <td><%= link_to "Destroy", producto, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Ver", producto %></td>
+      <td><%= link_to "Editar", edit_producto_path(producto) %></td>
+      <td><%= link_to "Borrar", producto, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Producto", new_producto_path %></p>

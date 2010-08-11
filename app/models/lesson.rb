@@ -33,6 +33,7 @@ class Lesson < ActiveRecord::Base
   named_scope :all, :conditions => "1=1", :order=>"lessons.created_at DESC"
   named_scope :external, :conditions => { :isprivate => FALSE } , :order=>"lessons.created_at DESC"
   named_scope :approved, :conditions => {:aprobada => TRUE}, :order=>"lessons.created_at DESC"
+  named_scope :not_approved, :conditions => {:aprobada => nil}, :order=>"lessons.created_at DESC"
   named_scope :search, lambda { |q|
   		{ 
 				:conditions => ["name like ?", "%" + q + "%"] 
@@ -46,6 +47,15 @@ class Lesson < ActiveRecord::Base
 			:conditions => "lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = " + s + " AND empresarial_sectors.id="+ s
 		}
 	}
+	
+	named_scope :by_esector_country, lambda { |s|
+		{
+			:select => "lesson_esectors.*, lessons.*", 
+			:from => "lessons, lesson_esectors, empresarial_sectors,lesson_countries, lcountries",
+			:conditions => "lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = " + s + " AND empresarial_sectors.id="+ s
+		}
+	}
+
 	
 	named_scope :by_country, lambda { |c|
 		{

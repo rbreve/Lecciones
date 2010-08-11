@@ -13,6 +13,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		@esector_id=params[:esector_id]
 		@from_date = params[:from_date]
 		@to_date = params[:to_date]
+		@aprobada=params[:aprobada]
 		
 		export = params[:csv]
     query=""
@@ -29,7 +30,12 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		
 		
     if admin_signed_in?
-      @lessons = Lesson.all
+      @newlessons=Lesson.not_approved.length
+      unless @aprobada.blank?
+        @lessons = Lesson.not_approved
+      else
+        @lessons= Lesson.all
+      end
     elsif not user_signed_in?
       @lessons=Lesson.external.approved
     else
@@ -42,38 +48,43 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end
     end
     
-    if q.to_s != ""
+    unless q.blank?
       @lessons = @lessons.search(q)
     end
 
-		if @esector_id.to_s != ""
-			@lessons=@lessons.by_esector(@esector_id)
+		unless @esector_id.blank?
+		  @esector_name=EmpresarialSector.find(@esector_id).name
+			unless @country_id.blank?
+			  @lessons=@lessons.by_esector_country(@esector_id)
+			else
+			  @lessons=@lessons.by_esector(@esector_id)
+			end
 		end
 
-		if @country_id.to_s != ""
-		    @country_name = Lcountry.find(@country_id).name
-    	 @lessons = @lessons.by_country(@country_id)
+		unless @country_id.blank?
+      @country_name = Lcountry.find(@country_id).name
+      @lessons = @lessons.by_country(@country_id)
 		end
 		
-		if @ambito_id.to_s != ""
+		unless @ambito_id.blank?
 		  @ambito_name = Ambito.find(@ambito_id).name
 			@lessons = @lessons.by_ambito(@ambito_id)
 		end
 		
-		if @level_id.to_s != ""
+		unless @level_id.blank?
 		  @level_name=Level.find(@level_id).name
 			@lessons = @lessons.by_level(@level_id)
 		end
 		
-		if @from_date.to_s != ""
+		unless @from_date.blank?
 		  @lessons = @lessons.from_date(@from_date)
 		end
   
-    
-    
+
     respond_to do |format|
       format.html 
-      format.csv do 
+      format.csv do
+        print @lessons.length
         c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
         send_data c
       end

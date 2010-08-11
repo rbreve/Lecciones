@@ -7,7 +7,7 @@ class Ifi < ActiveRecord::Base
   has_many :lessons
   
   
-  named_scope :all, :conditions => "1=1", :order=>"ifis.name DESC"
+  named_scope :all, :conditions => "deleted=FALSE", :order=>"ifis.name DESC"
  
   named_scope :by_psector, lambda { |p|
 		{
@@ -17,6 +17,7 @@ class Ifi < ActiveRecord::Base
 		}
 	}
 	
+ 	
 	
 	named_scope :by_country, lambda { |c|
 		{

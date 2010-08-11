@@ -46,6 +46,15 @@
 	  <%=@ifi.contact_email%>
 	  </p>
 	<%end%>
+
+	<% if admin_signed_in? %>
+
+  <p>
+    <%= link_to "Editar", edit_ifi_path(@ifi) %> |
+    <%= link_to "Desactivar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
+    <%= link_to "Listado de IFI", ifis_path %>
+  </p>
+  
 	<br/><br/>
 	<%=link_to "<< Listado de IFI", ifis_path%>
 </div>
@@ -58,12 +67,6 @@
 	</div>
 <%end%>
 
-<% if admin_signed_in? %>
 
-  <p>
-    <%= link_to "Editar", edit_ifi_path(@ifi) %> |
-    <%= link_to "Borrar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
-    <%= link_to "Listado de IFI", ifis_path %>
-  </p>
 
 <%end%>

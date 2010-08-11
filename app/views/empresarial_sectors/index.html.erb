@@ -1,17 +1,19 @@
 <% title "Sectores Empresariales" %>
 
+<div class="button"><%= link_to "Agregar Sector", new_empresarial_sector_path %></div>
+
+
 <table>
   <tr>
     <th>Nombre</th>
   </tr>
   <% for empresarial_sector in @empresarial_sectors %>
-    <tr>
+    <tr class="<%=cycle('odd', 'even')%>">
       <td><%=h empresarial_sector.name %></td>
-      <td><%= link_to "Show", empresarial_sector %></td>
-      <td><%= link_to "Edit", edit_empresarial_sector_path(empresarial_sector) %></td>
-      <td><%= link_to "Destroy", empresarial_sector, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Ver", empresarial_sector %></td>
+      <td><%= link_to "Editar", edit_empresarial_sector_path(empresarial_sector) %></td>
+      <td><%= link_to "Borrar", empresarial_sector, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Empresarial Sector", new_empresarial_sector_path %></p>

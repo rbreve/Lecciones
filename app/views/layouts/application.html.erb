@@ -108,6 +108,7 @@
            <%= link_to 'Salir del Admin', destroy_admin_session_path %>
 		</div>
         <div id="admin_menu" style="float:left;margin-top:15px;margin-left:65px;">
+            <%=link_to "Nuevas Lecciones", lessons_path(:aprobada=>0)%> <%if @newlessons%><div class="counter"><%=@newlessons%></div><%end%>| 
            <%=link_to "Lecciones", lessons_path %> | 
            <%=link_to "Mensajes", messages_path %> | 
 
@@ -117,8 +118,7 @@
            <% link_to 'Tipos', leccion_types_path %>   
           <%= link_to 'IFIs', ifis_path %> |
            <%= link_to 'Productos', productos_path %> |
-           <%= link_to 'Resultados', resultados_path %> |
-           <%= link_to 'Sectores Productivos', productive_sectors_path %> |
+            <%= link_to 'Sectores Productivos', productive_sectors_path %> |
            <%= link_to 'Sectores Empresariales', empresarial_sectors_path %> |
            <%= link_to 'Ayuda', helps_path%> 
 		

@@ -101,6 +101,18 @@ strong{
 
 }
  
+.counter{
+	background-color: #B00;
+	color: #FFF;
+	display: inline;
+	padding: 2px;
+	min-width:10px;
+	
+	-moz-border-radius: 4px; /* Firefox */
+  	-webkit-border-radius: 4px; /* Safari and Chrome */
+ 	border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+
+}
 
 select{
 	margin-bottom: 20px;

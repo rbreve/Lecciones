@@ -6,7 +6,7 @@
  <%= f.input :ambito, :label => "Ambito de La Lección" + helpBox("ambitoLeccion")%> 
 
  
-  <%= f.input :ifi, :label => "IFI" + helpBox("ifiLeccion") %>   
+  <%= f.input :ifi, :collection=>Ifi.all,:label => "IFI" + helpBox("ifiLeccion") %>   
   
  
 

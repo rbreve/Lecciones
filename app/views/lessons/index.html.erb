@@ -12,7 +12,7 @@
 		<%if country.id.to_s == @country_id%>
 		    > <%=country.name%>
 	    <%else%>
-	        <%=link_to country.name, lessons_path(:level_id=>@level_id,:country_id=>country.id,:ambito_id=>@ambito_id,:sector_id=>@sector_id)%> 
+	        <%=link_to country.name, lessons_path(:level_id=>@level_id,:country_id=>country.id,:ambito_id=>@ambito_id,:esector_id=>@esector_id)%> 
 	    <%end%>
 	    </li>
 	<%end%>
@@ -26,7 +26,7 @@
  	    <%if ambito.id.to_s == @ambito_id%>
  	        > <%=ambito.name%>
  	    <%else%>
-		    <%=link_to ambito.name, lessons_path(:level_id=>@level_id,:country_id=>@country_id,:ambito_id=>ambito.id,:sector_id=>@sector_id)%>
+		    <%=link_to ambito.name, lessons_path(:level_id=>@level_id,:country_id=>@country_id,:ambito_id=>ambito.id,:esector_id=>@esector_id)%>
 	    <%end%>
 	     </li>
 	<%end%>
@@ -39,7 +39,7 @@
 		<%if level.id.to_s == @level_id%>
 		    > <%=level.name%>
 		<%else%>
-		    <%=link_to level.name, lessons_path(:level_id=>level.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:sector_id=>@sector_id)%>
+		    <%=link_to level.name, lessons_path(:level_id=>level.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:esector_id=>@esector_id)%>
 		<%end%>
 		</li>
 	<%end%>
@@ -48,7 +48,13 @@
 	<li>Por Sector Económico</li>
 	<ul>
 	<%for sector in @sectores%>
-		<li  class="filter-type"> <%=link_to sector.name, lessons_path(:esector_id=>sector.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:level_id=>@level_id) %> </li>
+		<li  class="filter-type">
+		<%if sector.id.to_s == @esector_id%>
+	        > <%=sector.name%>
+	    <%else%>
+		     <%=link_to sector.name, lessons_path(:esector_id=>sector.id,:country_id=>@country_id,:ambito_id=>@ambito_id,:level_id=>@level_id) %>        
+		<%end%>
+		</li>
 	<%end%>
 	</ul>
 	<li>Fechas</li>
@@ -93,6 +99,12 @@
      <%unless @level_id.blank?%>
         <div class="filtered">
          Nivel: <%=@level_name%>
+        </div>
+     <%end%>
+     
+     <%unless @esector_id.blank?%>
+        <div class="filtered">
+        Sector Empresarial: <%=@esector_name%>
         </div>
      <%end%>
 </div>

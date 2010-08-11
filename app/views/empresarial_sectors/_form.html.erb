@@ -1,8 +1,9 @@
 <% form_for @empresarial_sector do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label "Nombre" %><br />
+    <%= f.label "Nombre" %> 
     <%= f.text_field :name %>
+    <%= f.label "Orden" %> 
     <%= f.text_field :orden %>
 
   </p>

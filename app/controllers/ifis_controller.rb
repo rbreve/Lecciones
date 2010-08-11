@@ -58,7 +58,9 @@ class IfisController < ApplicationController
   def destroy
     @ifi = Ifi.find(params[:id])
     # @ifi.destroy
-    flash[:notice] = "Successfully destroyed ifi."
+    @ifi.deleted=true
+    @ifi.save
+    flash[:notice] = "IFI desactivada"
     redirect_to ifis_url
   end
 end
