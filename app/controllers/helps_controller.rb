@@ -19,7 +19,7 @@ class HelpsController < ApplicationController
   def create
     @help = Help.new(params[:help])
     if @help.save
-      flash[:notice] = "Successfully created help."
+      flash[:notice] = "Texto de ayuda creado con éxito"
       redirect_to @help
     else
       render :action => 'new'
@@ -33,7 +33,7 @@ class HelpsController < ApplicationController
   def update
     @help = Help.find(params[:id])
     if @help.update_attributes(params[:help])
-      flash[:notice] = "Successfully updated help."
+      flash[:notice] = "Texto de ayuda actualizado con éxito"
       redirect_to @help
     else
       render :action => 'edit'
@@ -43,7 +43,7 @@ class HelpsController < ApplicationController
   def destroy
     @help = Help.find(params[:id])
     @help.destroy
-    flash[:notice] = "Successfully destroyed help."
+    flash[:notice] = "Texto de ayuda eliminado"
     redirect_to helps_url
   end
   

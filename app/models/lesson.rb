@@ -30,7 +30,7 @@ class Lesson < ActiveRecord::Base
   has_many :empresarial_sectors, :through => :lesson_esectors
   
   validates_presence_of :name, :description
-  named_scope :all, :conditions => "1=1", :order=>"lessons.created_at DESC"
+  named_scope :all, :conditions =>"1=1",:order=>"lessons.created_at DESC"
   named_scope :external, :conditions => { :isprivate => FALSE } , :order=>"lessons.created_at DESC"
   named_scope :approved, :conditions => {:aprobada => TRUE}, :order=>"lessons.created_at DESC"
   named_scope :not_approved, :conditions => {:aprobada => nil}, :order=>"lessons.created_at DESC"

@@ -7,4 +7,5 @@ class ProductiveSector < ActiveRecord::Base
   has_many :lesson_eproducts
   has_many :lessons, :through => :lesson_eproducts
   
+  validates_presence_of :name
 end

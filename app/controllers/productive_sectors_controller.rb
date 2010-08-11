@@ -14,7 +14,7 @@ class ProductiveSectorsController < ApplicationController
   def create
     @productive_sector = ProductiveSector.new(params[:productive_sector])
     if @productive_sector.save
-      flash[:notice] = "Successfully created productive sector."
+      flash[:notice] = "Sector productivo creado con éxito"
       redirect_to :action => 'index'
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class ProductiveSectorsController < ApplicationController
   def update
     @productive_sector = ProductiveSector.find(params[:id])
     if @productive_sector.update_attributes(params[:productive_sector])
-      flash[:notice] = "Successfully updated productive sector."
+      flash[:notice] = "Sector productivo actualizado con éxito"
       redirect_to @productive_sector
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class ProductiveSectorsController < ApplicationController
   def destroy
     @productive_sector = ProductiveSector.find(params[:id])
     @productive_sector.destroy
-    flash[:notice] = "Successfully destroyed productive sector."
+    flash[:notice] = "Sector productivo eliminado"
     redirect_to productive_sectors_url
   end
 end

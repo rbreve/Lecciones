@@ -1,4 +1,10 @@
-<% title "Edit Lesson" %>
+<%if @lesson.aprobada %>
+   <% title "Editar Lección" %>   
+<%else%>
+   <% title "Revisar / Aprobar Lección" %>    
+<%end%>
+
+
 
 <%= render :partial => 'form' %>
 
