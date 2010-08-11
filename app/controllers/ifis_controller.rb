@@ -32,7 +32,7 @@ class IfisController < ApplicationController
   def create
     @ifi = Ifi.new(params[:ifi])
     if @ifi.save
-      flash[:notice] = "Successfully created ifi."
+      flash[:notice] = "IFI creada con éxito"
       redirect_to @ifi
     else
       render :action => 'new'
@@ -48,7 +48,7 @@ class IfisController < ApplicationController
     @ifi = Ifi.find(params[:id])
     
     if @ifi.update_attributes(params[:ifi])
-      flash[:notice] = "Successfully updated ifi."
+      flash[:notice] = "IFI actualizada con éxito"
       redirect_to @ifi
     else
       render :action => 'edit'

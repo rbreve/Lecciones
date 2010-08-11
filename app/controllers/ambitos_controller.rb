@@ -14,7 +14,7 @@ class AmbitosController < ApplicationController
   def create
     @ambito = Ambito.new(params[:ambito])
     if @ambito.save
-      flash[:notice] = "Successfully created ambito."
+      flash[:notice] = "Ambito creado con éxito"
       redirect_to @ambito
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class AmbitosController < ApplicationController
   def update
     @ambito = Ambito.find(params[:id])
     if @ambito.update_attributes(params[:ambito])
-      flash[:notice] = "Successfully updated ambito."
+      flash[:notice] = "Ambito actualizado con éxito"
       redirect_to @ambito
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class AmbitosController < ApplicationController
   def destroy
     @ambito = Ambito.find(params[:id])
     # @ambito.destroy
-    flash[:notice] = "Ambito ha sido deshabilitado"
+    flash[:notice] = "Ambito deshabilitado"
     redirect_to ambitos_url
   end
 end

@@ -14,7 +14,7 @@ class EmpresarialSectorsController < ApplicationController
   def create
     @empresarial_sector = EmpresarialSector.new(params[:empresarial_sector])
     if @empresarial_sector.save
-      flash[:notice] = "Successfully created empresarial sector."
+      flash[:notice] = "Sector Empresarial creado con éxito"
       redirect_to @empresarial_sector
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class EmpresarialSectorsController < ApplicationController
   def update
     @empresarial_sector = EmpresarialSector.find(params[:id])
     if @empresarial_sector.update_attributes(params[:empresarial_sector])
-      flash[:notice] = "Successfully updated empresarial sector."
+      flash[:notice] = "Sector Empresarial actualizado con éxito"
       redirect_to @empresarial_sector
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class EmpresarialSectorsController < ApplicationController
   def destroy
     @empresarial_sector = EmpresarialSector.find(params[:id])
     @empresarial_sector.destroy
-    flash[:notice] = "Successfully destroyed empresarial sector."
+    flash[:notice] = "Sector Empresarial Eliminado"
     redirect_to empresarial_sectors_url
   end
 end

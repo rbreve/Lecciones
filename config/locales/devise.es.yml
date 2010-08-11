@@ -1,10 +1,10 @@
-es:
+es:  
   datetime:
       distance_in_words:
         half_a_minute: "half a minute" 
         less_than_x_seconds:
           one:  "menos de 1 segundo" 
-          other: "less than {{count}} seconds" 
+          other: "menos de {{count}} segundos" 
         x_seconds:
           one:  "1 segundo" 
           other: "{{count}} segundos" 
@@ -32,6 +32,7 @@ es:
         over_x_years:
           one:  "mas de 1 año" 
           other: "{{count}} años"
+
   activerecord:
    attributes:
     user:
@@ -47,6 +48,12 @@ es:
       code: "Código:"
       title: "Titulo:"
       description: "Descripción:"
+    ifi:
+      name: "Nombre de la Institución"
+    producto:
+      name: "Nombre del Producto"   
+    productive_sector:
+      name: "Nombre del Sector"
    errors:
      template:
       body: 'Se detectaron los siguientes problemas'
@@ -63,6 +70,20 @@ es:
                   blank: "esta en blanco"
               content: 
                   blank: "esta en blanco"
+      ifi:
+          attributes:
+              name:
+                  blank: "no puede ir en blanco"
+      producto:
+          attributes:
+              name:
+                  blank: "no puede ir en blanco"
+                  
+      productive_sector:
+          attributes:
+              name:
+                  blank: "no puede ir en blanco"
+                  
       lesson:
           attributes:
               name: 

@@ -14,7 +14,7 @@ class OriginsController < ApplicationController
   def create
     @origin = Origin.new(params[:origin])
     if @origin.save
-      flash[:notice] = "Successfully created origin."
+      flash[:notice] = "Origen creado con éxito"
       redirect_to @origin
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class OriginsController < ApplicationController
   def update
     @origin = Origin.find(params[:id])
     if @origin.update_attributes(params[:origin])
-      flash[:notice] = "Successfully updated origin."
+      flash[:notice] = "Origen actualizado con éxito"
       redirect_to @origin
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class OriginsController < ApplicationController
   def destroy
     @origin = Origin.find(params[:id])
     @origin.destroy
-    flash[:notice] = "Successfully destroyed origin."
+    flash[:notice] = "Origen eliminado con éxito"
     redirect_to origins_url
   end
 end

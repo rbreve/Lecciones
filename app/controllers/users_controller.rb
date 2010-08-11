@@ -16,7 +16,7 @@ before_filter :authenticate_admin!
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "Successfully created user."
+      flash[:notice] = "Usuario creado con éxito"
       redirect_to @user
     else
       render :action => 'new'
@@ -32,7 +32,7 @@ before_filter :authenticate_admin!
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Usuario fue Editado"
+      flash[:notice] = "Usuario actualizado con éxito"
       redirect_to users_path
     else
       render :action => 'edit'
@@ -43,7 +43,7 @@ before_filter :authenticate_admin!
     @user = User.find(params[:id])
     @user.locked_at = Time.now
 		@user.save
-    flash[:notice] = "Usuario Bloqueado."
+    flash[:notice] = "Usuario Bloqueado"
     redirect_to users_url
   end
 end

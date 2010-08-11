@@ -51,8 +51,13 @@
   <%end%>
   
 <%end%>
-<% f.buttons do %>
-     <%= f.commit_button :button_html => { :value=>"Crear Lección"}%>
-   <% end %>
+
+<%f.buttons do %>
+	<%if @lesson.id%>
+	   <%= f.commit_button :button_html => { :value=>"Salvar Cambios"}%>
+	<%else%>
+	   <%= f.commit_button :button_html => { :value=>"Enviar Lección"}%> 
+	<%end%>   
+<% end %>
 
 <% end %>

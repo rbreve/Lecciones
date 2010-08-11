@@ -86,12 +86,12 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       format.csv do
         print @lessons.length
         c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
-        send_data c
+        send_data(c, :type => 'text/csv;utf-8;')
       end
     end
     
    
-   end
+  end
   
   def show
     @lesson = Lesson.find(params[:id])

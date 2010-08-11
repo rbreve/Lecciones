@@ -14,7 +14,7 @@ class ResultadosController < ApplicationController
   def create
     @resultado = Resultado.new(params[:resultado])
     if @resultado.save
-      flash[:notice] = "Successfully created resultado."
+      flash[:notice] = "Resultado creado con éxito"
       redirect_to @resultado
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class ResultadosController < ApplicationController
   def update
     @resultado = Resultado.find(params[:id])
     if @resultado.update_attributes(params[:resultado])
-      flash[:notice] = "Successfully updated resultado."
+      flash[:notice] = "Resultado actualizado con éxito"
       redirect_to @resultado
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class ResultadosController < ApplicationController
   def destroy
     @resultado = Resultado.find(params[:id])
     @resultado.destroy
-    flash[:notice] = "Successfully destroyed resultado."
+    flash[:notice] = "Resultado eliminado"
     redirect_to resultados_url
   end
 end

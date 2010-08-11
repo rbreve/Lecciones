@@ -6,6 +6,7 @@ class Ifi < ActiveRecord::Base
   belongs_to :lcountry
   has_many :lessons
   
+  validates_presence_of :name
   
   named_scope :all, :conditions => "deleted=FALSE", :order=>"ifis.name DESC"
  
