@@ -115,6 +115,7 @@ es:
            password:
                too_short: "muy corta, eliga unas con un mínimo de 4 letras"
                blank: 'esta en blanco'
+               confirmation: 'y su confirmación no concuerdan...'
            name:
                blank: 'esta en blanco'
            username:

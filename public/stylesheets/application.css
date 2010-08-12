@@ -97,7 +97,8 @@ strong{
   -moz-border-radius: 14px; /* Firefox */
   -webkit-border-radius: 14px; /* Safari and Chrome */
   border-radius: 14px;
-}
+}  
+
  
 .counter{
 	background-color: #B00;
@@ -560,6 +561,7 @@ table th{
 
 #leccion-show-details h3{
 	color: gray;
+	margin-top:15px;
 }
 
 #leccion-info-column{
@@ -567,18 +569,34 @@ table th{
 	background-color: #EFE;
 	padding: 10px;
 	width: 230px;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 #leccion-info-column li{
 	list-style: square;
 	margin-left: 15px;
+}  
+
+
+#leccion-admin-column{
+  -moz-border-radius: 14px; /* Firefox */
+  -webkit-border-radius: 14px; /* Safari and Chrome */
+  border-radius: 14px;
+  border:solid 1px #AACCAA;
+  padding: 15px 20px 0px 20px;
+  background:#FFFFFF;
+  text-align:center;   
+  margin-bottom:20px;
 }
 
 .leccion-text{
 	float: left;
 	width: 500px;
-  
+	margin-top:20px;
+}
+
+.leccion-text h2{
+	margin-bottom:30px;
 }
 
 .leccion-text h3{
@@ -668,8 +686,15 @@ padding-left: 20px;
 	font-size: 12px;	
 	margin-top: 5px;
 	color: teal;
-	 
+	margin-top:20px;
+}               
+
+.leccion-box-show .leccion-fecha{
+    border-top:dotted 1px #CCCCCC;
+	margin:20px 0px 10px 0px;
+	padding:10px 0px;
 }
+
 .leccion-level-box{
 	padding: 10px;
 	width: 140px;	
@@ -845,6 +870,29 @@ margin-top:25px;
 	margin-left: 20px;
 }
 
+
+/***** Sign in page *******/     
+
+.sign-in-left{
+    float:left;
+    width:300px;
+    border-right:dotted 1px #DDDDDD;
+    padding:20px 20px 0px 20px;
+    margin:30px 0px; 
+}
+
+.sign-in-right{
+    float:right;
+    width:450px;
+    padding:20px;
+    margin:30px 0px;  
+}
+
+.sign-in-content{
+    float:left;
+    width:800px;
+    padding:30px;
+}
 
 /*Forms*/
 

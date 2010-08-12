@@ -1,12 +1,12 @@
-<h2>Forgot your password?</h2>
+<div class="sign-in-content">
+<h2>Olvidó su contraseña?</h2>
 
+<p>Si olvidó su contraseña, solamente debe proporcionarnos su correo electrónico y se le enviará un mensaje con las instrucciones para que cree una nueva contraseña.</p>
+
+<p> Esta información será enviada a la cuenta de correo electrónico con la cual se registró inicialmente.</p>
 <% form_for resource_name, resource, :url => password_path(resource_name) do |f| %>
   <%= f.error_messages %>
 
-  <p><%= f.label :email %></p>
-  <p><%= f.text_field :email %></p>
-
-  <p><%= f.submit "Send me reset password instructions" %></p>
+  Ingrese su email: <%= f.text_field :email %> <%= f.submit "Envíeme las instrucciones..." %>
 <% end %>
-
-<%= render :partial => "shared/devise_links" %>
+</div>
