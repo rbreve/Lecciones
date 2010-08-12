@@ -37,7 +37,7 @@ class EmpresarialSectorsController < ApplicationController
   
   def destroy
     @empresarial_sector = EmpresarialSector.find(params[:id])
-    @empresarial_sector.destroy
+    #@empresarial_sector.destroy
     flash[:notice] = "Sector Empresarial Eliminado"
     redirect_to empresarial_sectors_url
   end

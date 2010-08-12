@@ -74,7 +74,7 @@ strong{
 
 
 .rounded4{
-	-moz-border-radius: 4px; /* Firefox */
+  -moz-border-radius: 4px; /* Firefox */
   -webkit-border-radius: 4px; /* Safari and Chrome */
   border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
   /*behavior: url(/stylesheets/ie-css3.htc);*/
@@ -96,9 +96,7 @@ strong{
 .rounded14{
   -moz-border-radius: 14px; /* Firefox */
   -webkit-border-radius: 14px; /* Safari and Chrome */
-  border-radius: 14px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
-  /*behavior: url(/stylesheets/ie-css3.htc);*/
-
+  border-radius: 14px;
 }
  
 .counter{
@@ -560,6 +558,23 @@ table th{
 	font-size: 13px;	
 }
 
+#leccion-show-details h3{
+	color: gray;
+}
+
+#leccion-info-column{
+	float: right;
+	background-color: #EFE;
+	padding: 10px;
+	width: 230px;
+	margin-top: 50px;
+}
+
+#leccion-info-column li{
+	list-style: square;
+	margin-left: 15px;
+}
+
 .leccion-text{
 	float: left;
 	width: 500px;
@@ -570,7 +585,8 @@ table th{
 	color: gray;
 	font-size: 18px;
 	margin-top: 20px;
- }
+}
+ 
 #leccion-data h3{
 	padding-top: 12px;
 	color: gray;
@@ -578,7 +594,6 @@ table th{
 }
 #leccion-data p{
 		margin-top: -5px;
-
 }
 
 
@@ -680,7 +695,7 @@ margin-top:25px;
 	border-radius: 8px;
 	font-size: 10px;
 	margin-top: 5px;
-	margin-left: 34px;
+	margin-left: 76px;
 
 }
 
@@ -697,7 +712,7 @@ margin-top:25px;
 	border-radius: 8px;
 	font-size: 10px;
 	margin-top: 5px;
-	margin-left: 34px;
+	margin-left: 76px;
  }
 
 .leccion-Azul{
@@ -712,7 +727,7 @@ margin-top:25px;
 	border-radius: 8px;
 	font-size: 10px;
 	margin-top: 15px;
-	margin-left: 34px;	
+	margin-left: 76px;	
 }
 .leccion-Rojo{
 	width: 60px;
@@ -726,7 +741,7 @@ margin-top:25px;
 	border-radius: 8px;
 	font-size: 10px;
 	margin-top: 5px;
-	margin-left: 34px;
+	margin-left: 75px;
 }
 
 .leccionlist-Rojo{
@@ -819,11 +834,10 @@ margin-top:25px;
   }
 
 #leccion-data{
-	width:500px;
-
-    padding: 5px;
-    
-}
+	width:400px;
+     padding: 5px;
+     float: left;
+ }
 
 #leccion-data ul{
 	margin-bottom: 10px;

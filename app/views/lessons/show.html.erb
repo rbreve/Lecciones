@@ -4,26 +4,10 @@
    
     <h2><%=h @lesson.name %></h2>
     
-    <%=h @lesson.description %>
+    <%=nl2br(h @lesson.description) %>
  
 
-      <%if @lesson.origin%>
-      <div id="leccion-show-details">
-      
-        <h3>Origen <%=helpBox("origenLeccion")%></h3> 
-        <p>
-        <%=h @lesson.origin.name%>
-         <%if @lesson.leccion_type%>
-        </p>
-
-            <h3>Tipo <%=helpBox("tipoLeccion")%> </h3>
-            <p>
-            <%=h @lesson.leccion_type.name %> 
-            </p>
-          <%end%>
-      
-      </div>
-      <%end%>
+     
  
 <div class="leccion-fecha">
       <strong> Enviada hace </strong>
@@ -36,46 +20,64 @@
       
     </div>
   </div>
-
-  <div class="leccion-level-box" >
-      <%if @lesson.level%>
-<%=helpBox("colores")%>
-        <div class="leccion-<%=@lesson.level.name%>">
-        Nivel: <%=@lesson.level.name%>
-        </div>
-
-      <%end%>
-    
+  
  
+
+
+  <div id="leccion-info-column" class="rounded14">
+     <div id="leccion-show-details">
+        <%if @lesson.level%>
+            <h3>Nivel <%=helpBox("colores")%></h3>
+            <div class="leccion-<%=@lesson.level.name%>">
+             <%=@lesson.level.name%>
+            </div>
+         <%end%>
+    <% if @lesson.ifi %>
+        <h3>IFI</h3>
+        <p>
+            <%=link_to @lesson.ifi.name, ifi_path(@lesson.ifi) %>
+        </p>
+    <%end%>      
+         
+      <%if @lesson.origin%>
+          <h3>Origen <%=helpBox("origenLeccion")%></h3> 
+          <p><%=h @lesson.origin.name%></p>
+          
+      <%end%>
+      
+      <%if @lesson.leccion_type%>
+         
+
+          <h3>Tipo <%=helpBox("tipoLeccion")%> </h3>
+               <p><%=h @lesson.leccion_type.name %> </p>
+      <%end%>
+
+ 
+     <h3>Ambito  <%=helpBox("ambitoLeccion")%></h3> 
+      <ul><li>
+          <%=h @lesson.ambito.name %></li></ul>
+   
+        <% if @lesson.empresarial_sectors.length > 0%>
+    	<p>
+    	  <h3>Sector Empresarial</h3>
+    	  <ul>
+    	  <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
+    	  </ul>
+    	</p>
+    	<%end%>
+    	<%if @lesson.productive_sectors.length > 0%>
+    		<p>
+    		 <h3>Sector Productivo</h3>
+    		  <ul>
+    		 <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
+    		  </ul>
+    		</p>
+    	<%end%>
+    </div>   
   </div>
 
-</div>
 
-<div id="leccion-data" >
-
- <h3>Ambito  <%=helpBox("ambitoLeccion")%></h3> 
-<p> 
-  <%=h @lesson.ambito.name %>
-</p>
-
-
-<% if @lesson.ifi %>
-
-  <h3>IFI</h3>
-  <p>
-  <%=link_to @lesson.ifi.name, ifi_path(@lesson.ifi) %>
-</p>
-<%end%>
-
-<%if @lesson.leccion_type%>
-    <h3>Tipo</h3>
-      <p>
-    <%=h @lesson.leccion_type.name %>
-  </p>
-
-<%end%>
- 
- 
+  <div id="leccion-data" > 
 	<%if @lesson.resultados.size > 0 %>
 	
 		  <h3>Resultados</h3>
@@ -98,21 +100,7 @@
 	</p>
 	<%end%>
 
-	<p>
-	  <h3>Sector Empresarial</h3>
-	  <ul>
-	  <%= @lesson.empresarial_sectors.collect{|r| [ "<li>" + r.name + " </li>"]} %>
-	  </ul>
-	</p>
-	<%if @lesson.productive_sectors.length > 0%>
-		<p>
-		 <h3>Sector Productivo</h3>
-		  <ul>
-		 <%= @lesson.productive_sectors.collect{|r| ["<li>" + r.name + " </li>"]} %>
-		  </ul>
-		</p>
-	<%end%>
- 
+
 
   <h3>Paises</h3>
   
@@ -120,10 +108,15 @@
   <%=@lesson.lcountries.collect{|c| ["<li>" + c.name + "</li>"]}%>
 </ul>
 
+
+
+</div>
+
+
+
 </div>
 
 <%=link_to "<< Regresar a Listado de Lecciones", lessons_path%>
-
 
 <% if admin_signed_in? %>
       <p>

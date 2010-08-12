@@ -49,13 +49,14 @@
 
 	<% if admin_signed_in? %>
 
-  <p>
-    <%= link_to "Editar", edit_ifi_path(@ifi) %> |
-    <%= link_to "Desactivar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
-    <%= link_to "Listado de IFI", ifis_path %>
-  </p>
-  
+      <p>
+        <%= link_to "Editar", edit_ifi_path(@ifi) %> |
+        <%= link_to "Desactivar", @ifi, :confirm => 'Are you sure?', :method => :delete %> |
+        <%= link_to "Listado de IFI", ifis_path %>
+      </p>
+    <%end%>
 	<br/><br/>
+
 	<%=link_to "<< Listado de IFI", ifis_path%>
 </div>
 
@@ -69,4 +70,3 @@
 
 
 
-<%end%>

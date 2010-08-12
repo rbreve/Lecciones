@@ -38,7 +38,7 @@ class CountriesController < ApplicationController
   
   def destroy
     @country = Country.find(params[:id])
-    @country.destroy
+    #@country.destroy
     flash[:notice] = "Successfully destroyed country."
     redirect_to countries_url
   end
