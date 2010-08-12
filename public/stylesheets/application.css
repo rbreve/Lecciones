@@ -531,9 +531,13 @@ table th{
 .leccion-box{
 	width:500px;
  
-	padding:5px 5px 5px 0px;
+	padding:5px 5px 15px 0px;
 	margin-bottom:20px;
 	border-top: 1px dotted #9b9b9b;
+}
+
+.leccion-box h2{
+   width:400px;
 }
 
 .leccion-box h2 a{
@@ -541,11 +545,10 @@ table th{
 }
 
 .leccion-box-show{
-	
 	width:800px;
  	min-height: 180px;
 	padding:5px 5px 25px 5px;
-	margin-bottom:20px;
+	margin-bottom:30px;
 	border-bottom: 1px dotted #9b9b9b;
 	overflow: auto;
 }
@@ -925,6 +928,30 @@ margin-top:25px;
 .new-lesson-content .anon-lesson-box{
     margin-top:30px;
     margin-left:100px;
+} 
+
+.edit-lesson-content{
+    float:left;
+    width:800px;
+    padding:30px;
+}
+
+.edit-lesson-content h1{
+    margin-bottom:30px;
+}
+
+.lesson-approval{
+  border:solid 1px #FFCC00;
+  background:#FFFBE3;
+  padding:20px 100px;
+  width:450px;
+  margin:auto;
+  margin-bottom:20px;
+}
+
+.lesson-approval .approval-checkboxes{
+  margin-top:30px;
+  margin-left:30px;
 }
 
 

@@ -1,14 +1,16 @@
-<%if @lesson.aprobada %>
-   <% title "Editar Lección" %>   
-<%else%>
-   <% title "Revisar / Aprobar Lección" %>    
-<%end%>
+<div class="edit-lesson-content"> 
+<h1>
+	<%if @lesson.aprobada %>
+		Editar Lección
+	<%else%>
+		Revisar / Aprobar Lección
+	<%end%>  
+</h1>   
 
-
-
-<%= render :partial => 'form' %>
+<%= render :partial => 'form' %>  
+</div>
 
 <p>
-  <%= link_to "Show", @lesson %> |
-  <%= link_to "View All", lessons_path %>
+  <%= link_to "Ver lección", @lesson %> |
+  <%= link_to "Volver a listado", lessons_path %>
 </p>
