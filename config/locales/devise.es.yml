@@ -63,13 +63,13 @@ es:
           attributes:
               
               name: 
-                  blank: "esta en blanco"
+                  blank: "está en blanco"
               country: 
-                  blank: "esta en blanco"
+                  blank: "está en blanco"
               email: 
-                  blank: "esta en blanco"
+                  blank: "está en blanco"
               content: 
-                  blank: "esta en blanco"
+                  blank: "está en blanco"
       ifi:
           attributes:
               name:
@@ -110,16 +110,16 @@ es:
            current_password:
                blank: "Favor escribir su contraseña para confirmar los cambios"
            email:
-               blank: "esta en blanco"
+               blank: "está en blanco"
                taken: "Este correo electrónico ya existe en nuestra base de datos, eliga otro."
            password:
                too_short: "muy corta, eliga unas con un mínimo de 4 letras"
-               blank: 'esta en blanco'
+               blank: 'está en blanco'
                confirmation: 'y su confirmación no concuerdan...'
            name:
-               blank: 'esta en blanco'
+               blank: 'está en blanco'
            username:
-               blank: 'esta en blanco' 
+               blank: 'está en blanco' 
             
   devise:
     sessions:
@@ -134,20 +134,20 @@ es:
       timeout: 'Su sesión ha expirado. Favor ingresar nuevamente'
       inactive: 'Su cuenta aun no ha sido activada'
     passwords:
-      link: 'Olvido su contraseña?'
+      link: '¿Olvido su contraseña?'
       send_instructions: 'Recibirá un correo electrónico de como activar su cuenta en unos minutos.'
       updated: 'Ha cambiado su password. Ahora puede entrar'
     confirmations:
-      link: "No recibió  instrucciones para entrar?"
+      link: "¿No recibió  instrucciones para entrar?"
       send_instructions: 'Recibirá un correo electrónico de como activar su cuenta en unos minutos'
-      confirmed: 'Su cuenta ha sido activada. Ya esta ingresado al sistema'
+      confirmed: 'Su cuenta ha sido activada. Ya está ingresado al sistema'
     registrations:
       link: 'Registrarse'
-      signed_up: 'Ha sido registrado satisfactoriamente, un administrador revisara sus datos, activará su cuenta y le enviará un email pronto.'
+      signed_up: '<p>Gracias por su solicitud.</p> <p>Un administrador revisará sus datos y activará su cuenta.<br>Recibirá un email de confirmación pronto.</p>'
       updated: 'Ha actualizado su cuenta satisfactoriamente.'
       destroyed: 'Su cuenta ha sido cancelada.'
     unlocks:
-      link: "No recibió instrucciones de como desbloquear su cuenta?"
+      link: "¿No recibió instrucciones de como desbloquear su cuenta?"
       send_instructions: 'Recibirá instrucciones de como desbloquear su cuenta a su email en unos minutos'
       unlocked: 'Su cuenta ha sido desbloqueada'
     mailer:
