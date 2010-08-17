@@ -1,0 +1,195 @@
+<style>
+.search-results{
+	float:left;
+	width:700px;
+	margin-left:25px;
+	margin-top:30px;
+}     
+
+.search-results .leccion-box{
+  width:100%;  
+}  
+
+.search-not-found{
+	float:left;
+	width:700px;
+	border:solid 1px #DD0000;
+	text-align:center;
+	font-size:20px;
+	padding:30px 10px;
+	margin:20px 0px 20px 0px;
+}
+
+.search-basic{
+  border-top:solid 1px #CCCCCC;
+  border-left:solid 1px #CCCCCC;
+  border-right:solid 1px #CCCCCC;
+  float:left;
+  text-align:center;
+  width:770px;  
+  margin-top:30px;
+}
+
+.search-bottom{
+  border-bottom:solid 1px #CCCCCC;
+  border-left:solid 1px #CCCCCC;
+  border-right:solid 1px #CCCCCC;
+  float:left;
+  text-align:center;
+  width:770px;
+}   
+
+.search-bottom input{
+	width:90px;
+	height:50px;
+	font-size:20px;
+}
+
+.search-filters{
+  background:#FFF0C4;
+  float:left;
+  width:770px;
+  border:solid 1px #CCCCCC;
+}
+
+.search-col{
+  margin-right:10px;
+  float:left;
+}
+
+.search-row{
+  float:left;
+}
+
+.search-col .search-param-box {
+  border-left:solid 1px #FFFFFF;
+  border-top:solid 1px #FFFFFF;
+  padding:10px 0px 10px 10px;
+  float:left; 
+  width:100%;   
+}
+
+.search-row .search-param-box {
+  border-left:solid 1px #FFFFFF;
+  padding:10px 20px 10px 10px;
+  float:left;
+}
+
+.search-col .checkbox{
+  margin-bottom:0px;
+  margin-top:0px;
+  font-size:10px;
+}   
+
+.search-row .checkbox{
+  margin-bottom:0px;
+  margin-top:0px;
+  margin-right:20px;
+  font-size:10px;
+  float:left;
+}
+
+</style>
+
+<h1>Búsqueda Avanzada</h1>
+
+<div class="search-results"> 
+ <%unless @lessons.blank?%>
+   <h2> Se encontraron <%=@lessons.size%> lecciones: </h2>  
+   <%= render :partial => @lessons %> 
+ <%else%>
+     <%unless @lessons.nil?%>
+        <div class="search-not-found"> No se encontraron lecciones con esas especificaciones...</div>
+     <%end%>
+ <%end%>
+</div>  
+	
+	
+<%form_tag search_path(),:method=>:post do%>
+<div class="search-basic">
+
+ <%unless @lessons.blank?%>
+	<h2>Filtros aplicados a estos resultados:</h2>
+ <%else%>
+	<h2>Especifique sus filtros de búsqueda</h2>
+ <%end%>
+
+<h3>Palabra en título o contenido: <%=text_field_tag 'q', @q, :size => 25%> <input type="submit" value="Buscar"> </h3>
+<p>Y que además cumpla con los siguientes filtros:</p>
+</div>
+
+<div class="search-filters">
+	<div class="search-row">
+		<div class="search-param-box">
+		<h3>Tipo de Lección</h3>
+		<%for tipo in @tipos_leccion%>
+		  <div class="checkbox"><%=check_box_tag 'tipo_leccion_id[]',tipo.id,(@tipo_leccion_id.include?(tipo.id.to_s))%> <%=tipo.name%></div>
+		<%end%>
+		</div>
+		
+		<div class="search-param-box" style="width:303px">
+		<h3>Nivel de Riesgo</h3>
+		<%for level in @levels%>
+		  <div class="checkbox"><%=check_box_tag 'level_id[]',level.id,(@level_id.include?(level.id.to_s))%> <%=level.name%></div>
+		<%end%>
+		</div>
+	</div>	
+	<div class="search-col"  style="width:350px">
+		<div class="search-param-box">
+		<h3>Sector Productivo</h3>
+		<%for psector in @psectores%>
+		  <div class="checkbox"><%=check_box_tag 'psector_id[]',psector.id,(@psector_id.include?(psector.id.to_s))%> <%=psector.name%></div>
+		<%end%>
+		</div>
+			
+		<div class="search-param-box">
+		<h3>Productos</h3>
+		<%for producto in @productos%>
+		  <div class="checkbox"><%=check_box_tag 'producto_id[]',producto.id,(@producto_id.include?(producto.id.to_s))%> <%=producto.name%></div>
+		<%end%>
+		</div>
+	</div>
+
+	<div class="search-col" style="width:200px">
+		<div class="search-param-box">
+		<h3>Sector Empresarial</h3>
+		<%for esector in @esectores%>
+		  <div class="checkbox"><%=check_box_tag 'esector_id[]',esector.id,(@esector_id.include?(esector.id.to_s))%> <%=esector.name%></div>
+		<%end%>
+		</div>
+	
+		<div class="search-param-box">
+		<h3>Origen</h3>
+		<%for origen in @origenes%>
+		  <div class="checkbox"><%=check_box_tag 'origen_id[]',origen.id,(@origen_id.include?(origen.id.to_s))%> <%=origen.name%></div>
+		<%end%>
+		</div>
+
+		<div class="search-param-box">
+		<h3>Resultados</h3>
+		<%for resultado in @resultados%>
+		  <div class="checkbox"><%=check_box_tag 'resultado_id[]',resultado.id,(@resultado_id.include?(resultado.id.to_s))%> <%=resultado.name%></div>
+		<%end%>
+		</div>
+	</div>
+
+	<div class="search-col" style="width:180px">
+		<div class="search-param-box">
+		<h3>País</h3>   
+		<%for country in @countries%>
+		  <div class="checkbox"><%=check_box_tag 'country_id[]',country.id,(@country_id.include?(country.id.to_s))%> <%=country.name%></div>
+		<%end%>                
+		</div>
+
+		<div class="search-param-box">  
+		<h3>Ambito</h3>   
+		<%for ambito in @ambitos%>
+		  <div class="checkbox"><%=check_box_tag 'ambito_id[]',ambito.id,(@ambito_id.include?(ambito.id.to_s))%> <%=ambito.name%></div>
+		<%end%>
+		</div>
+	</div>     
+</div>
+<div class="search-bottom"> 
+<input type="submit" value="Buscar">
+</div>
+<%end%>
