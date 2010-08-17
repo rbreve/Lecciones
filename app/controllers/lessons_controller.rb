@@ -177,10 +177,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     
     if request.post?
       #-- Si el request es POST entonces ejecuta la búsqueda...
-      @result="Resultados de busqueda"
-  		@from_date = params[:from_date]
-  		@to_date = params[:to_date]
-      
+
       #-- Inicializa variables de control ....
   		where_id_in = nil
   		abort_search = false
