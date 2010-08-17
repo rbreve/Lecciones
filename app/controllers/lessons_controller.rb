@@ -182,9 +182,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
   		@to_date = params[:to_date]
       
       #-- Inicializa variables de control ....
-  		where_id_in=nil
+  		where_id_in = nil
   		abort_search = false
-                                              
+
       #-- Filtro de PAIS 
   		if not @country_id.empty?
         lessons = Lesson.find(:all,:select => "lesson_countries.*, lessons.*",
@@ -261,24 +261,19 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       #-- Paso final... el search de texto...      
       if abort_search
         @lessons=[]
-        @like_ids="ABORTADO"
-        @result="No se encontró ninguna lección con esas propiedades"
       else
-          
         filter_private = "AND isprivate=0"
         if current_user
             unless current_user.ispublic:
               filter_private = ""
             end
-        end
+        end  
         
   		  if not @q.blank?
   		    @lessons = Lesson.find(:all,:conditions=>["aprobada=1 #{filter_private} #{where_id_in} AND (name like ? or description like ?)","%#{@q}%","%#{@q}%"])
   		  else  
           @lessons = Lesson.find(:all,:conditions=>"aprobada=1 #{filter_private} #{where_id_in}")
-        end                                                             
-        @like_ids = @lessons.map {|x| x.id}.join(",")
-        @result="No se encontró ninguna lección con esas propiedades"                                  
+        end                                                                                        
       end
       
 
@@ -290,7 +285,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
           c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
           send_data(c, :type => 'text/csv;utf-8;')
         end
-      end    
+      end
     end
   end
   
