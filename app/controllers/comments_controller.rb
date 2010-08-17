@@ -43,8 +43,9 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment = Comment.find(params[:id])
+    @lesson=@comment.lesson
     @comment.destroy
-    flash[:notice] = "Successfully destroyed comment."
-    redirect_to comments_url
+    flash[:notice] = "Comentario fue borrado."
+    redirect_to lesson_path(@lesson)
   end
 end

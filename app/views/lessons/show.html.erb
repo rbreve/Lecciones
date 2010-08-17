@@ -111,10 +111,7 @@
 	    </ul>
 	</p>
 	<%end%>
-
-
-
-  <h3>Paises</h3>
+ <h3>Paises</h3>
   
   <ul>
   <%=@lesson.lcountries.collect{|c| ["<li>" + c.name + "</li>"]}%>
@@ -128,19 +125,26 @@
 
 
     
-    <%unless @comments.blank?%>
+   
     <div id="comments">
+     <%unless @comments.blank?%>
         <h2>Comentarios</h2>
         <%for comment in @comments%>
             <div class="comment-box">
             <strong><%=comment.user.name%></strong>
             <p>
             <%=h comment.content%>
+            <% if admin_signed_in? %>
+            <p>
+                <%= link_to "Borrar", comment, :confirm => 'Are you sure?', :method => :delete %>
+            </p>
+            <%end%>
             </p>
             </div>
         <%end%>
-     </div>
     <%end%>
+     </div>
+
        
     <% if user_signed_in? -%>
 
