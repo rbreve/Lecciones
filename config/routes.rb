@@ -1,9 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.search "/search", :controller=>"lessons",:action=>"search"
+  
   map.resources :comments
 
- map.resources :helps
+  map.resources :helps
 	
- map.resources :confirm
+  map.resources :confirm
 	
   map.resources :messages
 

@@ -147,5 +147,151 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		@lesson.save
     flash[:notice] = "Lección Borrada"
     redirect_to lessons_url
+  end   
+  
+  #---- Accion custom para search
+  
+  def search                 
+   #--- Carga de la DB los listados de parámetros disponibles para filtrar
+    @countries = Lcountry.find(:all, :order => "orden ASC")
+		@ambitos = Ambito.find(:all)
+		@levels = Level.find(:all)
+		@esectores = EmpresarialSector.find(:all, :order => "orden ASC")
+    @origenes = Origin.find(:all)
+    @tipos_leccion = LeccionType.find(:all)
+    @psectores = ProductiveSector.find(:all, :order => "orden ASC")
+    @resultados = Resultado.find(:all)
+    @productos = Producto.find(:all)
+    
+   #--- Carga del del POST (o deja en array vacios) los listados de parámetros seleccionados por el usuario para la búsqueda...
+    @q=params[:q]
+		(params[:country_id].nil?) ? @country_id=[] : @country_id=params[:country_id] 
+		(params[:ambito_id].nil?) ? @ambito_id=[] : @ambito_id=params[:ambito_id] 
+		(params[:level_id].nil?) ? @level_id=[] : @level_id=params[:level_id] 
+		(params[:esector_id].nil?) ? @esector_id=[] : @esector_id=params[:esector_id]
+    (params[:origen_id].nil?) ? @origen_id=[] : @origen_id=params[:origen_id]
+    (params[:tipo_leccion_id].nil?) ? @tipo_leccion_id=[] : @tipo_leccion_id=params[:tipo_leccion_id]
+    (params[:psector_id].nil?) ? @psector_id=[] : @psector_id=params[:psector_id]
+    (params[:resultado_id].nil?) ? @resultado_id=[] : @resultado_id=params[:resultado_id]
+    (params[:producto_id].nil?) ? @producto_id=[] : @producto_id=params[:producto_id]
+    
+    if request.post?
+      #-- Si el request es POST entonces ejecuta la búsqueda...
+      @result="Resultados de busqueda"
+  		@from_date = params[:from_date]
+  		@to_date = params[:to_date]
+      
+      #-- Inicializa variables de control ....
+  		where_id_in=nil
+  		abort_search = false
+                                              
+      #-- Filtro de PAIS 
+  		if not @country_id.empty?
+        lessons = Lesson.find(:all,:select => "lesson_countries.*, lessons.*",
+        :from =>"lessons, lesson_countries, lcountries",
+        :conditions => ["lesson_countries.lesson_id = lessons.id AND lesson_countries.lcountry_id = lcountries.id AND lcountries.id IN (#{@country_id.join(",")})"]).map {|x| x.id}
+        
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+      
+      #-- Filtro de AMBITO 
+  		if not @ambito_id.empty? and not abort_search
+        lessons = Lesson.find(:all,:conditions => ["ambito_id IN (#{@ambito_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+        
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+
+      #-- Filtro de TIPO DE LECCION
+  		if not @tipo_leccion_id.empty? and not abort_search
+        lessons = Lesson.find(:all,:conditions => ["leccion_type_id IN (#{@tipo_leccion_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+        
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+      
+      #-- Filtro de NIVEL DE RIESGO 
+  		if not @level_id.empty? and not abort_search
+        lessons = Lesson.find(:all,:conditions => ["level_id IN (#{@level_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+        
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+
+      #-- Filtro de ORIGEN
+  		if not @origen_id.empty? and not abort_search
+        lessons = Lesson.find(:all,:conditions => ["origin_id IN (#{@origen_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+        
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+                                      
+      #-- Filtro de SECTOR EMPRESARIAL 
+  		if not @esector_id.empty?
+        lessons = Lesson.find(:all,:select => "lesson_esectors.*, lessons.*", 
+  			:from => "lessons, lesson_esectors, empresarial_sectors",
+        :conditions => ["lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = empresarial_sectors.id AND empresarial_sectors.id IN (#{@esector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end                             
+      
+      #-- Filtro de SECTOR PRODUCTIVO
+  		if not @psector_id.empty?
+        lessons = Lesson.find(:all,:select => "lesson_psectors.*, lessons.*", 
+  			:from => "lessons, lesson_psectors, productive_sectors",
+        :conditions => ["lesson_psectors.lesson_id = lessons.id AND lesson_psectors.productive_sector_id = productive_sectors.id AND productive_sectors.id IN (#{@psector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end                            
+      
+      #-- Filtro de PRODUCTOS
+  		if not @producto_id.empty?
+        lessons = Lesson.find(:all,:select => "lesson_products.*, lessons.*", 
+  			:from => "lessons, lesson_products, productos",
+        :conditions => ["lesson_products.lesson_id = lessons.id AND lesson_products.producto_id = productos.id AND productos.id IN (#{@producto_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end      
+
+      #-- Filtro de RESULTADOS
+  		if not @resultado_id.empty?
+        lessons = Lesson.find(:all,:select => "lesson_results.*, lessons.*", 
+  			:from => "lessons, lesson_results, resultados",
+        :conditions => ["lesson_results.lesson_id = lessons.id AND lesson_results.resultado_id = resultados.id AND resultados.id IN (#{@resultado_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+
+        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+      end
+            
+      #-- Paso final... el search de texto...      
+      if abort_search
+        @lessons=[]
+        @like_ids="ABORTADO"
+        @result="No se encontró ninguna lección con esas propiedades"
+      else
+          
+        filter_private = "AND isprivate=0"
+        if current_user
+            unless current_user.ispublic:
+              filter_private = ""
+            end
+        end
+        
+  		  if not @q.blank?
+  		    @lessons = Lesson.find(:all,:conditions=>["aprobada=1 #{filter_private} #{where_id_in} AND (name like ? or description like ?)","%#{@q}%","%#{@q}%"])
+  		  else  
+          @lessons = Lesson.find(:all,:conditions=>"aprobada=1 #{filter_private} #{where_id_in}")
+        end                                                             
+        @like_ids = @lessons.map {|x| x.id}.join(",")
+        @result="No se encontró ninguna lección con esas propiedades"                                  
+      end
+      
+
+      #-- Respond para pasar el EXPORT CSV o el HTML
+      respond_to do |format|
+        format.html 
+        format.csv do
+          print @lessons.length
+          c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
+          send_data(c, :type => 'text/csv;utf-8;')
+        end
+      end    
+    end
   end
+  
 end
