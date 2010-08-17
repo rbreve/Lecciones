@@ -1,14 +1,20 @@
- <h1>Agregar Lección Aprendida</h1>
+<div class="new-lesson-content">
+<h1>Agregar Lección Aprendida</h1>
 
-<p>
-Si ya tiene cuenta con nosotros?
-<span class="rounded4"><%=link_to "Ingrese aca", new_user_session_path%></span> 
-</p>
-<p>
-Si no tiene <span class="rounded4"><%=link_to "Solicite Una Cuenta", new_user_registration_path%></span> para poder enviar una lección más detallada.
-</p>
-<hr/>
-<h2 >Envie su Lección Aprendida sin registrarse</h2>
-<%= render :partial => 'form' %>
+<p>Solamente usuarios registrados pueden agregar lecciones:</p>
+	<ul>
+	<li>Si usted ya tiene una cuenta con nosotros 
+	<span class="rounded4"><%=link_to "ingrese aca", new_user_session_path%></span> 
+	</li>
+	<li>
+	Si aún no tiene cuenta, <span class="rounded4"><%=link_to "solicite una aquí", new_user_registration_path%></span>
+	</li>
+	</ul>
+Si no desea registrarse y solo quiere enviar una lección aprendida con datos resumidos puede usar el siguiente formulario:
+	<div class="anon-lesson-box">
+	<h2 >Envie su Lección Aprendida sin registrarse</h2>
+	<%= render :partial => 'form' %>
+	</div>  
+</div>
 
  

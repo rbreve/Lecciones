@@ -1,14 +1,9 @@
- 
 <% semantic_form_for @lesson do |f| %>
 <% f.inputs do%>
 
-  
  <%= f.input :ambito, :label => "Ambito de La Lección" + helpBox("ambitoLeccion")%> 
-
  
   <%= f.input :ifi, :collection=>Ifi.all,:label => "IFI" + helpBox("ifiLeccion") %>   
-  
- 
 
   <%= f.input :lcountries, :as => :check_boxes, :collection => Lcountry.find(:all, :order => "orden ASC"), :label => "Países a los cuales aplica" + helpBox("paisLeccion"),:required => false%>
 
@@ -46,8 +41,14 @@
     <%= f.input :productos, :as=>:check_boxes, :label => "Productos", :required => false %>
     <%= f.input :productive_sectors, :as=>:check_boxes, :label => "Sectores Productivos", :collection => ProductiveSector.find(:all, :order=>"orden ASC"), :required => false %>
     <%= f.input :empresarial_sectors, :as=>:check_boxes, :label =>"Sectores Empresariales", :required => false %>
-    <%= f.input :isprivate, :as => :radio, :label => "Solo Para Uso Interno  ?" + helpBox("leccionInterno") %>
-    <%= f.input :aprobada, :as => :radio %>
+    <div class="lesson-approval">
+    	<h2>Aprobación o Rechazo de lección</h2>
+	    <p>Es importante que indique el tipo de uso que se le dará a la lección (interno o externo) y si se aprueba o no la publicación de esta lección:</p>
+	    <div class="approval-checkboxes">
+	    <%= f.input :isprivate, :as => :radio, :label => "¿Sólo para uso interno?" + helpBox("leccionInterno"),:collection => { "Si" => true, "No" => false }, :required => true %> 
+	    <%= f.input :aprobada, :as => :radio,:label => "¿Desea aprobar esta lección?",:collection => { "Si" => true, "No" => false }, :required => true %> 
+	    </div>
+    </div>   
   <%end%>
   
 <%end%>
@@ -60,4 +61,10 @@
 	<%end%>   
 <% end %>
 
-<% end %>
+<% end %>  
+
+<%if @lesson.ambito.name=="IFI"%>                          
+<script>
+$("#lesson_ifi_input").show();
+</script>
+<%end%>
