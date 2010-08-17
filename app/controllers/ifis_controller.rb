@@ -10,7 +10,7 @@ class IfisController < ApplicationController
     country_id=params[:country_id]
 
 
-    if psector_id.to_s != ""
+    unless psector_id.blank?
 			@ifis=@ifis.by_psector(psector_id)
 		end
     

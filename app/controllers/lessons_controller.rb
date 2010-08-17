@@ -95,6 +95,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
   
   def show
     @lesson = Lesson.find(params[:id])
+    @comment = Comment.new
+    @comment.lesson=@lesson
+    @comments = Comment.find(:all, :conditions=>["lesson_id=?",params[:id]])
   end
   
   def new

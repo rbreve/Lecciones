@@ -37,6 +37,16 @@
             return false;
         });
         
+        $('#comment-form').submit(function(){
+           $.post('/comments.js',$("#new_comment").serialize(),function(data){
+                data=eval(data);
+                $("#comments").append("<div class=\"comment-box\"><strong>"+data[0].user+"</strong><p>"+data[0].content+"</p></div>");
+                return false;
+          });
+           
+           
+           return false; 
+        });
 
         $('#to_date').datepicker({ dateFormat: 'yy-mm-dd' });
         $('#from_date').datepicker({ dateFormat: 'yy-mm-dd' });

@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   belongs_to :ifi
   belongs_to :ambito
   validates_presence_of :name, :username
+  has_many :comments
   
 end

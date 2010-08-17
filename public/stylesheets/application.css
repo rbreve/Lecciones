@@ -907,3 +907,27 @@ margin-top:25px;
 	display: none;
 	font-size: 10px;
 }
+
+/*Comments*/
+
+textarea{
+	padding: 5px;
+}
+
+.comment-box{
+	width: 580px;
+	padding: 15px;
+	background: #f5fff9;
+-moz-border-radius: 14px; /* Firefox */
+  -webkit-border-radius: 14px; /* Safari and Chrome */
+  border-radius: 14px;
+
+margin: 10px 0px 10px 0px;
+
+}
+
+#comment-form{
+	width: 580px;
+	padding: 15px;
+	background: #EFE;
+}

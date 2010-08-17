@@ -25,20 +25,26 @@
 </div>
 
 <div id="ifi-list">
+    
+    <%unless @ifis.blank?%>
+    
+        <% for ifi in @ifis %>
+        <div class="ifi-box">
+          <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
+          <strong>Sectores Productivos:</strong> <%=h ifi.productive_sectors.collect{|c| [c.name + ", "]} %> <br/>
+          <%if ifi.lcountry%>
+            <strong>País:</strong>  <%=h ifi.lcountry.name %>  
+          <%end%>
 
-    <% for ifi in @ifis %>
-    <div class="ifi-box">
-      <h2><%=link_to ifi.name, ifi_path(ifi)%></h2>
-      <strong>Sectores Productivos:</strong> <%=h ifi.productive_sectors.collect{|c| [c.name + ", "]} %> <br/>
-      <%if ifi.lcountry%>
-        <strong>País:</strong>  <%=h ifi.lcountry.name %>  
-      <%end%>
-
-    	<%if ifi.lessons_count%>
-    	<div class="leccion-fecha"><%=link_to ifi.lessons_count.to_s + " lecciones", ifi_path(ifi)%></div>
-    	<%end%>
-    </div>
+        	<%if ifi.lessons_count%>
+        	<div class="leccion-fecha"><%=link_to ifi.lessons_count.to_s + " lecciones", ifi_path(ifi)%></div>
+        	<%end%>
+        </div>
+        <%end%>
+    <%else%>
+        <div id="flash_notice">
+            No se encontraron Instituciones Financieras según sus criterios.
+        </div>
     <%end%>
-
 </div>
  

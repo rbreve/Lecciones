@@ -1,0 +1,23 @@
+<% title "Comments" %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Lesson</th>
+    <th>Content</th>
+    <th>Created At</th>
+  </tr>
+  <% for comment in @comments %>
+    <tr>
+      <td><%=h comment.user_id %></td>
+      <td><%=h comment.lesson_id %></td>
+      <td><%=h comment.content %></td>
+      <td><%=h comment.created_at %></td>
+      <td><%= link_to "Show", comment %></td>
+      <td><%= link_to "Edit", edit_comment_path(comment) %></td>
+      <td><%= link_to "Destroy", comment, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Comment", new_comment_path %></p>

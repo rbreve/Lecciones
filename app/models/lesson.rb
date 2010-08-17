@@ -9,6 +9,8 @@ class Lesson < ActiveRecord::Base
   belongs_to :origin
   belongs_to :user
   
+  has_many :comments
+  
   has_many :resultados, :through => :lesson_results
   has_many :productos, :through => :lesson_products
   has_many :empresarial_sectors, :through => :lesson_esectors

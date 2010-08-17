@@ -124,8 +124,37 @@
 
 </div>
 
-
-
 </div>
+
+
+    
+    <%unless @comments.blank?%>
+    <div id="comments">
+        <h2>Comentarios</h2>
+        <%for comment in @comments%>
+            <div class="comment-box">
+            <strong><%=comment.user.name%></strong>
+            <p>
+            <%=h comment.content%>
+            </p>
+            </div>
+        <%end%>
+    <%end%>
+    
+    <% if user_signed_in? -%>
+    </div>
+        <div id="comment-form" class="rounded14">
+            <% form_for @comment do |f| %>
+             <%= f.hidden_field :lesson_id %>
+           <p>
+            Enviar Comentario:<br/>
+            <%= f.text_area :content , :rows=>10, :cols=>80, :placeholder=>"Escriba su comentario"%>
+          </p>
+  
+          <p><%= f.submit "Comentar" %></p>
+          <% end %>
+      </div>
+   
+<%end%>
 
 <%=link_to "<< Regresar a Listado de Lecciones", lessons_path%>
