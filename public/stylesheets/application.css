@@ -994,4 +994,96 @@ margin: 10px 0px 10px 0px;
 	background: #EFE;
 	margin-left: 5px;
 	margin-bottom: 10px;
+}        
+
+/* Busqueda avanzada */
+
+.search-results{
+	float:left;
+	width:700px;
+	margin-left:25px;
+	margin-top:30px;
+}     
+
+.search-results .leccion-box{
+  width:100%;  
+}  
+
+.search-not-found{
+	float:left;
+	width:700px;
+	border:solid 1px #DD0000;
+	text-align:center;
+	font-size:20px;
+	padding:30px 10px;
+	margin:20px 0px 20px 0px;
+}
+
+.search-basic{
+  border-top:solid 1px #CCCCCC;
+  border-left:solid 1px #CCCCCC;
+  border-right:solid 1px #CCCCCC;
+  float:left;
+  text-align:center;
+  width:770px;  
+  margin-top:30px;
+}
+
+.search-bottom{
+  border-bottom:solid 1px #CCCCCC;
+  border-left:solid 1px #CCCCCC;
+  border-right:solid 1px #CCCCCC;
+  float:left;
+  text-align:center;
+  width:770px;
+}   
+
+.search-bottom input{
+	width:90px;
+	height:50px;
+	font-size:20px;
+}
+
+.search-filters{
+  background:#FFF0C4;
+  float:left;
+  width:770px;
+  border:solid 1px #CCCCCC;
+}
+
+.search-col{
+  margin-right:10px;
+  float:left;
+}
+
+.search-row{
+  float:left;
+}
+
+.search-col .search-param-box {
+  border-left:solid 1px #FFFFFF;
+  border-top:solid 1px #FFFFFF;
+  padding:10px 0px 10px 10px;
+  float:left; 
+  width:100%;   
+}
+
+.search-row .search-param-box {
+  border-left:solid 1px #FFFFFF;
+  padding:10px 20px 10px 10px;
+  float:left;
+}
+
+.search-col .checkbox{
+  margin-bottom:0px;
+  margin-top:0px;
+  font-size:10px;
+}   
+
+.search-row .checkbox{
+  margin-bottom:0px;
+  margin-top:0px;
+  margin-right:20px;
+  font-size:10px;
+  float:left;
 }

@@ -38,7 +38,7 @@ class Lesson < ActiveRecord::Base
   named_scope :not_approved, :conditions => {:aprobada => nil}, :order=>"lessons.created_at DESC"
   named_scope :search, lambda { |q|
   		{ 
-				:conditions => ["name like ?", "%" + q + "%"] 
+				:conditions => ["name like ? or description like ?", "%" + q + "%", "%" + q + "%"] 
 			}
   }
 
