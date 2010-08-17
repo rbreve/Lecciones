@@ -139,10 +139,11 @@
             </p>
             </div>
         <%end%>
+     </div>
     <%end%>
-    
+       
     <% if user_signed_in? -%>
-    </div>
+
         <div id="comment-form" class="rounded14">
             <% form_for @comment do |f| %>
              <%= f.hidden_field :lesson_id %>

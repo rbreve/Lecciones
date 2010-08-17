@@ -8,7 +8,7 @@ class Ifi < ActiveRecord::Base
   
   validates_presence_of :name
   
-  named_scope :all, :conditions => ["ifis.deleted=?",false], :order=>"ifis.name DESC"
+  named_scope :all, :conditions => ["ifis.deleted IS NOT TRUE"], :order=>"ifis.name DESC"
  
   named_scope :by_psector, lambda { |p|
 		{
