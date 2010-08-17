@@ -17,7 +17,7 @@ class IfisController < ApplicationController
     if country_id.to_s != ""
       @ifis=@ifis.by_country(country_id)
     end
-    
+    @ifis=@ifis.paginate :page => params[:page]
   end
   
   def show

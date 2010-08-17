@@ -10,10 +10,9 @@ Rails::Initializer.run do |config|
   config.gem 'warden', :version => '0.10.7'
   config.gem 'devise', :version => '1.0.7'
   config.gem 'formtastic', :lib => 'formtastic', :source => "http://gemcutter.org/"
-   
+  config.gem 'fastercsv'
   config.time_zone = 'UTC'
   config.i18n.default_locale = :es
-
-config.action_mailer.delivery_method = :smtp
-
+  config.gem 'will_paginate', :version => '2.3.14'
+	config.action_mailer.delivery_method = :smtp
 end

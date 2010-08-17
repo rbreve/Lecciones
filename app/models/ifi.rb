@@ -5,8 +5,10 @@ class Ifi < ActiveRecord::Base
   has_many :productive_sectors, :through => :ifisectorizations
   belongs_to :lcountry
   has_many :lessons
-  
   validates_presence_of :name
+  
+  cattr_reader :per_page
+  @@per_page = 10
   
   named_scope :all, :conditions => ["ifis.deleted IS NOT TRUE"], :order=>"ifis.name DESC"
  

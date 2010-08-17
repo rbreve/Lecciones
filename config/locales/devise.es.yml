@@ -1,4 +1,8 @@
 es:  
+  constants:
+      will_paginate:
+          previous: "<< Anteriores"
+          next: "Siguientes >>"
   datetime:
       distance_in_words:
         half_a_minute: "half a minute" 

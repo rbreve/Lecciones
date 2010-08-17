@@ -27,5 +27,9 @@ module ApplicationHelper
 		
 		return render(:file=>"helps/helpbox", :layout => false, :locals => {:code=>@code, :helper=>@helper})
 	end
+	
+	def twill_paginate(collection = nil, options = {})
+    will_paginate collection, {:previous_label => t('constants.will_paginate.previous'), :next_label => t('constants.will_paginate.next')}.merge(options)
+  end
   
 end
