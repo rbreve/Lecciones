@@ -259,7 +259,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       if abort_search
         @lessons=[]
       else
-        filter_private = "AND isprivate=0"
+        filter_private = "AND isprivate=FALSE"
         if current_user
             unless current_user.ispublic:
               filter_private = ""
