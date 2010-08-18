@@ -193,7 +193,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       
       #-- Filtro de AMBITO 
   		unless @ambito_id.blank? 
+  		  print "ambito not blank"
   		  if not abort_search
+  		    print "paso maldito"
           lessons = Lesson.find(:all,:conditions => ["ambito_id IN (#{@ambito_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
           (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
         end
