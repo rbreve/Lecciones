@@ -220,7 +220,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end
                                       
       #-- Filtro de SECTOR EMPRESARIAL 
-  		unless @esector_id.blank?
+  		unless @esector_id.blank? and not abort_search
         lessons = Lesson.find(:all,:select => "lesson_esectors.*, lessons.*", 
   			:from => "lessons, lesson_esectors, empresarial_sectors",
         :conditions => ["lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = empresarial_sectors.id AND empresarial_sectors.id IN (#{@esector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
@@ -229,7 +229,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end                             
       
       #-- Filtro de SECTOR PRODUCTIVO
-  		unless @psector_id.blank?
+  		unless @psector_id.blank? and not abort_search
         lessons = Lesson.find(:all,:select => "lesson_psectors.*, lessons.*", 
   			:from => "lessons, lesson_psectors, productive_sectors",
         :conditions => ["lesson_psectors.lesson_id = lessons.id AND lesson_psectors.productive_sector_id = productive_sectors.id AND productive_sectors.id IN (#{@psector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
@@ -238,7 +238,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end                            
       
       #-- Filtro de PRODUCTOS
-  		unless @producto_id.blank?
+  		unless @producto_id.blank? and not abort_search
         lessons = Lesson.find(:all,:select => "lesson_products.*, lessons.*", 
   			:from => "lessons, lesson_products, productos",
         :conditions => ["lesson_products.lesson_id = lessons.id AND lesson_products.producto_id = productos.id AND productos.id IN (#{@producto_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
@@ -247,7 +247,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end      
 
       #-- Filtro de RESULTADOS
-  		unless @resultado_id.blank?
+  		unless @resultado_id.blank? and not abort_search
         lessons = Lesson.find(:all,:select => "lesson_results.*, lessons.*", 
   			:from => "lessons, lesson_results, resultados",
         :conditions => ["lesson_results.lesson_id = lessons.id AND lesson_results.resultado_id = resultados.id AND resultados.id IN (#{@resultado_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
