@@ -999,10 +999,9 @@ margin: 10px 0px 10px 0px;
 /* Busqueda avanzada */
 
 .search-results{
-	float:left;
-	width:700px;
-	margin-left:25px;
-	margin-top:30px;
+	width:750px;
+	margin: 20px auto 20px auto;
+	overflow: hidden;
 }     
 
 .search-results .leccion-box{
@@ -1020,19 +1019,16 @@ margin: 10px 0px 10px 0px;
 }
 
 .search-basic{
-  border-top:solid 1px #CCCCCC;
-  border-left:solid 1px #CCCCCC;
-  border-right:solid 1px #CCCCCC;
-  float:left;
+  background-color: #EFE;
+  margin: auto;
   text-align:center;
-  width:770px;  
+  width:758px;  
   margin-top:30px;
+  padding: 6px;
 }
 
 .search-bottom{
-  border-bottom:solid 1px #CCCCCC;
-  border-left:solid 1px #CCCCCC;
-  border-right:solid 1px #CCCCCC;
+ 
   float:left;
   text-align:center;
   width:770px;
@@ -1046,10 +1042,10 @@ margin: 10px 0px 10px 0px;
 
 .search-filters{
   background:#FFF0C4;
-  float:left;
-  width:770px;
-  border:solid 1px #CCCCCC;
-}
+   width:770px;
+   overflow: auto;
+   margin: auto;
+  }
 
 .search-col{
   margin-right:10px;
@@ -1077,7 +1073,7 @@ margin: 10px 0px 10px 0px;
 .search-col .checkbox{
   margin-bottom:0px;
   margin-top:0px;
-  font-size:10px;
+  font-size:12px;
 }   
 
 .search-row .checkbox{
