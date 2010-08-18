@@ -267,9 +267,9 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
         end  
         
   		  unless @q.blank?
-  		    @lessons = Lesson.find(:all,:conditions=>["aprobada=1 #{filter_private} #{where_id_in} AND (name like ? or description like ?)","%#{@q}%","%#{@q}%"])
+  		    @lessons = Lesson.find(:all,:conditions=>["aprobada=TRUE #{filter_private} #{where_id_in} AND (name like ? or description like ?)","%#{@q}%","%#{@q}%"])
   		  else  
-          @lessons = Lesson.find(:all,:conditions=>"aprobada=1 #{filter_private} #{where_id_in}")
+          @lessons = Lesson.find(:all,:conditions=>"aprobada=TRUE #{filter_private} #{where_id_in}")
         end                                                                                        
       end
       
