@@ -166,7 +166,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
    #--- Carga del del POST (o deja en array vacios) los listados de parámetros seleccionados por el usuario para la búsqueda...
     @q=params[:q]
 		(params[:country_id].nil?) ? @country_id=[] : @country_id=params[:country_id] 
-		(params[:ambito_id].nil?) ? @ambito_id=[] : @ambito_id=params[:ambito_id] 
+		(params[:ambito_id].blank?) ? @ambito_id=[] : @ambito_id=params[:ambito_id] 
 		(params[:level_id].nil?) ? @level_id=[] : @level_id=params[:level_id] 
 		(params[:esector_id].nil?) ? @esector_id=[] : @esector_id=params[:esector_id]
     (params[:origen_id].nil?) ? @origen_id=[] : @origen_id=params[:origen_id]
@@ -192,7 +192,7 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       end
       
       #-- Filtro de AMBITO 
-  		unless @ambito_id.empty? and not abort_search
+  		unless @ambito_id and not abort_search
         lessons = Lesson.find(:all,:conditions => ["ambito_id IN (#{@ambito_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
         
         (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
