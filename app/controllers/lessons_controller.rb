@@ -193,69 +193,77 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       
       #-- Filtro de AMBITO 
   		unless @ambito_id.blank? 
-  		  print "ambito not blank"
   		  if not abort_search
-  		    print "paso maldito"
           lessons = Lesson.find(:all,:conditions => ["ambito_id IN (#{@ambito_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
           (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
         end
       end
 
       #-- Filtro de TIPO DE LECCION
-  		unless @tipo_leccion_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:conditions => ["leccion_type_id IN (#{@tipo_leccion_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
-        
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+  		unless @tipo_leccion_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:conditions => ["leccion_type_id IN (#{@tipo_leccion_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end
       
       #-- Filtro de NIVEL DE RIESGO 
-  		unless @level_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:conditions => ["level_id IN (#{@level_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
-        
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+  		unless @level_id.blank?
+  		  if not abort_search
+          lessons = Lesson.find(:all,:conditions => ["level_id IN (#{@level_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end
 
       #-- Filtro de ORIGEN
-  		unless @origen_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:conditions => ["origin_id IN (#{@origen_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
-        
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+  		unless @origen_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:conditions => ["origin_id IN (#{@origen_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end
                                       
       #-- Filtro de SECTOR EMPRESARIAL 
-  		unless @esector_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:select => "lesson_esectors.*, lessons.*", 
-  			:from => "lessons, lesson_esectors, empresarial_sectors",
-        :conditions => ["lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = empresarial_sectors.id AND empresarial_sectors.id IN (#{@esector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+  		unless @esector_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:select => "lesson_esectors.*, lessons.*", 
+  			  :from => "lessons, lesson_esectors, empresarial_sectors",
+          :conditions => ["lesson_esectors.lesson_id = lessons.id AND lesson_esectors.empresarial_sector_id = empresarial_sectors.id AND empresarial_sectors.id IN (#{@esector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
 
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end                             
       
       #-- Filtro de SECTOR PRODUCTIVO
-  		unless @psector_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:select => "lesson_psectors.*, lessons.*", 
-  			:from => "lessons, lesson_psectors, productive_sectors",
-        :conditions => ["lesson_psectors.lesson_id = lessons.id AND lesson_psectors.productive_sector_id = productive_sectors.id AND productive_sectors.id IN (#{@psector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
-
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+  		unless @psector_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:select => "lesson_psectors.*, lessons.*", 
+  			  :from => "lessons, lesson_psectors, productive_sectors",
+          :conditions => ["lesson_psectors.lesson_id = lessons.id AND lesson_psectors.productive_sector_id = productive_sectors.id AND productive_sectors.id IN (#{@psector_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end                            
       
       #-- Filtro de PRODUCTOS
-  		unless @producto_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:select => "lesson_products.*, lessons.*", 
-  			:from => "lessons, lesson_products, productos",
-        :conditions => ["lesson_products.lesson_id = lessons.id AND lesson_products.producto_id = productos.id AND productos.id IN (#{@producto_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+  		unless @producto_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:select => "lesson_products.*, lessons.*", 
+  			  :from => "lessons, lesson_products, productos",
+          :conditions => ["lesson_products.lesson_id = lessons.id AND lesson_products.producto_id = productos.id AND productos.id IN (#{@producto_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
 
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end      
 
       #-- Filtro de RESULTADOS
-  		unless @resultado_id.blank? and not abort_search
-        lessons = Lesson.find(:all,:select => "lesson_results.*, lessons.*", 
-  			:from => "lessons, lesson_results, resultados",
-        :conditions => ["lesson_results.lesson_id = lessons.id AND lesson_results.resultado_id = resultados.id AND resultados.id IN (#{@resultado_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
+  		unless @resultado_id.blank? 
+  		  if not abort_search
+          lessons = Lesson.find(:all,:select => "lesson_results.*, lessons.*", 
+  			  :from => "lessons, lesson_results, resultados",
+          :conditions => ["lesson_results.lesson_id = lessons.id AND lesson_results.resultado_id = resultados.id AND resultados.id IN (#{@resultado_id.join(",")}) #{where_id_in}"]).map {|x| x.id}
 
-        (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+          (lessons.empty?) ? abort_search = true : where_id_in = " AND lessons.id IN (#{lessons.join(",")})"
+        end
       end
             
       #-- Paso final... el search de texto...      
