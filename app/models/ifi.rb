@@ -8,7 +8,7 @@ class Ifi < ActiveRecord::Base
   validates_presence_of :name
   
   cattr_reader :per_page
-  @@per_page = 10
+  @@per_page = 20
   
   named_scope :all, :conditions => ["ifis.deleted IS NOT TRUE"], :order=>"ifis.name DESC"
  
