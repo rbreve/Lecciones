@@ -1,6 +1,6 @@
 warden --version 0.10.7
 devise --version 1.0.7
-formtastic
+formtastic --version 0.9.10
 rails --version 2.3.8
 fastercsv
 will_paginate --version 2.3.14
