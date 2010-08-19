@@ -79,6 +79,12 @@ class Lesson < ActiveRecord::Base
 	  }
 	}
 	
+	named_scope :to_date, lambda { |d|
+	  {
+	    :conditions => ["lessons.created_at <= ?", d]
+	  }
+	}
+	
 	named_scope :by_level, lambda { |l|
 		{
 			:conditions => ["lessons.level_id = ?", l]

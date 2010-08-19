@@ -79,7 +79,10 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
 		unless @from_date.blank?
 		  @lessons = @lessons.from_date(@from_date)
 		end
-  
+		
+		unless @to_date.blank?
+		  @lessons = @lessons.to_date(@to_date)
+		end
 
     respond_to do |format|
       format.html 
