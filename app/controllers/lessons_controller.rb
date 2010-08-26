@@ -90,8 +90,8 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       format.csv do
         #print @lessons.length
         c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
-        utf8_to_latin1 = Iconv.new('CP850//IGNORE//TRANSLIT', 'UTF-8')
-        c=utf8_to_latin1.iconv(c)
+        #utf8_to_latin1 = Iconv.new('CP1252//IGNORE//TRANSLIT', 'UTF-8')
+        #c=utf8_to_latin1.iconv(c)
         send_data(c, :type => 'application/csv;')
       end
     end
