@@ -184,15 +184,19 @@ a:hover{
 }
 
 #footer{
-	width: 850px;
+	width: 340px;
  	padding-top: 20px;
 	margin: auto;
 	padding-bottom: 30px;
 }
 
+#footer a{
+	color: #fff;
+}
+
 #footer ul li{
 	display: inline;
-	margin-left: 35px;
+	margin-left: 50px;
 	font-size: 10px;
 	color: gray;
 }
@@ -994,7 +998,13 @@ margin: 10px 0px 10px 0px;
 	background: #EFE;
 	margin-left: 5px;
 	margin-bottom: 10px;
-}        
+}     
+
+.comment-date{
+	font-size: 10px;
+	color: green;
+	float: right;
+}   
 
 /* Busqueda avanzada */
 

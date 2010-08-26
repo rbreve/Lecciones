@@ -4,14 +4,21 @@
   <%= f.error_messages %>
 
 
-  <p><label>País</label></p>
-  <p><%= f.select :country_id, Country.find(:all).collect{|c| [c.name, c.id]} %></p>
-
-    
+  
+      <p><%= f.label "Nombre" %></p>
+  <p><%= f.text_field :name %></p>
   
 
   <p><%= f.label "Correo Electrónico" %></p>
-  <p><%= f.text_field :email %></p>
+  <p style="color:gray;"><%= current_user.email %></p>
+
+  <p><%= f.label "Institución" %></p>
+  <p><%= f.text_field :institucion, :label => "Institución" %></p>
+
+
+<p><label>País</label></p>
+  <p><%= f.select :country_id, Country.find(:all).collect{|c| [c.name, c.id]} %></p>
+
 
   <p><%= f.label "Contraseña" %> <i>(dejar en blanco si no desea cambiarla)</i></p>
   <p><%= f.password_field :password %></p>
@@ -22,11 +29,7 @@
   <p><%= f.label "Contraseña Actual" %> <i>(para confirmar sus cambios)</i></p>
   <p><%= f.password_field :current_password %></p>
 
-  <p><%= f.submit "Update" %></p>
+  <p><%= f.submit "Actualizar Cambios" %></p>
 <% end -%>
 
-<h3>Cancelar mi cuenta</h3>
-
-<p> <%= link_to "Cancelar mi cuenta", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= render :partial => "shared/devise_links" %>
+ 

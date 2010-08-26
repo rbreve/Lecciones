@@ -19,12 +19,15 @@
        <td><%= link_to "Ver", user %></td>
        
         <td>
-        <%if user.active?.to_s == "false"%>
+            
+            <%if user.confirmation_token.to_s != ""%>
+                <%= link_to "Activar Usuario", "/users/confirmation?confirmation_token="+ user.confirmation_token.to_s%>
+            <%elsif user.locked_at != nil %>
         
-            <%= link_to "Activar", "/unlock/" + user.id.to_s %>
-        <%else%>
-            Activado
-        <%end%>
+                <%= link_to "Desbloquear", "/unlock/" + user.id.to_s %>
+            <%else%>
+                Activado
+            <%end%>
         
       </td>
        

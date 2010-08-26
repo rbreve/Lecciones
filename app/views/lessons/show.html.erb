@@ -7,9 +7,10 @@
     <%=nl2br(h @lesson.description) %>
 
 <div class="leccion-fecha">
-      <strong> Enviada hace </strong>
-      <%=time_ago_in_words(@lesson.created_at)%>
-    
+      <strong> Enviada  </strong>
+     
+    <%=@lesson.created_at.strftime("%d")%> de <%=t @lesson.created_at.strftime("%B")%> <%=@lesson.created_at.strftime("%Y a las %I:%M %p")%>
+    <br/>
       <%if @lesson.user%>
       <strong>Por:</strong>
       <%=h @lesson.user.name %>
@@ -129,7 +130,8 @@
         <%for comment in @comments%>
             <div class="comment-box">
             
-            <div class="comment-date"><%=time_ago_in_words(comment.created_at)%></div>
+            <div class="comment-date">    <%=comment.created_at.strftime("%d")%> de <%=t comment.created_at.strftime("%B")%> <%=comment.created_at.strftime("%Y a las %I:%M %p")%>
+</div>
             
             <strong><%=comment.user.name%></strong>
             <p>

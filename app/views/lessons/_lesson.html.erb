@@ -14,7 +14,7 @@
       <li>Tipo:  <strong><%=h lesson.leccion_type.name%></strong></li>
    <%end%>
    
-   <li class="leccion-fecha">Enviada: <%=lesson.created_at.strftime("%d")%> de <%=t lesson.created_at.strftime("%B")%> <%=lesson.created_at.strftime("%y a las %I:%M %p")%></li>
+   <li class="leccion-fecha">Enviada: <%=lesson.created_at.strftime("%d")%> de <%=t lesson.created_at.strftime("%B")%> <%=lesson.created_at.strftime("%Y a las %I:%M %p")%></li>
    </ul>
     <% if admin_signed_in? %>
         <div class="leccion-admin">
