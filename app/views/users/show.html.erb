@@ -7,7 +7,7 @@
   <%=h @user.name %>
 </h2>
  <%if @user.active?.to_s == "false"%>
-<%= link_to "Activar Usuario", "/users/confirmation?confirmation_token="+ @user.confirmation_token.to_s%>
+    <%= link_to "Enviar Instrucciones de Activación", sendactivation_path(@user.id)%>
 <%end%>
 
 <p>

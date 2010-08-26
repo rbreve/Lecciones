@@ -39,6 +39,13 @@ before_filter :authenticate_admin!
     end
   end
   
+  def activacion
+    user=User.find(params[:id])
+    LeccionesMailer.deliver_activacion(user)
+    flash[:notice] = "Las instrucciones de activación han sido enviadas"
+    redirect_to users_path
+  end
+  
   def unlock
     @user = User.find(params[:id])
     @user.locked_at = nil
