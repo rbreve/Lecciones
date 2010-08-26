@@ -11,6 +11,8 @@ class LcountriesController < ApplicationController
     @lcountry = Lcountry.new
   end
   
+  
+  
   def create
     @lcountry = Lcountry.new(params[:lcountry])
     if @lcountry.save

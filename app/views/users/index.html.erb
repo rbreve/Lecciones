@@ -21,7 +21,7 @@
         <td>
         <%if user.active?.to_s == "false"%>
         
-        <%= link_to "Activar", "/confirm/" + user.id.to_s %>
+        <%= link_to "Activar", "/unlock/" + user.id.to_s %>
         <%else%>
         Activado
         <%end%>
@@ -29,7 +29,7 @@
       </td>
        
       <td><%= link_to "Editar", edit_user_path(user) %></td>
-      <td><%= link_to "Borrar", user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to "Bloquear", user, :confirm => 'Esta Seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

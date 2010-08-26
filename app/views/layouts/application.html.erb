@@ -19,6 +19,13 @@
 			return false;
    		});
 
+        $("#export_csv").click(function(){
+            $("#search_form").attr("action","/search.csv");
+            $("#search_form").submit();
+            $("#search_form").attr("action","/search");
+            return false;
+        });
+
 		$(".closeHelp").click(function(){
 			$(".helpBox").hide("fast");
 			return false;

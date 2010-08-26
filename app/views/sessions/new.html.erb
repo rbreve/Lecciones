@@ -35,9 +35,9 @@ Administrativo
 	  <li><%= link_to t('devise.passwords.link'), new_password_path(resource_name) %></li>
 	<% end -%>
 
-	<%- if devise_mapping.lockable? && controller_name != 'unlocks' %>
-	  <li><%= link_to t('devise.unlocks.link'), new_unlock_path(resource_name) %></li>
-	<% end -%>   
+    <!-- <%- if devise_mapping.lockable? && controller_name != 'unlocks' %>
+      <li><%= link_to t('devise.unlocks.link'), new_unlock_path(resource_name) %></li>
+    <% end -%>    -->
 </ul>
 <%end%>
 

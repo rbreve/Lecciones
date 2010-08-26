@@ -10,7 +10,7 @@ class Ifi < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
   
-  named_scope :all, :conditions => ["ifis.deleted IS NOT TRUE"], :order=>"ifis.name DESC"
+  named_scope :all, :conditions => ["ifis.deleted IS NOT TRUE"], :order=>"ifis.name ASC"
  
   named_scope :by_psector, lambda { |p|
 		{

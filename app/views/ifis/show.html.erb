@@ -26,21 +26,21 @@
 	<strong>Información de Contacto</strong>
 
 
-	<% if @ifi.contact_name %>
+	<% unless @ifi.contact_name.blank? %>
 	  <p>
 	  <strong>Contacto:</strong>
 	  <%=@ifi.contact_name%>
 	  </p>
 	<%end%>
 
-	<% if @ifi.contact_phone %>
+	<% unless @ifi.contact_phone.blank? %>
 	  <p>
-	  <strong>Telefonos</strong><br/>
+	  <strong>Teléfonos</strong><br/>
 	  <%=@ifi.contact_phone%>
 	  </p>
 	<%end%>
 
-	<% if  @ifi.contact_email%>
+	<% unless  @ifi.contact_email.blank?%>
 	  <p>
 	  <strong>Correo Electrónico</strong><br/>
 	  <%=@ifi.contact_email%>
@@ -62,7 +62,7 @@
 
 <%if @ifi.lessons_count%>
 	<div id="lecciones-list-ifi">
-		<h3>Lecciones relacionadas (<%=@ifi.lessons_count%>) </h3>
+		<h3>Lecciones relacionadas (<%=@lessons_counter%>) </h3>
 
 	  <%= render :partial => @lessons %>
 	</div>

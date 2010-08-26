@@ -39,6 +39,14 @@ before_filter :authenticate_admin!
     end
   end
   
+  def unlock
+    @user = User.find(params[:id])
+    @user.locked_at = nil
+		@user.save
+    flash[:notice] = "Usuario Desbloqueado"
+		redirect_to users_url
+  end
+  
   def destroy
     @user = User.find(params[:id])
     @user.locked_at = Time.now

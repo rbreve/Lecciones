@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.search "/search", :controller=>"lessons",:action=>"search"
-  
+  map.unlock "/unlock/:id", :controller => "users", :action=>"unlock"
+  map.searchcsv "/search.csv", :controller=>"lessons",:action=>"search", :format=>"csv"
+
+  map.seedcountries "/seedc", :controller=>"countries", :action=>"seed"
   map.resources :comments
 
   map.resources :helps

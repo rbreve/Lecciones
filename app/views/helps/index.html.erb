@@ -1,21 +1,21 @@
-<% title "Helps" %>
+<% title "Ayudas" %>
+<div class="button"><%= link_to "Agregar Nueva Ayuda", new_help_path %></div>
 
 <table>
   <tr>
-    <th>Code</th>
-    <th>Title</th>
-    <th>Description</th>
+    <th>Código</th>
+    <th>Título</th>
+    <th>Descripción</th>
   </tr>
   <% for help in @helps %>
     <tr>
       <td><%=h help.code %></td>
       <td><%=h help.title %></td>
-      <td><%=h help.description %></td>
+      <td><%=h truncate(help.description,  :length => 140) %></td>
       <td><%= link_to "Ver", help %></td>
       <td><%= link_to "Editar", edit_help_path(help) %></td>
-      <td><%= link_to "Borrar", help, :confirm => 'Are you sure?', :method => :delete %></td>
+      <!-- <td><%= link_to "Borrar", help, :confirm => 'Are you sure?', :method => :delete %></td> -->
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Help", new_help_path %></p>

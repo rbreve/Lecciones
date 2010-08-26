@@ -1,4 +1,5 @@
 require 'fastercsv'
+require 'iconv'
 
 class LessonsController < ApplicationController
 before_filter :authenticate_admin!, :only => [:edit, :update]
@@ -87,9 +88,11 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
     respond_to do |format|
       format.html 
       format.csv do
-        print @lessons.length
+        #print @lessons.length
         c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
-        send_data(c, :type => 'text/csv;utf-8;')
+        utf8_to_latin1 = Iconv.new('CP850//IGNORE//TRANSLIT', 'UTF-8')
+        c=utf8_to_latin1.iconv(c)
+        send_data(c, :type => 'application/csv;')
       end
     end
     
@@ -292,8 +295,10 @@ before_filter :authenticate_admin!, :only => [:edit, :update]
       respond_to do |format|
         format.html 
         format.csv do
-          print @lessons.length
+         #print @lessons.length
           c=render(:file=>"lessons/index.csv.erb", :layout => false, :locals => {:lessons=>@lessons})
+          utf8_to_latin1 = Iconv.new('CP850//IGNORE//TRANSLIT', 'UTF-8')
+          c=utf8_to_latin1.iconv(c)
           send_data(c, :type => 'text/csv;utf-8;')
         end
       end

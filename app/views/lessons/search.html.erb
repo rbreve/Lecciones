@@ -12,11 +12,12 @@
 </div>  
 	
 	
-<%form_tag search_path(),:method=>:post do%>
+<%form_tag search_path(),:method=>:post, :id=>"search_form" do%>
 <div class="search-basic">
 
  <%unless @lessons.blank?%>
 	<h2>Filtros aplicados a estos resultados:</h2>
+	<a href="#" id="export_csv">Exportar Resultados a Excel</a>
  <%else%>
 	<h2>Especifique sus filtros de búsqueda</h2>
  <%end%>

@@ -22,7 +22,14 @@ class IfisController < ApplicationController
   
   def show
     @ifi = Ifi.find(params[:id])
-    @lessons = @ifi.lessons
+    if current_user.ispublic:
+      @lessons = @ifi.lessons.approved.external
+    else
+      @lessons = @ifi.lessons.approved
+    end
+  
+  @lessons_counter = @lessons.length
+  
   end
   
   def new

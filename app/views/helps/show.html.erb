@@ -1,20 +1,23 @@
-<% title "Help" %>
+<% title "Ayuda" %>
 
 <p>
-  <strong>Code:</strong>
+  <strong>Código:</strong>
   <%=h @help.code %>
 </p>
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%=h @help.title %>
 </p>
-<p>
-  <strong>Description:</strong>
-  <%=h @help.description %>
-</p>
+
+ 
+<div  class="helpBox" style="width:400px;position:relative;">
+	<h3><%=@help.title%></h3>
+	<p>
+	<%=simple_format @help.description%>
+	</p>
+</div>
 
 <p>
-  <%= link_to "Edit", edit_help_path(@help) %> |
-  <%= link_to "Destroy", @help, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", helps_path %>
+  <%= link_to "Editar", edit_help_path(@help) %> |
+  <%= link_to "Ver Todos", helps_path %>
 </p>
