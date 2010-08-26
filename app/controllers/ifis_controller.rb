@@ -3,7 +3,7 @@ class IfisController < ApplicationController
   
   def index
     @ifis = Ifi.all
-    @countries = Country.find(:all)
+    @countries = Lcountry.find(:all)
     @sectores = ProductiveSector.find(:all)
     
     psector_id=params[:psector_id]

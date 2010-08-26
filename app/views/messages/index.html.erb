@@ -14,8 +14,7 @@
       <td><%=h message.email %></td>
       <td><%=h message.content %></td>
       <td><%= link_to "Ver", message %></td>
-      <td><%= link_to "Editar", edit_message_path(message) %></td>
-      <td><%= link_to "Borrar", message, :confirm => 'Are you sure?', :method => :delete %></td>
+       <td><%= link_to "Borrar", message, :confirm => 'Esta Seguro?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

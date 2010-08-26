@@ -74,7 +74,10 @@
 
 <p>
   <%= link_to "Editar", edit_user_path(@user) %> |
-  <%= link_to "Borrar", @user, :confirm => 'Are you sure?', :method => :delete %> |
+
+  <%if not @user.active?.to_s == "false"%>
+      <%= link_to "Bloquear", @user, :confirm => 'Esta Seguro?', :method => :delete %> |
+  <%end%>
   <%= link_to "Regresar Al Listado", users_path %>
   
 </p>

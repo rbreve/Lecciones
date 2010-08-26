@@ -39,7 +39,7 @@ before_filter :authenticate_admin!, :except => [:new, :create, :gracias]
   def destroy
     @message = Message.find(params[:id])
     @message.destroy
-    flash[:notice] = "Successfully destroyed message."
+    flash[:notice] = "Mensaje Borrado."
     redirect_to messages_url
   end
 end
