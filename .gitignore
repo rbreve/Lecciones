@@ -9,3 +9,4 @@ public/system/*
 public/cache/*
 *.sqlite3
 config/database.yml
+.DS_Store
